@@ -347,6 +347,20 @@ body{background:var(--ink-950);color:var(--t1);font-family:'Inter',system-ui,san
   .team-name .sub{display:none}
   .match-score{font-size:1.1rem}
 }
+
+/* ── Mobile Bottom Navigation ─────────────────────────────── */
+#bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;height:56px;background:rgba(6,9,19,0.96);backdrop-filter:blur(24px) saturate(180%);border-top:1px solid var(--gb);padding:0;padding-bottom:env(safe-area-inset-bottom)}
+#bottom-nav .bn-inner{display:flex;align-items:stretch;height:56px}
+#bottom-nav .bn-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:var(--t3);font-size:.56rem;font-weight:500;border:none;background:transparent;transition:.15s;padding:6px 2px;position:relative}
+#bottom-nav .bn-btn .bn-icon{font-size:1.2rem;line-height:1;transition:.15s}
+#bottom-nav .bn-btn.active{color:var(--gold)}
+#bottom-nav .bn-btn.active .bn-icon{transform:scale(1.1)}
+#bottom-nav .bn-btn.active::before{content:'';position:absolute;top:0;left:20%;right:20%;height:2px;background:var(--gold);border-radius:0 0 2px 2px}
+@media(max-width:640px){
+  #bottom-nav{display:block}
+  .tabs{display:none}
+  #app{padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))}
+}
 </style>
 </head>
 <body>
@@ -486,6 +500,20 @@ body{background:var(--ink-950);color:var(--t1);font-family:'Inter',system-ui,san
   <button class="ib-install" id="installBtn">安装</button>
   <button class="ib-close" id="installClose">✕</button>
 </div>
+
+<!-- BOTTOM NAV (mobile only) -->
+<div id="bottom-nav">
+  <div class="bn-inner">
+    <button class="bn-btn active" data-tab="schedule"><span class="bn-icon">📅</span>赛程</button>
+    <button class="bn-btn" data-tab="groups"><span class="bn-icon">🏆</span>小组</button>
+    <button class="bn-btn" data-tab="teams"><span class="bn-icon">⚽</span>球队</button>
+    <button class="bn-btn" data-tab="news"><span class="bn-icon">📰</span>资讯</button>
+    <button class="bn-btn" data-tab="predict"><span class="bn-icon">🎯</span>预测</button>
+    <button class="bn-btn" data-tab="stats"><span class="bn-icon">📊</span>战绩</button>
+    <button class="bn-btn" data-tab="archive"><span class="bn-icon">📁</span>归档</button>
+  </div>
+</div>
+
 
 <script>
 // ══════════════════════════════════════════════════════════════
@@ -634,15 +662,21 @@ function showSkeleton(){
 function hideSkeleton(){/* content will be overwritten by renders */}
 
 // ── TABS ──────────────────────────────────────────────────────
-document.getElementById('tabs').addEventListener('click',e=>{
-  const tab=e.target.closest('[data-tab]'); if(!tab) return;
-  const t=tab.dataset.tab;
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-  tab.classList.add('active');
+function switchTab(t){
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active', x.dataset.tab===t));
+  document.querySelectorAll('#bottom-nav .bn-btn').forEach(x=>x.classList.toggle('active', x.dataset.tab===t));
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
   document.getElementById('page-'+t).classList.add('active');
   if(t==='predict') renderPredict();
   if(t==='stats') renderStats();
+}
+document.getElementById('tabs').addEventListener('click',e=>{
+  const tab=e.target.closest('[data-tab]'); if(!tab) return;
+  switchTab(tab.dataset.tab);
+});
+document.getElementById('bottom-nav').addEventListener('click',e=>{
+  const btn=e.target.closest('[data-tab]'); if(!btn) return;
+  switchTab(btn.dataset.tab);
 });
 
 // ── SCHEDULE ──────────────────────────────────────────────────
