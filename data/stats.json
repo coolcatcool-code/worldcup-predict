@@ -1,0 +1,10 @@
+{
+  "updatedAt": "2026-06-13T00:00:00+08:00",
+  "totals": {
+    "matches": 0,
+    "fable5": { "outcomeHits": 0, "scoreHits": 0, "brierSum": 0 },
+    "opta":   { "outcomeHits": 0, "scoreHits": 0, "brierSum": 0 },
+    "market": { "outcomeHits": 0, "scoreHits": 0, "brierSum": 0 }
+  },
+  "series": []
+}
