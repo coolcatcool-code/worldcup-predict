@@ -1,0 +1,2117 @@
+{
+  "updatedAt": "2026-06-13T00:00:00+08:00",
+  "teams": {
+    "BRA": {
+      "name": "巴西",
+      "nameEn": "Brazil",
+      "code": "BRA",
+      "flag": "🇧🇷",
+      "group": "C",
+      "fifaRank": 1,
+      "coach": "Carlo Ancelotti",
+      "formation": "4-3-3",
+      "confederation": "CONMEBOL",
+      "bestFinish": "冠军 (1958, 1962, 1970, 1994, 2002)",
+      "starPlayer": "Vinícius Júnior",
+      "starPos": "FW",
+      "starClub": "皇家马德里",
+      "overview": "五届冠军强势回归，锋线三叉戟Vinícius/内马尔/罗德里戈攻击力爆表，中场布鲁诺·吉马良斯提供硬度，防线由马奎尼奥斯领衔稳如磐石。",
+      "wcHistory": "唯一参加每届世界杯的球队，五捧金杯纪录至今无人打破。",
+      "keyPlayers": [
+        {
+          "name": "Vinícius Júnior",
+          "pos": "FW",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "Neymar",
+          "pos": "FW",
+          "club": "桑托斯"
+        },
+        {
+          "name": "Rodrygo",
+          "pos": "FW",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "Bruno Guimarães",
+          "pos": "MF",
+          "club": "纽卡斯尔"
+        },
+        {
+          "name": "Marquinhos",
+          "pos": "DF",
+          "club": "巴黎圣日耳曼"
+        }
+      ]
+    },
+    "ARG": {
+      "name": "阿根廷",
+      "nameEn": "Argentina",
+      "code": "ARG",
+      "flag": "🇦🇷",
+      "group": "J",
+      "fifaRank": 4,
+      "coach": "Lionel Scaloni",
+      "formation": "4-3-3",
+      "confederation": "CONMEBOL",
+      "bestFinish": "冠军 (1978, 1986, 2022)",
+      "starPlayer": "Lionel Messi",
+      "starPos": "FW",
+      "starClub": "迈阿密国际",
+      "overview": "卫冕冠军，梅西38岁最后一舞。阿尔瓦雷斯/恩佐/麦卡利斯特三驾马车助阵，防线由老将奥塔门迪统率，凝聚力是最大王牌。",
+      "wcHistory": "三次夺冠，2022年卡塔尔决赛被誉为史上最伟大决赛。马拉多纳与梅西两位神级球员均从这里走向巅峰。",
+      "keyPlayers": [
+        {
+          "name": "Lionel Messi",
+          "pos": "FW",
+          "club": "迈阿密国际"
+        },
+        {
+          "name": "Julián Álvarez",
+          "pos": "FW",
+          "club": "马德里竞技"
+        },
+        {
+          "name": "Enzo Fernández",
+          "pos": "MF",
+          "club": "切尔西"
+        },
+        {
+          "name": "Alexis Mac Allister",
+          "pos": "MF",
+          "club": "利物浦"
+        },
+        {
+          "name": "Emiliano Martínez",
+          "pos": "GK",
+          "club": "阿斯顿维拉"
+        }
+      ]
+    },
+    "ESP": {
+      "name": "西班牙",
+      "nameEn": "Spain",
+      "code": "ESP",
+      "flag": "🇪🇸",
+      "group": "H",
+      "fifaRank": 2,
+      "coach": "Luis de la Fuente",
+      "formation": "4-3-3",
+      "confederation": "UEFA",
+      "bestFinish": "冠军 (2010)",
+      "starPlayer": "Lamine Yamal",
+      "starPos": "FW",
+      "starClub": "巴塞罗那",
+      "overview": "欧洲杯卫冕冠军，亚马尔/尼科·威廉姆斯双翼震慑全欧，罗德里/佩德里中场无解，整体踢法已超越tiki-taka，更快更直接。",
+      "wcHistory": "2010年决赛伊涅斯塔绝杀，开创统治欧洲整个周期的黄金时代。2008-2012欧-世-欧三连冠史无前例。",
+      "keyPlayers": [
+        {
+          "name": "Lamine Yamal",
+          "pos": "FW",
+          "club": "巴塞罗那"
+        },
+        {
+          "name": "Pedri",
+          "pos": "MF",
+          "club": "巴塞罗那"
+        },
+        {
+          "name": "Nico Williams",
+          "pos": "FW",
+          "club": "毕尔巴鄂"
+        },
+        {
+          "name": "Rodri",
+          "pos": "MF",
+          "club": "曼城"
+        },
+        {
+          "name": "Dani Olmo",
+          "pos": "MF",
+          "club": "RB莱比锡"
+        }
+      ]
+    },
+    "FRA": {
+      "name": "法国",
+      "nameEn": "France",
+      "code": "FRA",
+      "flag": "🇫🇷",
+      "group": "I",
+      "fifaRank": 5,
+      "coach": "Didier Deschamps",
+      "formation": "4-2-3-1",
+      "confederation": "UEFA",
+      "bestFinish": "冠军 (1998, 2018)",
+      "starPlayer": "Kylian Mbappé",
+      "starPos": "FW",
+      "starClub": "皇家马德里",
+      "overview": "阵容深度全球第一，姆巴佩是核心，德尚贝构建了兼顾防守稳固与攻击爆发力的完美机器，德尚布里+坎特中场重量级。",
+      "wcHistory": "两届冠军，2018年俄罗斯世界杯4-2大胜克罗地亚。扎内/帕科、姆巴佩两代人的传承延续法国超强底蕴。",
+      "keyPlayers": [
+        {
+          "name": "Kylian Mbappé",
+          "pos": "FW",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "Ousmane Dembélé",
+          "pos": "FW",
+          "club": "巴黎圣日耳曼"
+        },
+        {
+          "name": "N'Golo Kanté",
+          "pos": "MF",
+          "club": "艾提哈德"
+        },
+        {
+          "name": "Aurélien Tchouaméni",
+          "pos": "MF",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "William Saliba",
+          "pos": "DF",
+          "club": "阿森纳"
+        }
+      ]
+    },
+    "GER": {
+      "name": "德国",
+      "nameEn": "Germany",
+      "code": "GER",
+      "flag": "🇩🇪",
+      "group": "E",
+      "fifaRank": 8,
+      "coach": "Julian Nagelsmann",
+      "formation": "4-2-3-1",
+      "confederation": "UEFA",
+      "bestFinish": "冠军 (1954, 1974, 1990, 2014)",
+      "starPlayer": "Jamal Musiala",
+      "starPos": "MF",
+      "starClub": "拜仁慕尼黑",
+      "overview": "告别连续两届小组出局的低谷，穆西亚拉+维尔茨天才双核让人叹为观止，哈弗茨提供箱体威胁，基米希统筹全局。",
+      "wcHistory": "四届世界杯冠军，战车精神不灭。2014年巴西世界杯7-1屠杀东道主是近代最轰动胜利。",
+      "keyPlayers": [
+        {
+          "name": "Jamal Musiala",
+          "pos": "MF",
+          "club": "拜仁慕尼黑"
+        },
+        {
+          "name": "Florian Wirtz",
+          "pos": "MF",
+          "club": "拜耳勒沃库森"
+        },
+        {
+          "name": "Kai Havertz",
+          "pos": "FW",
+          "club": "阿森纳"
+        },
+        {
+          "name": "Joshua Kimmich",
+          "pos": "MF",
+          "club": "拜仁慕尼黑"
+        },
+        {
+          "name": "Antonio Rüdiger",
+          "pos": "DF",
+          "club": "皇家马德里"
+        }
+      ]
+    },
+    "ENG": {
+      "name": "英格兰",
+      "nameEn": "England",
+      "code": "ENG",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "group": "L",
+      "fifaRank": 11,
+      "coach": "Thomas Tuchel",
+      "formation": "4-2-3-1",
+      "confederation": "UEFA",
+      "bestFinish": "冠军 (1966)",
+      "starPlayer": "Jude Bellingham",
+      "starPos": "MF",
+      "starClub": "皇家马德里",
+      "overview": "史上最强英格兰阵容，贝林厄姆是核心，凯恩在拜仁状态巅峰，萨卡/福登/帕尔默三驾马车令人生畏，图赫尔带来战术革命。",
+      "wcHistory": "1966年温布利本土夺冠后等待60年，点球出局噩梦挥之不去。这届球队被普遍认为是终结等待的最佳机会。",
+      "keyPlayers": [
+        {
+          "name": "Jude Bellingham",
+          "pos": "MF",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "Harry Kane",
+          "pos": "FW",
+          "club": "拜仁慕尼黑"
+        },
+        {
+          "name": "Bukayo Saka",
+          "pos": "FW",
+          "club": "阿森纳"
+        },
+        {
+          "name": "Declan Rice",
+          "pos": "MF",
+          "club": "阿森纳"
+        },
+        {
+          "name": "Cole Palmer",
+          "pos": "MF",
+          "club": "切尔西"
+        }
+      ]
+    },
+    "POR": {
+      "name": "葡萄牙",
+      "nameEn": "Portugal",
+      "code": "POR",
+      "flag": "🇵🇹",
+      "group": "K",
+      "fifaRank": 6,
+      "coach": "Roberto Martínez",
+      "formation": "4-2-3-1",
+      "confederation": "UEFA",
+      "bestFinish": "第三名 (1966)",
+      "starPlayer": "Cristiano Ronaldo",
+      "starPos": "FW",
+      "starClub": "利雅得胜利",
+      "overview": "史上最强葡萄牙，C罗41岁最后战场，布鲁诺费尔南德斯创造机会，拉法尔莱昂速度惊人，鲁本迪亚斯统帅后防。",
+      "wcHistory": "尤西比奥1966年三名为最佳，2016欧洲杯夺冠。C罗追逐唯一缺失的世界杯金杯，是本届最大悬念之一。",
+      "keyPlayers": [
+        {
+          "name": "Cristiano Ronaldo",
+          "pos": "FW",
+          "club": "利雅得胜利"
+        },
+        {
+          "name": "Bruno Fernandes",
+          "pos": "MF",
+          "club": "曼联"
+        },
+        {
+          "name": "Rafael Leão",
+          "pos": "FW",
+          "club": "AC米兰"
+        },
+        {
+          "name": "Rúben Dias",
+          "pos": "DF",
+          "club": "曼城"
+        },
+        {
+          "name": "Bernardo Silva",
+          "pos": "MF",
+          "club": "曼城"
+        }
+      ]
+    },
+    "NED": {
+      "name": "荷兰",
+      "nameEn": "Netherlands",
+      "code": "NED",
+      "flag": "🇳🇱",
+      "group": "F",
+      "fifaRank": 7,
+      "coach": "Ronald Koeman",
+      "formation": "4-3-3",
+      "confederation": "UEFA",
+      "bestFinish": "亚军 (1974, 1978, 2010)",
+      "starPlayer": "Virgil van Dijk",
+      "starPos": "DF",
+      "starClub": "利物浦",
+      "overview": "范戴克领衔铁血防线，西蒙斯中场创造，加克波前锋威胁，科曼打造务实荷兰踢法，本届三次决赛三负的历史或将改写。",
+      "wcHistory": "三次决赛三负，克鲁伊夫全攻全守哲学影响了整个世界足球。2026被视为最接近首冠的机会。",
+      "keyPlayers": [
+        {
+          "name": "Virgil van Dijk",
+          "pos": "DF",
+          "club": "利物浦"
+        },
+        {
+          "name": "Xavi Simons",
+          "pos": "MF",
+          "club": "RB莱比锡"
+        },
+        {
+          "name": "Cody Gakpo",
+          "pos": "FW",
+          "club": "利物浦"
+        },
+        {
+          "name": "Frenkie de Jong",
+          "pos": "MF",
+          "club": "巴塞罗那"
+        },
+        {
+          "name": "Denzel Dumfries",
+          "pos": "DF",
+          "club": "国际米兰"
+        }
+      ]
+    },
+    "BEL": {
+      "name": "比利时",
+      "nameEn": "Belgium",
+      "code": "BEL",
+      "flag": "🇧🇪",
+      "group": "G",
+      "fifaRank": 3,
+      "coach": "Rudi Garcia",
+      "formation": "3-4-2-1",
+      "confederation": "UEFA",
+      "bestFinish": "第三名 (2018)",
+      "starPlayer": "Kevin De Bruyne",
+      "starPos": "MF",
+      "starClub": "曼城",
+      "overview": "黄金一代的最后时光，德布劳内仍是世界最强中场之一，多库翼路速度惊艳，卢卡库续写传奇，这可能是一代人最后的告别。",
+      "wcHistory": "2018年俄罗斯世界杯第三名是历史最佳，一度蝉联世界第一长达四年。比利时1100万人口产出这样的阵容堪称奇迹。",
+      "keyPlayers": [
+        {
+          "name": "Kevin De Bruyne",
+          "pos": "MF",
+          "club": "曼城"
+        },
+        {
+          "name": "Romelu Lukaku",
+          "pos": "FW",
+          "club": "罗马"
+        },
+        {
+          "name": "Jérémy Doku",
+          "pos": "FW",
+          "club": "曼城"
+        },
+        {
+          "name": "Thibaut Courtois",
+          "pos": "GK",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "Amadou Onana",
+          "pos": "MF",
+          "club": "阿斯顿维拉"
+        }
+      ]
+    },
+    "MEX": {
+      "name": "墨西哥",
+      "nameEn": "Mexico",
+      "code": "MEX",
+      "flag": "🇲🇽",
+      "group": "A",
+      "fifaRank": 15,
+      "coach": "Javier Aguirre",
+      "formation": "4-3-3",
+      "confederation": "CONCACAF",
+      "bestFinish": "四强 (1970, 1986)",
+      "starPlayer": "Santiago Giménez",
+      "starPos": "FW",
+      "starClub": "AC米兰",
+      "overview": "主场东道主，阿兹特卡球场的12万球迷是第12人。希门尼斯领衔攻线，阿尔瓦雷斯中场控制，渴望打破连续被淘汰的魔咒。",
+      "wcHistory": "18次世界杯征战，1970和1986两次作为东道主打入四强。阿兹特卡球场见证了马拉多纳世纪之球。",
+      "keyPlayers": [
+        {
+          "name": "Santiago Giménez",
+          "pos": "FW",
+          "club": "AC米兰"
+        },
+        {
+          "name": "Edson Álvarez",
+          "pos": "MF",
+          "club": "费内巴切"
+        },
+        {
+          "name": "César Huerta",
+          "pos": "FW",
+          "club": "安德莱赫特"
+        },
+        {
+          "name": "Guillermo Ochoa",
+          "pos": "GK",
+          "club": "AVS"
+        },
+        {
+          "name": "Orbelin Pineda",
+          "pos": "MF",
+          "club": "雅典AEK"
+        }
+      ]
+    },
+    "USA": {
+      "name": "美国",
+      "nameEn": "United States",
+      "code": "USA",
+      "flag": "🇺🇸",
+      "group": "D",
+      "fifaRank": 10,
+      "coach": "Mauricio Pochettino",
+      "formation": "4-3-3",
+      "confederation": "CONCACAF",
+      "bestFinish": "第三名 (1930)",
+      "starPlayer": "Christian Pulisic",
+      "starPos": "FW",
+      "starClub": "AC米兰",
+      "overview": "史上最强美国阵容，普利西奇领衔欧洲联赛精英群体，波切蒂诺高压迫战术适合本届球员特点，主场作战期待深度前进。",
+      "wcHistory": "1994本土世界杯将足球带给美国，2002四强是最佳成绩。职业联赛发展让本代球员质量大幅提升。",
+      "keyPlayers": [
+        {
+          "name": "Christian Pulisic",
+          "pos": "FW",
+          "club": "AC米兰"
+        },
+        {
+          "name": "Gio Reyna",
+          "pos": "MF",
+          "club": "门兴格拉德巴赫"
+        },
+        {
+          "name": "Weston McKennie",
+          "pos": "MF",
+          "club": "尤文图斯"
+        },
+        {
+          "name": "Tyler Adams",
+          "pos": "MF",
+          "club": "伯恩茅斯"
+        },
+        {
+          "name": "Antonee Robinson",
+          "pos": "DF",
+          "club": "富勒姆"
+        }
+      ]
+    },
+    "CAN": {
+      "name": "加拿大",
+      "nameEn": "Canada",
+      "code": "CAN",
+      "flag": "🇨🇦",
+      "group": "B",
+      "fifaRank": 28,
+      "coach": "Jesse Marsch",
+      "formation": "4-4-2",
+      "confederation": "CONCACAF",
+      "bestFinish": "小组赛 (1986, 2022)",
+      "starPlayer": "Alphonso Davies",
+      "starPos": "DF",
+      "club": "拜仁慕尼黑",
+      "overview": "东道主加拿大，戴维斯是世界级左后卫，乔纳森·大卫是得分机器，马尔施高强度体系适合快马如云的阵容特点。",
+      "wcHistory": "1986年参赛未进球，2022复出但未过关。黄金一代决心在主场写历史，首场胜利将是整个国家的狂欢。",
+      "keyPlayers": [
+        {
+          "name": "Alphonso Davies",
+          "pos": "DF",
+          "club": "拜仁慕尼黑"
+        },
+        {
+          "name": "Jonathan David",
+          "pos": "FW",
+          "club": "里尔"
+        },
+        {
+          "name": "Tajon Buchanan",
+          "pos": "FW",
+          "club": "国际米兰"
+        },
+        {
+          "name": "Stephen Eustáquio",
+          "pos": "MF",
+          "club": "波尔图"
+        },
+        {
+          "name": "Ismaël Koné",
+          "pos": "MF",
+          "club": "马赛"
+        }
+      ]
+    },
+    "JPN": {
+      "name": "日本",
+      "nameEn": "Japan",
+      "code": "JPN",
+      "flag": "🇯🇵",
+      "group": "F",
+      "fifaRank": 17,
+      "coach": "Hajime Moriyasu",
+      "formation": "4-2-3-1",
+      "confederation": "AFC",
+      "bestFinish": "十六强 (2002, 2010, 2018, 2022)",
+      "starPlayer": "Takefusa Kubo",
+      "starPos": "FW",
+      "starClub": "皇家社会",
+      "overview": "史上最强蓝武士，旅欧球员超越历史峰值，久保健英+远藤航双核，2022年击败德国西班牙令世界震惊，本届首次突破八强是目标。",
+      "wcHistory": "连续八届参赛，2002年本土四强是最佳。2022卡塔尔勇克德国、西班牙，技术与战术的进步令人叹服。",
+      "keyPlayers": [
+        {
+          "name": "Takefusa Kubo",
+          "pos": "FW",
+          "club": "皇家社会"
+        },
+        {
+          "name": "Wataru Endo",
+          "pos": "MF",
+          "club": "利物浦"
+        },
+        {
+          "name": "Daichi Kamada",
+          "pos": "MF",
+          "club": "克里斯特尔宫"
+        },
+        {
+          "name": "Kyogo Furuhashi",
+          "pos": "FW",
+          "club": "凯尔特人"
+        },
+        {
+          "name": "Takehiro Tomiyasu",
+          "pos": "DF",
+          "club": "阿森纳"
+        }
+      ]
+    },
+    "MAR": {
+      "name": "摩洛哥",
+      "nameEn": "Morocco",
+      "code": "MAR",
+      "flag": "🇲🇦",
+      "group": "C",
+      "fifaRank": 12,
+      "coach": "Mohamed Ouahbi",
+      "formation": "4-1-4-1",
+      "confederation": "CAF",
+      "bestFinish": "第四名 (2022)",
+      "starPlayer": "Achraf Hakimi",
+      "starPos": "DF",
+      "starClub": "巴黎圣日耳曼",
+      "overview": "2022年首个非洲/阿拉伯半决赛球队，哈基米是世界最强右后卫，布拉希姆迪亚斯技术精湛，防守组织体系全非洲顶级。",
+      "wcHistory": "2022年四强创非洲历史，击败比利时、西班牙、葡萄牙，被誉为世界杯历史最大惊喜之一。本届带着续写传奇的使命而来。",
+      "keyPlayers": [
+        {
+          "name": "Achraf Hakimi",
+          "pos": "DF",
+          "club": "巴黎圣日耳曼"
+        },
+        {
+          "name": "Brahim Díaz",
+          "pos": "MF",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "Sofyan Amrabat",
+          "pos": "MF",
+          "club": "曼联"
+        },
+        {
+          "name": "Hakim Ziyech",
+          "pos": "MF",
+          "club": "加拉塔萨雷"
+        },
+        {
+          "name": "Youssef En-Nesyri",
+          "pos": "FW",
+          "club": "费内巴切"
+        }
+      ]
+    },
+    "KOR": {
+      "name": "韩国",
+      "nameEn": "Korea Republic",
+      "code": "KOR",
+      "flag": "🇰🇷",
+      "group": "A",
+      "fifaRank": 22,
+      "coach": "Hong Myungbo",
+      "formation": "4-2-3-1",
+      "confederation": "AFC",
+      "bestFinish": "第四名 (2002)",
+      "starPlayer": "Son Heung-min",
+      "starPos": "FW",
+      "starClub": "洛杉矶FC",
+      "overview": "孙兴慜领衔，金旼哉坐镇防线，李康仁中场施魔法，多数球员效力欧洲顶级联赛，体能与战术纪律是最大武器。",
+      "wcHistory": "2002本土世界杯闯入四强是亚洲最佳纪录，2018年击败卫冕冠军德国令人难忘。近年稳定八届参赛。",
+      "keyPlayers": [
+        {
+          "name": "Son Heung-min",
+          "pos": "FW",
+          "club": "洛杉矶FC"
+        },
+        {
+          "name": "Kim Min-jae",
+          "pos": "DF",
+          "club": "拜仁慕尼黑"
+        },
+        {
+          "name": "Lee Kang-in",
+          "pos": "MF",
+          "club": "巴黎圣日耳曼"
+        },
+        {
+          "name": "Hwang Hee-chan",
+          "pos": "FW",
+          "club": "狼队"
+        },
+        {
+          "name": "Paik Seung-ho",
+          "pos": "MF",
+          "club": "伯明翰城"
+        }
+      ]
+    },
+    "SEN": {
+      "name": "塞内加尔",
+      "nameEn": "Senegal",
+      "code": "SEN",
+      "flag": "🇸🇳",
+      "group": "I",
+      "fifaRank": 14,
+      "coach": "Pape Thiaw",
+      "formation": "4-3-3",
+      "confederation": "CAF",
+      "bestFinish": "四强 (2002)",
+      "starPlayer": "Sadio Mané",
+      "starPos": "FW",
+      "starClub": "利雅得胜利",
+      "overview": "非洲杯冠军，马内仍是核心，库利巴利领衔厚重防线，尼古拉斯·杰克逊拜仁锋芒初露，体能与拼劲让任何对手都不敢轻视。",
+      "wcHistory": "2002年世界杯击败卫冕冠军法国并打入四强，塞内加尔足球史上最辉煌时刻。2021年首次夺得非洲杯。",
+      "keyPlayers": [
+        {
+          "name": "Sadio Mané",
+          "pos": "FW",
+          "club": "利雅得胜利"
+        },
+        {
+          "name": "Kalidou Koulibaly",
+          "pos": "DF",
+          "club": "希拉尔"
+        },
+        {
+          "name": "Nicolas Jackson",
+          "pos": "FW",
+          "club": "拜仁慕尼黑"
+        },
+        {
+          "name": "Ismaïla Sarr",
+          "pos": "FW",
+          "club": "马赛"
+        },
+        {
+          "name": "Idrissa Gueye",
+          "pos": "MF",
+          "club": "埃弗顿"
+        }
+      ]
+    },
+    "COL": {
+      "name": "哥伦比亚",
+      "nameEn": "Colombia",
+      "code": "COL",
+      "flag": "🇨🇴",
+      "group": "K",
+      "fifaRank": 9,
+      "coach": "Néstor Lorenzo",
+      "formation": "4-2-3-1",
+      "confederation": "CONMEBOL",
+      "bestFinish": "四强 (2014)",
+      "starPlayer": "Luis Díaz",
+      "starPos": "FW",
+      "starClub": "拜仁慕尼黑",
+      "overview": "路易斯·迪亚斯是本届最令人期待的前锋之一，哈梅斯罗德里格斯老骥伏枥，创意中场群体具有世界级水准，观赏性极强。",
+      "wcHistory": "2014年打入八强，哈梅斯罗德里格斯夺得金靴奖，赫里托·巴尔加里马年代更是神话。缺席2022后本届卷土重来。",
+      "keyPlayers": [
+        {
+          "name": "Luis Díaz",
+          "pos": "FW",
+          "club": "拜仁慕尼黑"
+        },
+        {
+          "name": "James Rodríguez",
+          "pos": "MF",
+          "club": "圣保罗"
+        },
+        {
+          "name": "Davinson Sánchez",
+          "pos": "DF",
+          "club": "加拉塔萨雷"
+        },
+        {
+          "name": "Jefferson Lerma",
+          "pos": "MF",
+          "club": "克里斯特尔宫"
+        },
+        {
+          "name": "Rafael Borré",
+          "pos": "FW",
+          "club": "不来梅"
+        }
+      ]
+    },
+    "URU": {
+      "name": "乌拉圭",
+      "nameEn": "Uruguay",
+      "code": "URU",
+      "flag": "🇺🇾",
+      "group": "H",
+      "fifaRank": 13,
+      "coach": "Marcelo Bielsa",
+      "formation": "4-3-3",
+      "confederation": "CONMEBOL",
+      "bestFinish": "冠军 (1930, 1950)",
+      "starPlayer": "Federico Valverde",
+      "starPos": "MF",
+      "starClub": "皇家马德里",
+      "overview": "比尔萨革命性高压强迫，瓦尔维德中场统治，达尔文努涅斯疯狂冲击，小国家大雄心，乌拉圭是最难对付的对手之一。",
+      "wcHistory": "两届冠军，1950年马拉卡纳惊天逆转至今是足球史传奇。仅350万人口产出数代顶级球星，足球底蕴无与伦比。",
+      "keyPlayers": [
+        {
+          "name": "Federico Valverde",
+          "pos": "MF",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "Darwin Núñez",
+          "pos": "FW",
+          "club": "利物浦"
+        },
+        {
+          "name": "Ronald Araújo",
+          "pos": "DF",
+          "club": "巴塞罗那"
+        },
+        {
+          "name": "Manuel Ugarte",
+          "pos": "MF",
+          "club": "曼联"
+        },
+        {
+          "name": "Luis Suárez",
+          "pos": "FW",
+          "club": "迈阿密国际"
+        }
+      ]
+    },
+    "CRO": {
+      "name": "克罗地亚",
+      "nameEn": "Croatia",
+      "code": "CRO",
+      "flag": "🇭🇷",
+      "group": "L",
+      "fifaRank": 19,
+      "coach": "Zlatko Dalić",
+      "formation": "4-3-3",
+      "confederation": "UEFA",
+      "bestFinish": "亚军 (2018)",
+      "starPlayer": "Luka Modrić",
+      "starPos": "MF",
+      "starClub": "AC米兰",
+      "overview": "莫德里奇时代的谢幕之旅，瓜尔迪奥尔统帅防线，科瓦西奇克帕西奇中场配合默契，克罗地亚的整体足球艺术让观者如醉。",
+      "wcHistory": "400万人口创造足球奇迹，1998年首届打入半决赛，2018年杀入决赛。莫德里奇被封为有史以来最被低估的足球天才。",
+      "keyPlayers": [
+        {
+          "name": "Luka Modrić",
+          "pos": "MF",
+          "club": "AC米兰"
+        },
+        {
+          "name": "Joško Gvardiol",
+          "pos": "DF",
+          "club": "曼城"
+        },
+        {
+          "name": "Mateo Kovačić",
+          "pos": "MF",
+          "club": "曼城"
+        },
+        {
+          "name": "Ivan Perišić",
+          "pos": "FW",
+          "club": "哈伊杜克"
+        },
+        {
+          "name": "Andrej Kramarić",
+          "pos": "FW",
+          "club": "霍芬海姆"
+        }
+      ]
+    },
+    "IRN": {
+      "name": "伊朗",
+      "nameEn": "IR Iran",
+      "code": "IRN",
+      "flag": "🇮🇷",
+      "group": "G",
+      "fifaRank": 20,
+      "coach": "Amir Ghalenoei",
+      "formation": "4-1-4-1",
+      "confederation": "AFC",
+      "bestFinish": "小组赛",
+      "starPlayer": "Mehdi Taremi",
+      "starPos": "FW",
+      "starClub": "国际米兰",
+      "overview": "防守如铜墙铁壁，塔雷米国米锋线上进化显著，阿兹蒙在皮革中场支撑，防反体系令强队难受，善打逆风球。",
+      "wcHistory": "七次参赛从未出线，1998年击败美国至今是最大胜利。防守坚韧为亚洲称强。",
+      "keyPlayers": [
+        {
+          "name": "Mehdi Taremi",
+          "pos": "FW",
+          "club": "国际米兰"
+        },
+        {
+          "name": "Sardar Azmoun",
+          "pos": "FW",
+          "club": "拜耳勒沃库森"
+        },
+        {
+          "name": "Saman Ghoddos",
+          "pos": "MF",
+          "club": "布伦特福德"
+        },
+        {
+          "name": "Alireza Beiranvand",
+          "pos": "GK",
+          "club": "波斯波利斯"
+        },
+        {
+          "name": "Ehsan Hajsafi",
+          "pos": "MF",
+          "club": "希腊AEK"
+        }
+      ]
+    },
+    "EGY": {
+      "name": "埃及",
+      "nameEn": "Egypt",
+      "code": "EGY",
+      "flag": "🇪🇬",
+      "group": "G",
+      "fifaRank": 29,
+      "coach": "Hossam Hassan",
+      "formation": "4-3-3",
+      "confederation": "CAF",
+      "bestFinish": "小组赛 (1934, 1990, 2018)",
+      "starPlayer": "Mohamed Salah",
+      "starPos": "FW",
+      "starClub": "利物浦",
+      "overview": "萨拉赫是埃及的一切，有他在场任何比赛都有意外的可能。马尔穆什曼城锋芒初露，防守组织有序，目标是历史首次出线。",
+      "wcHistory": "四次参赛历史从未赢球，萨拉赫被视为改写历史的男人，全埃及亿万球迷的期盼都在他身上。",
+      "keyPlayers": [
+        {
+          "name": "Mohamed Salah",
+          "pos": "FW",
+          "club": "利物浦"
+        },
+        {
+          "name": "Omar Marmoush",
+          "pos": "FW",
+          "club": "曼城"
+        },
+        {
+          "name": "Mostafa Mohamed",
+          "pos": "FW",
+          "club": "南特"
+        },
+        {
+          "name": "Mohamed Elneny",
+          "pos": "MF",
+          "club": "自由身"
+        },
+        {
+          "name": "Ahmed Hegazi",
+          "pos": "DF",
+          "club": "埃提哈德"
+        }
+      ]
+    },
+    "SUI": {
+      "name": "瑞士",
+      "nameEn": "Switzerland",
+      "code": "SUI",
+      "flag": "🇨🇭",
+      "group": "B",
+      "fifaRank": 16,
+      "coach": "Murat Yakin",
+      "formation": "4-2-3-1",
+      "confederation": "UEFA",
+      "bestFinish": "四强 (1934, 1938, 1954)",
+      "starPlayer": "Granit Xhaka",
+      "starPos": "MF",
+      "starClub": "拜耳勒沃库森",
+      "overview": "欧洲最稳定球队之一，扎哈卡领衔专业中场，阿坎吉后防坚实，整体配合成熟，团队纪律高于一切，务实为先。",
+      "wcHistory": "战术组织严密，2022年淘汰阶段打进，2010年0-1胜出最终冠军西班牙是著名冷门。",
+      "keyPlayers": [
+        {
+          "name": "Granit Xhaka",
+          "pos": "MF",
+          "club": "拜耳勒沃库森"
+        },
+        {
+          "name": "Manuel Akanji",
+          "pos": "DF",
+          "club": "曼城"
+        },
+        {
+          "name": "Yann Sommer",
+          "pos": "GK",
+          "club": "国际米兰"
+        },
+        {
+          "name": "Breel Embolo",
+          "pos": "FW",
+          "club": "摩纳哥"
+        },
+        {
+          "name": "Fabian Schär",
+          "pos": "DF",
+          "club": "纽卡斯尔"
+        }
+      ]
+    },
+    "NOR": {
+      "name": "挪威",
+      "nameEn": "Norway",
+      "code": "NOR",
+      "flag": "🇳🇴",
+      "group": "I",
+      "fifaRank": 23,
+      "coach": "Ståle Solbakken",
+      "formation": "4-3-3",
+      "confederation": "UEFA",
+      "bestFinish": "十六强 (1998)",
+      "starPlayer": "Erling Haaland",
+      "starPos": "FW",
+      "starClub": "曼城",
+      "overview": "哈兰德+厄德加尔双核是世界最强攻防一体组合，27岁的进球机器迄今欧洲第一，挪威32年后重返世界杯舞台，底气十足。",
+      "wcHistory": "1998年法国世界杯淘汰赛出局，赛前击败巴西是历史名战。哈兰德让这支挪威拥有历史级别的进攻威胁。",
+      "keyPlayers": [
+        {
+          "name": "Erling Haaland",
+          "pos": "FW",
+          "club": "曼城"
+        },
+        {
+          "name": "Martin Ødegaard",
+          "pos": "MF",
+          "club": "阿森纳"
+        },
+        {
+          "name": "Alexander Sørloth",
+          "pos": "FW",
+          "club": "马德里竞技"
+        },
+        {
+          "name": "Sander Berge",
+          "pos": "MF",
+          "club": "富勒姆"
+        },
+        {
+          "name": "Antonio Nusa",
+          "pos": "FW",
+          "club": "RB莱比锡"
+        }
+      ]
+    },
+    "TUR": {
+      "name": "土耳其",
+      "nameEn": "Türkiye",
+      "code": "TUR",
+      "flag": "🇹🇷",
+      "group": "D",
+      "fifaRank": 26,
+      "coach": "Vincenzo Montella",
+      "formation": "4-2-3-1",
+      "confederation": "UEFA",
+      "bestFinish": "第三名 (2002)",
+      "starPlayer": "Arda Güler",
+      "starPos": "MF",
+      "starClub": "皇家马德里",
+      "overview": "阿尔达·居勒+肯南·耶尔德兹双银弹，哈坎·恰尔汉奥卢国米中场大将，24年后重返世界杯，青春风暴令欧洲恐惧。",
+      "wcHistory": "2002年打入第三名，许克尔11秒进球世界杯最快纪录至今。此后沉寂24年，2026意气风发卷土重来。",
+      "keyPlayers": [
+        {
+          "name": "Arda Güler",
+          "pos": "MF",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "Kenan Yıldız",
+          "pos": "FW",
+          "club": "尤文图斯"
+        },
+        {
+          "name": "Hakan Çalhanoğlu",
+          "pos": "MF",
+          "club": "国际米兰"
+        },
+        {
+          "name": "Merih Demiral",
+          "pos": "DF",
+          "club": "阿赫利"
+        },
+        {
+          "name": "Ferdi Kadıoğlu",
+          "pos": "DF",
+          "club": "布莱顿"
+        }
+      ]
+    },
+    "KSA": {
+      "name": "沙特阿拉伯",
+      "nameEn": "Saudi Arabia",
+      "code": "KSA",
+      "flag": "🇸🇦",
+      "group": "H",
+      "fifaRank": 52,
+      "coach": "Giorgios Donis",
+      "formation": "4-3-3",
+      "confederation": "AFC",
+      "bestFinish": "十六强 (1994)",
+      "starPlayer": "Salem Al-Dawsari",
+      "starPos": "FW",
+      "starClub": "希拉尔",
+      "overview": "足球革命进行时，曼奇尼执教遗产深厚，达瓦萨里和布莱坎前场威胁真实，2022年爆冷阿根廷证明他们值得尊重。",
+      "wcHistory": "1994年十六强，萨义德·奥瓦兰单骑走马破门比利时是经典。2022年爆冷卫冕冠军阿根廷是近年最大惊喜。",
+      "keyPlayers": [
+        {
+          "name": "Salem Al-Dawsari",
+          "pos": "FW",
+          "club": "希拉尔"
+        },
+        {
+          "name": "Firas Al-Buraikan",
+          "pos": "FW",
+          "club": "阿赫利"
+        },
+        {
+          "name": "Saud Abdulhamid",
+          "pos": "DF",
+          "club": "罗马"
+        },
+        {
+          "name": "Mohammed Al-Owais",
+          "pos": "GK",
+          "club": "希拉尔"
+        },
+        {
+          "name": "Saleh Al-Shehri",
+          "pos": "FW",
+          "club": "希拉尔"
+        }
+      ]
+    },
+    "AUS": {
+      "name": "澳大利亚",
+      "nameEn": "Australia",
+      "code": "AUS",
+      "flag": "🇦🇺",
+      "group": "D",
+      "fifaRank": 24,
+      "coach": "Tony Popović",
+      "formation": "4-3-3",
+      "confederation": "AFC",
+      "bestFinish": "十六强 (2006, 2022)",
+      "starPlayer": "Maty Ryan",
+      "starPos": "GK",
+      "starClub": "AZ阿尔克马尔",
+      "overview": "实用主义袋鼠军团，高空球有优势，整体拼搏精神出众，2022年逆转丹麦令人印象深刻，主教练波波维奇追求进攻足球。",
+      "wcHistory": "2006年和2022年两次进入十六强，历史最佳。赛前99秒险胜意大利成为永久传说。",
+      "keyPlayers": [
+        {
+          "name": "Maty Ryan",
+          "pos": "GK",
+          "club": "AZ阿尔克马尔"
+        },
+        {
+          "name": "Harry Souttar",
+          "pos": "DF",
+          "club": "莱斯特城"
+        },
+        {
+          "name": "Riley McGree",
+          "pos": "MF",
+          "club": "米德尔斯堡"
+        },
+        {
+          "name": "Garang Kuol",
+          "pos": "FW",
+          "club": "纽卡斯尔"
+        },
+        {
+          "name": "Jackson Irvine",
+          "pos": "MF",
+          "club": "圣保利"
+        }
+      ]
+    },
+    "RSA": {
+      "name": "南非",
+      "nameEn": "South Africa",
+      "code": "RSA",
+      "flag": "🇿🇦",
+      "group": "A",
+      "fifaRank": 58,
+      "coach": "Hugo Broos",
+      "formation": "4-3-3",
+      "confederation": "CAF",
+      "bestFinish": "小组赛 (1998, 2002, 2010)",
+      "starPlayer": "Percy Tau",
+      "starPos": "FW",
+      "starClub": "阿尔阿赫利",
+      "overview": "非洲东道主精神，陶是最具欧洲级别的攻击手，莫科纳中场体系奔跑积极，主场优势在墨西哥赛区创造惊喜的机会不可低估。",
+      "wcHistory": "2010年成为首个举办世界杯的非洲国家，嗡嗡祖拉的声响令世界难忘。本届阔别后重返大舞台。",
+      "keyPlayers": [
+        {
+          "name": "Percy Tau",
+          "pos": "FW",
+          "club": "阿尔阿赫利"
+        },
+        {
+          "name": "Teboho Mokoena",
+          "pos": "MF",
+          "club": "超级体育联队"
+        },
+        {
+          "name": "Ronwen Williams",
+          "pos": "GK",
+          "club": "马梅洛迪太阳"
+        },
+        {
+          "name": "Bongani Zungu",
+          "pos": "MF",
+          "club": "自由身"
+        },
+        {
+          "name": "Lyle Foster",
+          "pos": "FW",
+          "club": "伯恩利"
+        }
+      ]
+    },
+    "CZE": {
+      "name": "捷克",
+      "nameEn": "Czechia",
+      "code": "CZE",
+      "flag": "🇨🇿",
+      "group": "A",
+      "fifaRank": 32,
+      "coach": "Ivan Hašek",
+      "formation": "4-2-3-1",
+      "confederation": "UEFA",
+      "bestFinish": "第五名（捷克斯洛伐克 1934, 1962）",
+      "starPlayer": "Patrik Schick",
+      "starPos": "FW",
+      "starClub": "拜耳勒沃库森",
+      "overview": "希克是欧洲一流中锋，苏切克中场组织，科瓦尔门将靠谱，捷克在欧洲赛事屡创佳绩，不可低估的欧洲劲旅。",
+      "wcHistory": "捷克斯洛伐克时代两次打入决赛，1934和1962年均负与意大利。独立后积极备战，本届是难得机遇。",
+      "keyPlayers": [
+        {
+          "name": "Patrik Schick",
+          "pos": "FW",
+          "club": "拜耳勒沃库森"
+        },
+        {
+          "name": "Tomáš Souček",
+          "pos": "MF",
+          "club": "西汉姆"
+        },
+        {
+          "name": "Matěj Kovář",
+          "pos": "GK",
+          "club": "拜耳勒沃库森"
+        },
+        {
+          "name": "Antonín Barák",
+          "pos": "MF",
+          "club": "弗洛伦萨"
+        },
+        {
+          "name": "Vladimír Coufal",
+          "pos": "DF",
+          "club": "西汉姆"
+        }
+      ]
+    },
+    "BIH": {
+      "name": "波黑",
+      "nameEn": "Bosnia & Herzegovina",
+      "code": "BIH",
+      "flag": "🇧🇦",
+      "group": "B",
+      "fifaRank": 42,
+      "coach": "Sergej Barbarez",
+      "formation": "4-3-3",
+      "confederation": "UEFA",
+      "bestFinish": "小组赛 (2014)",
+      "starPlayer": "Edin Džeko",
+      "starPos": "FW",
+      "starClub": "费内巴切",
+      "overview": "久柯是巴尔干神射手，普亚诺维奇老当益壮，年轻一代欧洲成长有素，波黑小国大志，在加拿大大赛中寻求突破。",
+      "wcHistory": "2014年首次参赛，小组赛止步，但4-2大胜阿根廷曾让世界震惊。本届在加拿大再度书写历史。",
+      "keyPlayers": [
+        {
+          "name": "Edin Džeko",
+          "pos": "FW",
+          "club": "费内巴切"
+        },
+        {
+          "name": "Miralem Pjanić",
+          "pos": "MF",
+          "club": "沙尔克04"
+        },
+        {
+          "name": "Nikola Milenkovic",
+          "pos": "DF",
+          "club": "诺丁汉森林"
+        },
+        {
+          "name": "Sasa Kalajdzic",
+          "pos": "FW",
+          "club": "狼队"
+        },
+        {
+          "name": "Haris Hajradinovic",
+          "pos": "MF",
+          "club": "根特"
+        }
+      ]
+    },
+    "QAT": {
+      "name": "卡塔尔",
+      "nameEn": "Qatar",
+      "code": "QAT",
+      "flag": "🇶🇦",
+      "group": "B",
+      "fifaRank": 48,
+      "coach": "Bartolomeu Sousa",
+      "formation": "4-3-3",
+      "confederation": "AFC",
+      "bestFinish": "小组赛 (2022)",
+      "starPlayer": "Akram Afif",
+      "starPos": "FW",
+      "starClub": "希拉尔",
+      "overview": "东道主经验升华，阿菲夫是非凡的技术型攻击手，阿里骁勇善战，资金支撑下球员整体水平有所提升，力争告别首届耻辱。",
+      "wcHistory": "2022年作为东道主首次参赛即成为首支主场出局的东道主，但球员已积累宝贵经验，2026卷土重来。",
+      "keyPlayers": [
+        {
+          "name": "Akram Afif",
+          "pos": "FW",
+          "club": "希拉尔"
+        },
+        {
+          "name": "Almoez Ali",
+          "pos": "FW",
+          "club": "达黑亚"
+        },
+        {
+          "name": "Abdelkarim Hassan",
+          "pos": "DF",
+          "club": "阿尔萨德"
+        },
+        {
+          "name": "Assim Madibo",
+          "pos": "MF",
+          "club": "阿尔里扬"
+        },
+        {
+          "name": "Meshaal Barsham",
+          "pos": "GK",
+          "club": "阿尔萨德"
+        }
+      ]
+    },
+    "HAI": {
+      "name": "海地",
+      "nameEn": "Haiti",
+      "code": "HAI",
+      "flag": "🇭🇹",
+      "group": "C",
+      "fifaRank": 86,
+      "coach": "Marc Collat",
+      "formation": "4-4-2",
+      "confederation": "CONCACAF",
+      "bestFinish": "小组赛 (1974)",
+      "starPlayer": "Frantzdy Pierrot",
+      "starPos": "FW",
+      "starClub": "奥尔良",
+      "overview": "本届48支球队中排名垫底，但球员意志力顽强，皮耶罗前场能带球，拿松是有料的进攻手，海地历史上的世界杯奇迹在于不屈的精神。",
+      "wcHistory": "1974年西德世界杯小组赛中制造爆冷苗头，此后近50年未再参赛。本届重回大舞台将是加勒比足球的里程碑。",
+      "keyPlayers": [
+        {
+          "name": "Frantzdy Pierrot",
+          "pos": "FW",
+          "club": "奥尔良"
+        },
+        {
+          "name": "Duckens Nazon",
+          "pos": "FW",
+          "club": "圣艾蒂安"
+        },
+        {
+          "name": "James Léa Siliki",
+          "pos": "MF",
+          "club": "雷恩"
+        },
+        {
+          "name": "Steeven Saba",
+          "pos": "FW",
+          "club": "维尔弗朗什"
+        },
+        {
+          "name": "Jonathan Feroza",
+          "pos": "GK",
+          "club": "圣特鲁伊顿"
+        }
+      ]
+    },
+    "SCO": {
+      "name": "苏格兰",
+      "nameEn": "Scotland",
+      "code": "SCO",
+      "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      "group": "C",
+      "fifaRank": 38,
+      "coach": "Steve Clarke",
+      "formation": "3-5-2",
+      "confederation": "UEFA",
+      "bestFinish": "小组赛 (多次)",
+      "starPlayer": "Andy Robertson",
+      "starPos": "DF",
+      "starClub": "利物浦",
+      "overview": "罗伯逊是世界级左后卫，麦克托米奈是劲头十足的中场斗士，斯科特进攻端有创造力，苏格兰以团队精神和拼劲著称。",
+      "wcHistory": "上届入围的激情终于变成现实，苏格兰球迷走遍天下，团队精神是最大武器。",
+      "keyPlayers": [
+        {
+          "name": "Andy Robertson",
+          "pos": "DF",
+          "club": "利物浦"
+        },
+        {
+          "name": "Scott McTominay",
+          "pos": "MF",
+          "club": "那不勒斯"
+        },
+        {
+          "name": "Kieran Tierney",
+          "pos": "DF",
+          "club": "皇家社会"
+        },
+        {
+          "name": "John McGinn",
+          "pos": "MF",
+          "club": "阿斯顿维拉"
+        },
+        {
+          "name": "Ryan Christie",
+          "pos": "MF",
+          "club": "伯恩茅斯"
+        }
+      ]
+    },
+    "PAR": {
+      "name": "巴拉圭",
+      "nameEn": "Paraguay",
+      "code": "PAR",
+      "flag": "🇵🇾",
+      "group": "D",
+      "fifaRank": 45,
+      "coach": "Gustavo Alfaro",
+      "formation": "4-4-2",
+      "confederation": "CONMEBOL",
+      "bestFinish": "四强 (1930)",
+      "starPlayer": "Miguel Almirón",
+      "starPos": "MF",
+      "starClub": "纽卡斯尔",
+      "overview": "阿尔米龙是最有名的球员，奔跑与精力充沛的体力型打法是最大优势，阿尔法罗战术纪律严明，巴拉圭总能超出预期。",
+      "wcHistory": "南美洲足球传统强队，2010年打入八强，击败日本和斯洛伐克，奔跑与战术是核心。",
+      "keyPlayers": [
+        {
+          "name": "Miguel Almirón",
+          "pos": "MF",
+          "club": "纽卡斯尔"
+        },
+        {
+          "name": "Julio Enciso",
+          "pos": "FW",
+          "club": "布莱顿"
+        },
+        {
+          "name": "Gustavo Gómez",
+          "pos": "DF",
+          "club": "帕尔梅拉斯"
+        },
+        {
+          "name": "Richard Sánchez",
+          "pos": "MF",
+          "club": "班菲尔德"
+        },
+        {
+          "name": "Antonio Sanabria",
+          "pos": "FW",
+          "club": "都灵"
+        }
+      ]
+    },
+    "CUW": {
+      "name": "库拉索",
+      "nameEn": "Curaçao",
+      "code": "CUW",
+      "flag": "🇨🇼",
+      "group": "E",
+      "fifaRank": 91,
+      "coach": "Remko Bicentini",
+      "formation": "4-4-2",
+      "confederation": "CONCACAF",
+      "bestFinish": "首次参赛",
+      "starPlayer": "Leandro Bacuna",
+      "starPos": "MF",
+      "starClub": "卡迪夫城",
+      "overview": "世界杯首次亮相，属加勒比海小岛国家，球员多效力荷兰和英国低级别联赛，本届目标是充分展示自己，能打出精彩是额外收获。",
+      "wcHistory": "历史上首次参加世界杯，书写加勒比足球新篇章。",
+      "keyPlayers": [
+        {
+          "name": "Leandro Bacuna",
+          "pos": "MF",
+          "club": "卡迪夫城"
+        },
+        {
+          "name": "Cuco Martina",
+          "pos": "DF",
+          "club": "自由身"
+        },
+        {
+          "name": "Juninho Bacuna",
+          "pos": "MF",
+          "club": "伯明翰"
+        },
+        {
+          "name": "Elson Hooi",
+          "pos": "FW",
+          "club": "奥克兰城"
+        },
+        {
+          "name": "Quentin Balis",
+          "pos": "GK",
+          "club": "库拉索FC"
+        }
+      ]
+    },
+    "CIV": {
+      "name": "科特迪瓦",
+      "nameEn": "Côte d'Ivoire",
+      "code": "CIV",
+      "flag": "🇨🇮",
+      "group": "E",
+      "fifaRank": 35,
+      "coach": "Emerse Faé",
+      "formation": "4-3-3",
+      "confederation": "CAF",
+      "bestFinish": "小组赛 (2006, 2010, 2014, 2022)",
+      "starPlayer": "Sébastien Haller",
+      "starPos": "FW",
+      "starClub": "多特蒙德",
+      "overview": "非洲杯冠军，阿迪·塔尔领衔中场，哈勒尔战胜癌症后重回顶峰令人动容，西蒙·阿丁格拉速度惊人，这届象牙海岸非常团结。",
+      "wcHistory": "四次参赛均止步小组赛，德罗巴黄金时代遗憾未能出线。本届哈勒尔的领衔下，目标是完成前辈未竟的心愿。",
+      "keyPlayers": [
+        {
+          "name": "Sébastien Haller",
+          "pos": "FW",
+          "club": "多特蒙德"
+        },
+        {
+          "name": "Franck Kessié",
+          "pos": "MF",
+          "club": "阿尔阿赫利"
+        },
+        {
+          "name": "Simon Adingra",
+          "pos": "FW",
+          "club": "布莱顿"
+        },
+        {
+          "name": "Nicolas Pépé",
+          "pos": "FW",
+          "club": "斯塔德布雷斯特"
+        },
+        {
+          "name": "Serge Aurier",
+          "pos": "DF",
+          "club": "诺丁汉森林"
+        }
+      ]
+    },
+    "ECU": {
+      "name": "厄瓜多尔",
+      "nameEn": "Ecuador",
+      "code": "ECU",
+      "flag": "🇪🇨",
+      "group": "E",
+      "fifaRank": 24,
+      "coach": "Sebastián Beccacece",
+      "formation": "4-3-3",
+      "confederation": "CONMEBOL",
+      "bestFinish": "十六强 (2006)",
+      "starPlayer": "Moisés Caicedo",
+      "starPos": "MF",
+      "starClub": "切尔西",
+      "overview": "凯塞多是英超最贵转会的中场战将，普拉塔速度飞快，法伦西亚在南美资历深厚，厄瓜多尔正处于新老交替的上升期。",
+      "wcHistory": "2006年打入十六强至今是最佳成绩，两届卡塔尔世界杯小组赛均告终止，这届有望更进一步。",
+      "keyPlayers": [
+        {
+          "name": "Moisés Caicedo",
+          "pos": "MF",
+          "club": "切尔西"
+        },
+        {
+          "name": "Gonzalo Plata",
+          "pos": "FW",
+          "club": "弗拉门戈"
+        },
+        {
+          "name": "Enner Valencia",
+          "pos": "FW",
+          "club": "国际竞技"
+        },
+        {
+          "name": "Pervis Estupiñán",
+          "pos": "DF",
+          "club": "布莱顿"
+        },
+        {
+          "name": "Jeremy Sarmiento",
+          "pos": "FW",
+          "club": "布莱顿"
+        }
+      ]
+    },
+    "SWE": {
+      "name": "瑞典",
+      "nameEn": "Sweden",
+      "code": "SWE",
+      "flag": "🇸🇪",
+      "group": "F",
+      "fifaRank": 25,
+      "coach": "Jon Dahl Tomasson",
+      "formation": "4-4-2",
+      "confederation": "UEFA",
+      "bestFinish": "第三名 (1994)",
+      "starPlayer": "Dejan Kulusevski",
+      "starPos": "MF",
+      "starClub": "热刺",
+      "overview": "久卢塞夫斯基在热刺技惊四座，维克多·久库雷斯进球如麻，亚历山大·伊萨克前场精准，瑞典组合拳大出人们预期。",
+      "wcHistory": "1994年打入第三名，伊布拉希莫维奇时代四届参赛留下精彩故事。托马森上任后球队整体向上，充满信心。",
+      "keyPlayers": [
+        {
+          "name": "Dejan Kulusevski",
+          "pos": "MF",
+          "club": "热刺"
+        },
+        {
+          "name": "Viktor Gyökeres",
+          "pos": "FW",
+          "club": "斯波尔丁"
+        },
+        {
+          "name": "Alexander Isak",
+          "pos": "FW",
+          "club": "纽卡斯尔"
+        },
+        {
+          "name": "Emil Forsberg",
+          "pos": "MF",
+          "club": "RB莱比锡"
+        },
+        {
+          "name": "Victor Lindelöf",
+          "pos": "DF",
+          "club": "曼联"
+        }
+      ]
+    },
+    "TUN": {
+      "name": "突尼斯",
+      "nameEn": "Tunisia",
+      "code": "TUN",
+      "flag": "🇹🇳",
+      "group": "F",
+      "fifaRank": 41,
+      "coach": "Jalel Kadri",
+      "formation": "4-3-3",
+      "confederation": "CAF",
+      "bestFinish": "小组赛 (多次)",
+      "starPlayer": "Hannibal Mejbri",
+      "starPos": "MF",
+      "starClub": "伯明翰城",
+      "overview": "汉尼拔·梅吉布里是最年轻却最有天赋的球员，整体防守组织严密，卡罗领兵对阵强队常保持低失球，超级老将哈兹里经验加持。",
+      "wcHistory": "六次参赛均止步小组赛，1978年曾震惊墨西哥，防守坚韧是传统强项，本届荷兰、日本同组挑战巨大。",
+      "keyPlayers": [
+        {
+          "name": "Hannibal Mejbri",
+          "pos": "MF",
+          "club": "伯明翰城"
+        },
+        {
+          "name": "Wahbi Khazri",
+          "pos": "FW",
+          "club": "蒙彼利埃"
+        },
+        {
+          "name": "Youssef Msakni",
+          "pos": "FW",
+          "club": "艾斯图亚勒"
+        },
+        {
+          "name": "Nader Ghandri",
+          "pos": "DF",
+          "club": "圣伊蒂安"
+        },
+        {
+          "name": "Aymen Dahmen",
+          "pos": "GK",
+          "club": "帕尔马"
+        }
+      ]
+    },
+    "NZL": {
+      "name": "新西兰",
+      "nameEn": "New Zealand",
+      "code": "NZL",
+      "flag": "🇳🇿",
+      "group": "G",
+      "fifaRank": 89,
+      "coach": "Darren Bazeley",
+      "formation": "4-4-2",
+      "confederation": "OFC",
+      "bestFinish": "小组赛 (1982, 2010)",
+      "starPlayer": "Chris Wood",
+      "starPos": "FW",
+      "starClub": "诺丁汉森林",
+      "overview": "伍德是英超级中锋，整体实力是大洋洲代表队，本届与比利时、埃及、伊朗同组，力争历史首次出线。",
+      "wcHistory": "1982年首届参赛，2010年三平出局（包括平意大利），克里斯·伍德是现役最有影响力的球员。",
+      "keyPlayers": [
+        {
+          "name": "Chris Wood",
+          "pos": "FW",
+          "club": "诺丁汉森林"
+        },
+        {
+          "name": "Clayton Lewis",
+          "pos": "MF",
+          "club": "凡尔赛"
+        },
+        {
+          "name": "Liberato Cacace",
+          "pos": "DF",
+          "club": "圣伊蒂安"
+        },
+        {
+          "name": "Joe Bell",
+          "pos": "MF",
+          "club": "哈特福德运动"
+        },
+        {
+          "name": "Finn Surman",
+          "pos": "MF",
+          "club": "威灵顿凤凰"
+        }
+      ]
+    },
+    "CPV": {
+      "name": "佛得角",
+      "nameEn": "Cabo Verde",
+      "code": "CPV",
+      "flag": "🇨🇻",
+      "group": "H",
+      "fifaRank": 60,
+      "coach": "Pedro Leitão",
+      "formation": "4-3-3",
+      "confederation": "CAF",
+      "bestFinish": "首次参赛",
+      "starPlayer": "Julio Tavares",
+      "starPos": "FW",
+      "starClub": "亚眠",
+      "overview": "西非岛国首次亮相世界杯，塔瓦雷斯是非洲杯的老面孔，队中球员多效力法葡联赛，与西班牙同组是巨大考验也是绝佳舞台。",
+      "wcHistory": "历史首次参加世界杯，对整个非洲是鼓舞，对自己是梦想成真。",
+      "keyPlayers": [
+        {
+          "name": "Julio Tavares",
+          "pos": "FW",
+          "club": "亚眠"
+        },
+        {
+          "name": "Ryan Mendes",
+          "pos": "FW",
+          "club": "法康比"
+        },
+        {
+          "name": "Stopira",
+          "pos": "DF",
+          "club": "阿诺德"
+        },
+        {
+          "name": "Steven Fortes",
+          "pos": "DF",
+          "club": "敖德萨"
+        },
+        {
+          "name": "Josimar Dias",
+          "pos": "MF",
+          "club": "马林"
+        }
+      ]
+    },
+    "IRQ": {
+      "name": "伊拉克",
+      "nameEn": "Iraq",
+      "code": "IRQ",
+      "flag": "🇮🇶",
+      "group": "I",
+      "fifaRank": 62,
+      "coach": "Jesús Casas",
+      "formation": "4-3-3",
+      "confederation": "AFC",
+      "bestFinish": "小组赛 (1986)",
+      "starPlayer": "Mohanad Ali",
+      "starPos": "FW",
+      "starClub": "扎霍",
+      "overview": "40年后重返世界杯舞台，整体以本土联赛球员为主，阿曼战将担纲攻坚，西班牙人卡萨斯执教带来欧洲化战术思维。",
+      "wcHistory": "1986年墨西哥世界杯唯一一次参赛，三战皆负。本届是一次历史重连，也是伊拉克足球的重建标志。",
+      "keyPlayers": [
+        {
+          "name": "Mohanad Ali",
+          "pos": "FW",
+          "club": "扎霍"
+        },
+        {
+          "name": "Amjad Attwan",
+          "pos": "MF",
+          "club": "阿尔扎拉"
+        },
+        {
+          "name": "Sherko Karimi",
+          "pos": "FW",
+          "club": "扎霍"
+        },
+        {
+          "name": "Jalal Hassan",
+          "pos": "GK",
+          "club": "帕洛克"
+        },
+        {
+          "name": "Rebin Sulaka",
+          "pos": "DF",
+          "club": "苏莱曼尼亚"
+        }
+      ]
+    },
+    "ALG": {
+      "name": "阿尔及利亚",
+      "nameEn": "Algeria",
+      "code": "ALG",
+      "flag": "🇩🇿",
+      "group": "J",
+      "fifaRank": 39,
+      "coach": "Vladimir Petkovic",
+      "formation": "4-3-3",
+      "confederation": "CAF",
+      "bestFinish": "十六强 (2014)",
+      "starPlayer": "Riyad Mahrez",
+      "starPos": "FW",
+      "starClub": "阿尔阿赫利",
+      "overview": "马赫雷斯虽年事渐高但仍是队魂，斯利马尼出没与否存疑，中场厚实，非洲杯冠军底气支撑，与阿根廷同组压力山大。",
+      "wcHistory": "2014年首次历史性出线，击败韩国，被德国加时淘汰极为遗憾。非洲杯2019冠军体现了整体实力。",
+      "keyPlayers": [
+        {
+          "name": "Riyad Mahrez",
+          "pos": "FW",
+          "club": "阿尔阿赫利"
+        },
+        {
+          "name": "Islam Slimani",
+          "pos": "FW",
+          "club": "亚眠"
+        },
+        {
+          "name": "Youcef Atal",
+          "pos": "DF",
+          "club": "尼斯"
+        },
+        {
+          "name": "Sofiane Feghouli",
+          "pos": "MF",
+          "club": "亚眠"
+        },
+        {
+          "name": "Rais M'Bolhi",
+          "pos": "GK",
+          "club": "阿尔克拉赛"
+        }
+      ]
+    },
+    "AUT": {
+      "name": "奥地利",
+      "nameEn": "Austria",
+      "code": "AUT",
+      "flag": "🇦🇹",
+      "group": "J",
+      "fifaRank": 18,
+      "coach": "Ralf Rangnick",
+      "formation": "4-2-3-1",
+      "confederation": "UEFA",
+      "bestFinish": "第三名 (1954)",
+      "starPlayer": "David Alaba",
+      "starPos": "DF",
+      "starClub": "皇家马德里",
+      "overview": "朗尼克执教带来高压迫革命，阿拉巴世界级多面手，萨比泽中场控制力强，博鲁姆加维奇前场犀利，奥地利是欧洲一支不可忽视的力量。",
+      "wcHistory": "1954年第三名是历史最佳，此后沉寂多年。朗尼克执教后脱胎换骨，欧洲杯连续佳绩令人刮目相看。",
+      "keyPlayers": [
+        {
+          "name": "David Alaba",
+          "pos": "DF",
+          "club": "皇家马德里"
+        },
+        {
+          "name": "Marcel Sabitzer",
+          "pos": "MF",
+          "club": "多特蒙德"
+        },
+        {
+          "name": "Marko Arnautović",
+          "pos": "FW",
+          "club": "国际米兰"
+        },
+        {
+          "name": "Christoph Baumgartner",
+          "pos": "MF",
+          "club": "RB莱比锡"
+        },
+        {
+          "name": "Patrick Wimmer",
+          "pos": "MF",
+          "club": "沃尔夫斯堡"
+        }
+      ]
+    },
+    "JOR": {
+      "name": "约旦",
+      "nameEn": "Jordan",
+      "code": "JOR",
+      "flag": "🇯🇴",
+      "group": "J",
+      "fifaRank": 70,
+      "coach": "Hussein Ammouta",
+      "formation": "4-4-2",
+      "confederation": "AFC",
+      "bestFinish": "首次参赛",
+      "starPlayer": "Yazan Al-Naimat",
+      "starPos": "FW",
+      "starClub": "海法马卡比",
+      "overview": "历史首届世界杯，阿莫塔执教让球队更加组织化，纳伊马特是最有天赋的前锋，在阿根廷同组虽然是配角但足以创造惊喜。",
+      "wcHistory": "历史首次参加世界杯，中东足球进军的里程碑，2023年亚洲杯决赛是信心基石。",
+      "keyPlayers": [
+        {
+          "name": "Yazan Al-Naimat",
+          "pos": "FW",
+          "club": "海法马卡比"
+        },
+        {
+          "name": "Musa Al-Taamari",
+          "pos": "MF",
+          "club": "卡西莫帕沙"
+        },
+        {
+          "name": "Ahmad Al-Dakhil",
+          "pos": "DF",
+          "club": "自由身"
+        },
+        {
+          "name": "Baha Faisal",
+          "pos": "MF",
+          "club": "阿尔卡尔兹"
+        },
+        {
+          "name": "Mohammad Abu Zema",
+          "pos": "GK",
+          "club": "阿尔瓦格达"
+        }
+      ]
+    },
+    "COD": {
+      "name": "刚果民主共和国",
+      "nameEn": "DR Congo",
+      "code": "COD",
+      "flag": "🇨🇩",
+      "group": "K",
+      "fifaRank": 67,
+      "coach": "Sébastien Desabre",
+      "formation": "4-3-3",
+      "confederation": "CAF",
+      "bestFinish": "四强 (扎伊尔 1974)",
+      "starPlayer": "Dodi Lukebakio",
+      "starPos": "FW",
+      "starClub": "塞维利亚",
+      "overview": "卢克巴基奥是德甲顶级翼锋，巴卡姆布老将生涯经验丰富，在葡萄牙同组是巨大挑战，但刚果的身体素质天赋出众。",
+      "wcHistory": "1974年以扎伊尔名义参赛，被南斯拉夫9-0大胜创造世界杯历史最耻辱纪录。本届以刚果民主共和国重返，誓言雪耻。",
+      "keyPlayers": [
+        {
+          "name": "Dodi Lukebakio",
+          "pos": "FW",
+          "club": "塞维利亚"
+        },
+        {
+          "name": "Cédric Bakambu",
+          "pos": "FW",
+          "club": "奥林匹亚科斯"
+        },
+        {
+          "name": "Chancel Mbemba",
+          "pos": "DF",
+          "club": "马赛"
+        },
+        {
+          "name": "Yannick Bolasie",
+          "pos": "FW",
+          "club": "帕芬亨"
+        },
+        {
+          "name": "Silas",
+          "pos": "FW",
+          "club": "斯图加特"
+        }
+      ]
+    },
+    "UZB": {
+      "name": "乌兹别克斯坦",
+      "nameEn": "Uzbekistan",
+      "code": "UZB",
+      "flag": "🇺🇿",
+      "group": "K",
+      "fifaRank": 55,
+      "coach": "Srecko Katanec",
+      "formation": "4-2-3-1",
+      "confederation": "AFC",
+      "bestFinish": "首次参赛",
+      "starPlayer": "Eldor Shomurodov",
+      "starPos": "FW",
+      "starClub": "罗马",
+      "overview": "肖穆罗多夫是亚洲最有名的前锋之一，波波夫锻造中场，乌兹别克斯坦足球近年跨越式发展，亚洲杯表现惊人，本届首秀世界杯。",
+      "wcHistory": "历史首次参加世界杯，中亚足球的重大突破，近年在亚洲赛事中连续强势发挥。",
+      "keyPlayers": [
+        {
+          "name": "Eldor Shomurodov",
+          "pos": "FW",
+          "club": "罗马"
+        },
+        {
+          "name": "Otabek Shukurov",
+          "pos": "MF",
+          "club": "FK纳扎罗夫"
+        },
+        {
+          "name": "Jaloliddin Masharipov",
+          "pos": "MF",
+          "club": "帕赫塔科尔"
+        },
+        {
+          "name": "Temur Juraev",
+          "pos": "DF",
+          "club": "罗马"
+        },
+        {
+          "name": "Abdulhamid Holmatov",
+          "pos": "GK",
+          "club": "帕赫塔科尔"
+        }
+      ]
+    },
+    "GHA": {
+      "name": "加纳",
+      "nameEn": "Ghana",
+      "code": "GHA",
+      "flag": "🇬🇭",
+      "group": "L",
+      "fifaRank": 49,
+      "coach": "Otto Addo",
+      "formation": "4-2-3-1",
+      "confederation": "CAF",
+      "bestFinish": "四强 (2010)",
+      "starPlayer": "Thomas Partey",
+      "starPos": "MF",
+      "starClub": "阿森纳",
+      "overview": "帕特怀是阿森纳中场基石，约旦·阿尤两兄弟虽年老但经验丰富，桑特尼奥年轻冲劲，黑星军团2010年差点打进半决赛。",
+      "wcHistory": "2010年四强仅差点球之遥，乌拉圭手球事件至今令人扼腕。非洲足球重要力量，2022表现平平后本届重振。",
+      "keyPlayers": [
+        {
+          "name": "Thomas Partey",
+          "pos": "MF",
+          "club": "阿森纳"
+        },
+        {
+          "name": "Jordan Ayew",
+          "pos": "FW",
+          "club": "水晶宫"
+        },
+        {
+          "name": "André Ayew",
+          "pos": "FW",
+          "club": "哈米勒"
+        },
+        {
+          "name": "Antoine Semenyo",
+          "pos": "FW",
+          "club": "伯恩茅斯"
+        },
+        {
+          "name": "Alexander Djiku",
+          "pos": "DF",
+          "club": "斯特拉斯堡"
+        }
+      ]
+    },
+    "PAN": {
+      "name": "巴拿马",
+      "nameEn": "Panama",
+      "code": "PAN",
+      "flag": "🇵🇦",
+      "group": "L",
+      "fifaRank": 71,
+      "coach": "Thomas Christiansen",
+      "formation": "4-4-2",
+      "confederation": "CONCACAF",
+      "bestFinish": "小组赛 (2018)",
+      "starPlayer": "Rolando Blackburn",
+      "starPos": "FW",
+      "starClub": "国家队",
+      "overview": "中美洲足球代表，身体素质好，拼抢积极，与英格兰同组是极大挑战，但巴拿马球队不畏强手，2018年惊喜出现的可能一直存在。",
+      "wcHistory": "2018年首届参赛，小组赛止步，但国家上下举国欢腾。本届再度出征，期望走得更远。",
+      "keyPlayers": [
+        {
+          "name": "Rolando Blackburn",
+          "pos": "FW",
+          "club": "巴拿马国家队"
+        },
+        {
+          "name": "Adalberto Carrasquilla",
+          "pos": "MF",
+          "club": "休斯顿发电机"
+        },
+        {
+          "name": "César Yanis",
+          "pos": "MF",
+          "club": "希洪竞技"
+        },
+        {
+          "name": "Fidel Escobar",
+          "pos": "DF",
+          "club": "皇家社会"
+        },
+        {
+          "name": "Luis Mejía",
+          "pos": "GK",
+          "club": "帕尔马"
+        }
+      ]
+    }
+  }
+}
