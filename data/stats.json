@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-06-13T00:00:00+08:00",
+  "updatedAt": "2026-06-13T08:00:00+08:00",
   "totals": {
-    "matches": 0,
-    "fable5": { "outcomeHits": 0, "scoreHits": 0, "brierSum": 0 },
-    "opta":   { "outcomeHits": 0, "scoreHits": 0, "brierSum": 0 },
-    "market": { "outcomeHits": 0, "scoreHits": 0, "brierSum": 0 }
+    "matches": 12,
+    "fable5": { "correct": 0, "total": 4, "outcomeHits": 0, "scoreHits": 0 },
+    "opta":   { "correct": 0, "total": 4, "outcomeHits": 0, "scoreHits": 0 },
+    "market": { "correct": 0, "total": 4, "outcomeHits": 0, "scoreHits": 0 }
   },
   "series": []
 }

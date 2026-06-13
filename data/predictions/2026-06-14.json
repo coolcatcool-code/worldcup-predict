@@ -1,0 +1,126 @@
+{
+  "date": "2026-06-14",
+  "generatedAt": "2026-06-14T08:00:00+08:00",
+  "matches": [
+    {
+      "id": "m005",
+      "group": "B组",
+      "home": "卡塔尔",
+      "away": "瑞士",
+      "homeCode": "QAT",
+      "awayCode": "SUI",
+      "venue": "纽约大都会球场",
+      "kickoffBeijing": "2026-06-14T19:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 20,
+          "draw": 25,
+          "away": 55,
+          "score": "0-2"
+        },
+        "opta": {
+          "home": 21.0,
+          "draw": 23.8,
+          "away": 49.5
+        },
+        "market": {
+          "home": 22,
+          "draw": 24,
+          "away": 54
+        }
+      },
+      "analysis": "瑞士是本届欧洲最被低估的队伍，弗罗伊勒-沙尔中场控制力极强；卡塔尔2022东道主表现惨淡，主教练已换，但技术型打法在北美气候下体能存疑。瑞士大胜是大概率事件。",
+      "keyRisk": "卡塔尔气候适应优势；瑞士高压体能"
+    },
+    {
+      "id": "m006",
+      "group": "C组",
+      "home": "巴西",
+      "away": "摩洛哥",
+      "homeCode": "BRA",
+      "awayCode": "MAR",
+      "venue": "达拉斯AT&T球场",
+      "kickoffBeijing": "2026-06-14T22:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 58,
+          "draw": 22,
+          "away": 20,
+          "score": "2-0"
+        },
+        "opta": {
+          "home": 60.9,
+          "draw": 20.9,
+          "away": 18.0
+        },
+        "market": {
+          "home": 60,
+          "draw": 21,
+          "away": 19
+        }
+      },
+      "analysis": "巴西五届冠军，Vinícius+罗德里戈边路爆炸力恐怖；摩洛哥2022四强英雄，阿什拉夫防守强悍但进攻端依赖定位球。巴西有望主导，但摩洛哥密集防守会增加破门难度。",
+      "keyRisk": "摩洛哥定位球；巴西中场覆盖率"
+    },
+    {
+      "id": "m007",
+      "group": "C组",
+      "home": "海地",
+      "away": "苏格兰",
+      "homeCode": "HAI",
+      "awayCode": "SCO",
+      "venue": "西雅图CenturyLink球场",
+      "kickoffBeijing": "2026-06-14T01:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 32,
+          "draw": 28,
+          "away": 40,
+          "score": "1-2"
+        },
+        "opta": {
+          "home": 33.6,
+          "draw": 26.6,
+          "away": 36.0
+        },
+        "market": {
+          "home": 34,
+          "draw": 27,
+          "away": 39
+        }
+      },
+      "analysis": "苏格兰FIFA排名更高且中场人才充裕，但历届世界杯首战记录糟糕；海地组织力弱但斗志旺盛，主场氛围加成有限因场地在西雅图。苏格兰微弱优势但非稳赢。",
+      "keyRisk": "苏格兰首战魔咒；海地主教练临阵换阵"
+    },
+    {
+      "id": "m008",
+      "group": "D组",
+      "home": "澳大利亚",
+      "away": "土耳其",
+      "homeCode": "AUS",
+      "awayCode": "TUR",
+      "venue": "圣地亚哥球场",
+      "kickoffBeijing": "2026-06-14T04:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 35,
+          "draw": 28,
+          "away": 37,
+          "score": "1-2"
+        },
+        "opta": {
+          "home": 36.8,
+          "draw": 26.6,
+          "away": 33.3
+        },
+        "market": {
+          "home": 37,
+          "draw": 27,
+          "away": 36
+        }
+      },
+      "analysis": "土耳其恰尔汗奥格鲁状态绝佳，进攻端创造力全队最强；澳大利亚道格拉斯体系防守扎实但进攻创意不足。土耳其近6场积分赛4胜，状态更佳。",
+      "keyRisk": "澳大利亚中场强度；土耳其球员欧联杯疲劳"
+    }
+  ]
+}

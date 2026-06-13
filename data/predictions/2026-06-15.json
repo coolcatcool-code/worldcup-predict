@@ -1,0 +1,126 @@
+{
+  "date": "2026-06-15",
+  "generatedAt": "2026-06-15T08:00:00+08:00",
+  "matches": [
+    {
+      "id": "m009",
+      "group": "E组",
+      "home": "德国",
+      "away": "库拉索",
+      "homeCode": "GER",
+      "awayCode": "CUW",
+      "venue": "迈阿密硬石球场",
+      "kickoffBeijing": "2026-06-15T17:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 85,
+          "draw": 10,
+          "away": 5,
+          "score": "3-0"
+        },
+        "opta": {
+          "home": 89.2,
+          "draw": 9.5,
+          "away": 4.5
+        },
+        "market": {
+          "home": 87,
+          "draw": 9,
+          "away": 4
+        }
+      },
+      "analysis": "维尔茨+穆西亚拉世界级双核，纳格尔斯曼442赋予极强进攻灵活性；库拉索世界杯首秀，FIFA排名88位，理论上应被德国大胜。关注德国进攻效率。",
+      "keyRisk": "德国首战经验紧张；库拉索低位防守可能延缓比分"
+    },
+    {
+      "id": "m010",
+      "group": "F组",
+      "home": "荷兰",
+      "away": "日本",
+      "homeCode": "NED",
+      "awayCode": "JPN",
+      "venue": "波士顿吉列球场",
+      "kickoffBeijing": "2026-06-15T20:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 52,
+          "draw": 25,
+          "away": 23,
+          "score": "2-1"
+        },
+        "opta": {
+          "home": 54.6,
+          "draw": 23.8,
+          "away": 20.7
+        },
+        "market": {
+          "home": 54,
+          "draw": 24,
+          "away": 22
+        }
+      },
+      "analysis": "荷兰高压足球对日本技术流是有趣对决；森保一战术蓝图完善，久保+南野进攻二重奏威胁不小。荷兰体能+身体对抗优势明显，但日本有爆冷实力。",
+      "keyRisk": "日本中场压制荷兰节奏；荷兰中卫传接球失误"
+    },
+    {
+      "id": "m011",
+      "group": "E组",
+      "home": "科特迪瓦",
+      "away": "厄瓜多尔",
+      "homeCode": "CIV",
+      "awayCode": "ECU",
+      "venue": "亚特兰大球场",
+      "kickoffBeijing": "2026-06-15T23:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 40,
+          "draw": 28,
+          "away": 32,
+          "score": "1-1"
+        },
+        "opta": {
+          "home": 42.0,
+          "draw": 26.6,
+          "away": 28.8
+        },
+        "market": {
+          "home": 42,
+          "draw": 27,
+          "away": 31
+        }
+      },
+      "analysis": "科特迪瓦塞斯科内+佩佩组合进攻犀利；厄瓜多尔前锋卡伊塞多进球效率高，近期状态极佳。双方实力接近，平局概率最高。",
+      "keyRisk": "科特迪瓦首战体能；厄瓜多尔海拔适应"
+    },
+    {
+      "id": "m012",
+      "group": "F组",
+      "home": "瑞典",
+      "away": "突尼斯",
+      "homeCode": "SWE",
+      "awayCode": "TUN",
+      "venue": "费城林肯金融球场",
+      "kickoffBeijing": "2026-06-15T02:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 46,
+          "draw": 28,
+          "away": 26,
+          "score": "2-1"
+        },
+        "opta": {
+          "home": 48.3,
+          "draw": 26.6,
+          "away": 23.4
+        },
+        "market": {
+          "home": 48,
+          "draw": 27,
+          "away": 25
+        }
+      },
+      "analysis": "哈兰德体系外的瑞典更依赖集体战术，中场覆盖率全队最高；突尼斯防守有组织但进攻乏力，2022世界杯1胜2负早退。瑞典稳健优势。",
+      "keyRisk": "瑞典前场个人能力不足；突尼斯反击威胁"
+    }
+  ]
+}

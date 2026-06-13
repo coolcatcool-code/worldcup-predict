@@ -1,40 +1,66 @@
 {
   "date": "2026-06-12",
-  "generatedAt": "2026-06-12T18:00:00+08:00",
+  "generatedAt": "2026-06-12T08:00:00+08:00",
   "matches": [
     {
-      "id": "2026-06-12-CAN-BIH",
-      "group": "B组",
-      "home": "加拿大",
-      "away": "波黑",
-      "homeCode": "CAN",
-      "awayCode": "BIH",
-      "venue": "多伦多BMO球场",
-      "kickoffBeijing": "2026-06-13T03:00:00+08:00",
+      "id": "m001",
+      "group": "A组",
+      "home": "墨西哥",
+      "away": "南非",
+      "homeCode": "MEX",
+      "awayCode": "RSA",
+      "venue": "墨西哥城",
+      "kickoffBeijing": "2026-06-12T19:00:00Z",
       "predictions": {
-        "fable5": { "home": 48, "draw": 30, "away": 22, "score": "1-0", "altScore": "1-1" },
-        "opta":   { "home": 52.7, "draw": 25.3, "away": 22.0 },
-        "market": { "home": 51, "draw": 28, "away": 21 }
+        "fable5": {
+          "home": 52,
+          "draw": 26,
+          "away": 22,
+          "score": "2-0"
+        },
+        "opta": {
+          "home": 54.6,
+          "draw": 24.7,
+          "away": 19.8
+        },
+        "market": {
+          "home": 54,
+          "draw": 25,
+          "away": 21
+        }
       },
-      "analysis": "戴维斯+Bombito双缺阵、科内带病存疑被市场低估；加拿大近10场8零封但对中游队多次闷平，破密集能力存疑；波黑连续点球淘汰威尔士、意大利，是典型拖僵局型球队。主队小胜或闷平是基准剧本。",
-      "keyRisk": "加拿大破密集能力；波黑哲科定位球高点"
+      "analysis": "墨西哥主场阿兹特卡球场优势极大，门将吉列尔莫·奥乔亚经验丰富。南非依赖反击战术但进攻端缺乏威胁，墨西哥防线2场积分赛仅失1球。预计墨西哥控球主导，上半场破门。",
+      "keyRisk": "南非快攻威胁；墨西哥中场覆盖率"
     },
     {
-      "id": "2026-06-12-USA-PAR",
-      "group": "D组",
-      "home": "美国",
-      "away": "巴拉圭",
-      "homeCode": "USA",
-      "awayCode": "PAR",
-      "venue": "洛杉矶SoFi球场",
-      "kickoffBeijing": "2026-06-13T09:00:00+08:00",
+      "id": "m002",
+      "group": "A组",
+      "home": "韩国",
+      "away": "捷克",
+      "homeCode": "KOR",
+      "awayCode": "CZE",
+      "venue": "芝加哥士兵体育场",
+      "kickoffBeijing": "2026-06-12T02:00:00Z",
       "predictions": {
-        "fable5": { "home": 46, "draw": 30, "away": 24, "score": "1-0", "altScore": "1-1" },
-        "opta":   { "home": 39.8, "draw": 26.6, "away": 33.6 },
-        "market": { "home": 48.5, "draw": 28.5, "away": 23.0 }
+        "fable5": {
+          "home": 38,
+          "draw": 30,
+          "away": 32,
+          "score": "1-1"
+        },
+        "opta": {
+          "home": 39.9,
+          "draw": 28.5,
+          "away": 28.8
+        },
+        "market": {
+          "home": 40,
+          "draw": 29,
+          "away": 31
+        }
       },
-      "analysis": "Opta的33.6%客胜高估了缺少恩西索的巴拉圭进攻；市场50%主胜又高估了热身赛2-5比利时、1-2德国的美国。美国世界杯首战胜率仅24%、SoFi球场2战全败。巴拉圭10场零封防守撞上需70分钟破局的美国，平局价值高。",
-      "keyRisk": "美国门将Freese大赛经验为零；巴拉圭定位球占进球36%"
+      "analysis": "实力接近的两队，捷克在欧洲预选赛稳定性更好但体能消耗大；孙兴慜状态未知，缺席影响韩国整体进攻组织。捷克前锋舒切克组合威胁不小，平局概率偏高。",
+      "keyRisk": "孙兴慜伤病状况；捷克反击速度"
     }
   ]
 }

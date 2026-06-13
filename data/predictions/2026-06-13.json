@@ -1,0 +1,66 @@
+{
+  "date": "2026-06-13",
+  "generatedAt": "2026-06-13T08:00:00+08:00",
+  "matches": [
+    {
+      "id": "m003",
+      "group": "B组",
+      "home": "加拿大",
+      "away": "波黑",
+      "homeCode": "CAN",
+      "awayCode": "BIH",
+      "venue": "多伦多BMO球场",
+      "kickoffBeijing": "2026-06-13T19:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 48,
+          "draw": 30,
+          "away": 22,
+          "score": "1-0"
+        },
+        "opta": {
+          "home": 50.4,
+          "draw": 28.5,
+          "away": 19.8
+        },
+        "market": {
+          "home": 50,
+          "draw": 29,
+          "away": 21
+        }
+      },
+      "analysis": "戴维斯伤情存疑，加拿大主场优势明显；波黑防守稳固依赖哲科定位球，但进攻套路单一。主队小胜或闷平是基准剧本。",
+      "keyRisk": "加拿大破密集防线能力；波黑高空球"
+    },
+    {
+      "id": "m004",
+      "group": "D组",
+      "home": "美国",
+      "away": "巴拉圭",
+      "homeCode": "USA",
+      "awayCode": "PAR",
+      "venue": "洛杉矶SoFi球场",
+      "kickoffBeijing": "2026-06-13T01:00:00Z",
+      "predictions": {
+        "fable5": {
+          "home": 46,
+          "draw": 30,
+          "away": 24,
+          "score": "1-0"
+        },
+        "opta": {
+          "home": 48.3,
+          "draw": 28.5,
+          "away": 21.6
+        },
+        "market": {
+          "home": 48,
+          "draw": 29,
+          "away": 23
+        }
+      },
+      "analysis": "美国世界杯首战历史胜率偏低，但主场优势+主帅贝伦霍特战术改良值得期待；巴拉圭缺少恩西索且防守组织能力强。Opta客胜33.6%高估巴拉圭进攻，主队微弱优势。",
+      "keyRisk": "美国门将Freese大赛经验；巴拉圭定位球"
+    }
+  ]
+}
