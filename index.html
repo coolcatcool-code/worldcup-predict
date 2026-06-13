@@ -3,229 +3,727 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>2026世界杯综合平台</title>
+<title>2026 FIFA World Cup · 赛事中心</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
 :root{
-  --bg:#0a0e1a;--bg2:#111827;--bg3:#1a2235;--bg4:#1e2d40;
-  --card:#141e2e;--card2:#1c2840;
-  --accent:#f59e0b;--accent2:#3b82f6;--accent3:#10b981;--accent4:#ef4444;
-  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
-  --border:#1e3a5f;--border2:#2d4a6a;
-  --radius:12px;--shadow:0 4px 24px rgba(0,0,0,.5);
-}
-body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh}
+  /* Core palette */
+  --ink-950:#060913;
+  --ink-900:#0b0f1e;
+  --ink-800:#101628;
+  --ink-700:#141d33;
+  --ink-600:#1a2540;
+  --ink-500:#1f2e4d;
+  --ink-400:#253659;
 
-/* NAV */
-.nav{background:linear-gradient(135deg,#0f172a,#1e3a5f);border-bottom:1px solid var(--border);padding:0 16px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-size:1.1rem;font-weight:700;color:var(--accent);padding:14px 0;white-space:nowrap}
-.nav-logo span{color:var(--text2);font-weight:400;font-size:.85rem;margin-left:6px}
-.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+  /* Glass surfaces */
+  --glass-1:rgba(255,255,255,0.03);
+  --glass-2:rgba(255,255,255,0.055);
+  --glass-3:rgba(255,255,255,0.08);
+  --glass-border:rgba(255,255,255,0.08);
+  --glass-border-h:rgba(255,255,255,0.14);
+
+  /* Accent system */
+  --gold:#f59e0b;
+  --gold-light:#fbbf24;
+  --gold-dim:rgba(245,158,11,0.15);
+  --blue:#4f8ef7;
+  --blue-dim:rgba(79,142,247,0.15);
+  --green:#34d399;
+  --green-dim:rgba(52,211,153,0.12);
+  --red:#f87171;
+  --red-dim:rgba(248,113,113,0.12);
+  --violet:#a78bfa;
+
+  /* Text */
+  --t1:#f0f4ff;
+  --t2:#8fa3c0;
+  --t3:#4d6480;
+  --t4:#2d4060;
+
+  /* Radius */
+  --r-sm:8px;
+  --r-md:14px;
+  --r-lg:20px;
+  --r-xl:28px;
+
+  /* Shadows */
+  --s-sm:0 2px 8px rgba(0,0,0,0.4);
+  --s-md:0 8px 32px rgba(0,0,0,0.5);
+  --s-lg:0 20px 60px rgba(0,0,0,0.6);
+  --s-gold:0 0 24px rgba(245,158,11,0.2);
+}
+
+body{
+  background:var(--ink-950);
+  color:var(--t1);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ══════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════ */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--ink-500);border-radius:2px}
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(6,9,19,0.85);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid var(--glass-border);
+  display:flex;align-items:stretch;padding:0 20px;
+  height:56px;gap:20px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  flex-shrink:0;text-decoration:none;
+}
+.nav-logo-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,var(--gold),#ff8c00);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:900;color:#000;
+  box-shadow:var(--s-gold);
+}
+.nav-logo-text{font-size:.92rem;font-weight:700;color:var(--t1)}
+.nav-logo-sub{font-size:.68rem;font-weight:400;color:var(--t3);margin-top:1px}
+
+.tabs{display:flex;align-items:stretch;gap:0;overflow-x:auto;scrollbar-width:none;flex:1}
 .tabs::-webkit-scrollbar{display:none}
-.tab{padding:14px 14px;cursor:pointer;color:var(--text2);font-size:.85rem;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s;user-select:none}
-.tab:hover{color:var(--text)}
-.tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
-
-/* HERO */
-.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0f172a 100%);padding:24px 16px;text-align:center}
-.hero h1{font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,var(--accent),#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
-.hero p{color:var(--text2);font-size:.85rem}
-.hero-stats{display:flex;justify-content:center;gap:24px;margin-top:14px;flex-wrap:wrap}
-.hero-stat{text-align:center}
-.hero-stat .val{font-size:1.4rem;font-weight:700;color:var(--accent)}
-.hero-stat .lbl{font-size:.72rem;color:var(--text3);margin-top:2px}
-
-/* CONTAINER */
-.container{max-width:1200px;margin:0 auto;padding:16px}
-
-/* SECTION TITLE */
-.section-title{font-size:1rem;font-weight:700;color:var(--text);margin:20px 0 12px;display:flex;align-items:center;gap:8px}
-.section-title::before{content:'';display:block;width:4px;height:18px;background:var(--accent);border-radius:2px}
-
-/* DATE STRIP */
-.date-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
-.date-strip::-webkit-scrollbar{display:none}
-.date-btn{padding:8px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text2);cursor:pointer;font-size:.8rem;white-space:nowrap;transition:.2s;user-select:none}
-.date-btn:hover{border-color:var(--accent2);color:var(--text)}
-.date-btn.active{background:var(--accent2);border-color:var(--accent2);color:#fff;font-weight:600}
-.date-btn.today{border-color:var(--accent)}
-
-/* MATCH CARD */
-.matches-grid{display:flex;flex-direction:column;gap:10px}
-.match-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;cursor:pointer;transition:.2s;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
-.match-card:hover{border-color:var(--accent2);background:var(--card2);transform:translateY(-1px);box-shadow:var(--shadow)}
-.match-card.live{border-color:#ef4444;animation:pulse-border 2s infinite}
-@keyframes pulse-border{0%,100%{border-color:#ef4444}50%{border-color:#7f1d1d}}
-.team-side{display:flex;align-items:center;gap:10px}
-.team-side.right{flex-direction:row-reverse;text-align:right}
-.team-flag{font-size:1.8rem;line-height:1}
-.team-name{font-size:.9rem;font-weight:600;color:var(--text)}
-.team-name .sub{font-size:.72rem;color:var(--text3);font-weight:400;display:block}
-.match-center{text-align:center;min-width:80px}
-.match-score{font-size:1.4rem;font-weight:800;color:var(--accent);letter-spacing:2px}
-.match-time{font-size:.75rem;color:var(--text2)}
-.match-meta{font-size:.68rem;color:var(--text3);margin-top:2px}
-.match-group-badge{display:inline-block;padding:2px 7px;border-radius:10px;background:rgba(59,130,246,.15);color:var(--accent2);font-size:.68rem;border:1px solid rgba(59,130,246,.3)}
-.badge-live{background:rgba(239,68,68,.15);color:#ef4444;border-color:rgba(239,68,68,.3)}
-.badge-done{background:rgba(16,185,129,.1);color:var(--accent3);border-color:rgba(16,185,129,.2)}
-
-/* GROUP GRID */
-.groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-.group-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.group-header{background:linear-gradient(135deg,var(--bg3),var(--bg4));padding:10px 14px;font-weight:700;font-size:.9rem;color:var(--accent);border-bottom:1px solid var(--border)}
-.group-table{width:100%;border-collapse:collapse}
-.group-table th{font-size:.68rem;color:var(--text3);padding:6px 8px;text-align:center;border-bottom:1px solid var(--border)}
-.group-table th:first-child{text-align:left}
-.group-table td{font-size:.8rem;padding:7px 8px;text-align:center;border-bottom:1px solid rgba(30,58,95,.4)}
-.group-table td:first-child{text-align:left;display:flex;align-items:center;gap:6px;cursor:pointer}
-.group-table td:first-child:hover .team-name-text{color:var(--accent2);text-decoration:underline}
-.group-table tr:last-child td{border-bottom:none}
-.rank-num{font-size:.7rem;color:var(--text3);width:14px}
-
-/* TEAM CARDS */
-.teams-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.filter-btn{padding:6px 12px;border-radius:16px;border:1px solid var(--border);background:var(--card);color:var(--text2);cursor:pointer;font-size:.78rem;transition:.2s;user-select:none}
-.filter-btn:hover{border-color:var(--accent2);color:var(--text)}
-.filter-btn.active{background:var(--accent2);border-color:var(--accent2);color:#fff}
-.teams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.team-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;cursor:pointer;transition:.2s;text-align:center}
-.team-card:hover{border-color:var(--accent2);background:var(--card2);transform:translateY(-2px);box-shadow:var(--shadow)}
-.team-card .flag{font-size:2.4rem;margin-bottom:8px}
-.team-card .tname{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:4px}
-.team-card .tgroup{font-size:.72rem;color:var(--text2);margin-bottom:6px}
-.team-card .trank{font-size:.72rem;color:var(--accent);font-weight:600}
-.team-card .tcoach{font-size:.7rem;color:var(--text3);margin-top:2px}
-.team-card .tstar{font-size:.72rem;color:var(--accent3);margin-top:4px}
-
-/* PREDICT */
-.pred-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-.pred-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.pred-header{background:var(--bg3);padding:12px 16px;border-bottom:1px solid var(--border)}
-.pred-teams{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.pred-team{text-align:center;flex:1}
-.pred-flag{font-size:1.6rem}
-.pred-name{font-size:.8rem;font-weight:600;margin-top:4px}
-.pred-vs{font-size:.9rem;color:var(--text3);font-weight:700}
-.pred-time{font-size:.72rem;color:var(--text3);text-align:center}
-.pred-body{padding:12px 16px}
-.pred-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.8rem}
-.pred-label{color:var(--text3);font-size:.72rem}
-.pred-bars{display:flex;gap:4px;height:8px;border-radius:4px;overflow:hidden;margin:8px 0}
-.pred-bar-h{background:#3b82f6;transition:.8s}
-.pred-bar-d{background:#6b7280;transition:.8s}
-.pred-bar-a{background:#ef4444;transition:.8s}
-.pred-probs{display:flex;justify-content:space-between;font-size:.72rem;margin-bottom:10px}
-.pred-score{text-align:center;font-size:1.1rem;font-weight:700;color:var(--accent);padding:8px;background:rgba(245,158,11,.08);border-radius:8px;border:1px solid rgba(245,158,11,.2)}
-.pred-analysis{font-size:.75rem;color:var(--text2);line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
-
-/* STATS */
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px}
-.stat-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
-.stat-box .sv{font-size:1.8rem;font-weight:800;color:var(--accent)}
-.stat-box .sl{font-size:.75rem;color:var(--text3);margin-top:4px}
-.chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:14px}
-.chart-wrap h3{font-size:.85rem;color:var(--text2);margin-bottom:12px}
-
-/* NEWS */
-.news-grid{display:flex;flex-direction:column;gap:12px}
-.news-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:.2s}
-.news-card:hover{border-color:var(--accent2);background:var(--card2)}
-.news-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.68rem;font-weight:600;margin-bottom:8px}
-.tag-predict{background:rgba(59,130,246,.15);color:var(--accent2);border:1px solid rgba(59,130,246,.3)}
-.tag-review{background:rgba(16,185,129,.1);color:var(--accent3);border:1px solid rgba(16,185,129,.2)}
-.tag-news{background:rgba(245,158,11,.1);color:var(--accent);border:1px solid rgba(245,158,11,.2)}
-.news-title{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.4}
-.news-excerpt{font-size:.78rem;color:var(--text2);line-height:1.5}
-.news-footer{display:flex;justify-content:space-between;margin-top:10px;font-size:.7rem;color:var(--text3)}
-
-/* ARCHIVE */
-.archive-list{display:flex;flex-direction:column;gap:10px}
-.archive-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.archive-date{background:var(--bg3);padding:10px 14px;font-size:.85rem;font-weight:600;color:var(--accent2);border-bottom:1px solid var(--border);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
-.archive-body{display:none;padding:12px 14px}
-.archive-body.open{display:block}
-
-/* MODAL OVERLAY */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
-.modal-overlay.open{display:flex}
-.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;max-width:660px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
-.modal::-webkit-scrollbar{width:4px}
-.modal::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-.modal-close{position:sticky;top:0;background:var(--bg2);padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;z-index:1}
-.modal-close h2{font-size:1rem;font-weight:700;color:var(--text)}
-.modal-close button{background:var(--bg3);border:1px solid var(--border);color:var(--text2);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:.2s}
-.modal-close button:hover{background:var(--accent4);color:#fff}
-.modal-body{padding:16px}
-
-/* TEAM MODAL */
-.team-modal-hero{display:flex;align-items:center;gap:16px;margin-bottom:16px;padding:14px;background:linear-gradient(135deg,var(--bg3),var(--bg4));border-radius:10px;border:1px solid var(--border)}
-.team-modal-flag{font-size:3.5rem}
-.team-modal-info h3{font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:4px}
-.team-modal-info p{font-size:.8rem;color:var(--text2);margin-bottom:2px}
-.modal-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
-.modal-meta-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
-.modal-meta-item .label{font-size:.68rem;color:var(--text3);margin-bottom:3px}
-.modal-meta-item .value{font-size:.85rem;font-weight:600;color:var(--text)}
-.players-list{display:flex;flex-direction:column;gap:8px}
-.player-row{display:flex;align-items:center;gap:12px;padding:8px 10px;background:var(--card);border:1px solid var(--border);border-radius:8px}
-.player-pos{width:28px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0}
-.pos-fw{background:rgba(239,68,68,.2);color:#f87171}
-.pos-mf{background:rgba(59,130,246,.2);color:#60a5fa}
-.pos-df{background:rgba(16,185,129,.2);color:#34d399}
-.pos-gk{background:rgba(245,158,11,.2);color:#fbbf24}
-.player-name{font-size:.85rem;font-weight:600;color:var(--text);flex:1}
-.player-club{font-size:.72rem;color:var(--text3)}
-.star-badge{font-size:.65rem;background:rgba(245,158,11,.2);color:var(--accent);border:1px solid rgba(245,158,11,.3);padding:1px 5px;border-radius:8px;flex-shrink:0}
-
-/* MATCH MODAL */
-.match-modal-hero{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;text-align:center;padding:16px;background:linear-gradient(135deg,var(--bg3),var(--bg4));border-radius:10px;margin-bottom:14px;border:1px solid var(--border)}
-.match-modal-team{display:flex;flex-direction:column;align-items:center;gap:6px}
-.match-modal-flag{font-size:3rem}
-.match-modal-name{font-size:.9rem;font-weight:700}
-.match-modal-score{font-size:2.2rem;font-weight:900;color:var(--accent);white-space:nowrap}
-.match-modal-time{font-size:.78rem;color:var(--text2)}
-.odds-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
-.odds-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center}
-.odds-box .ol{font-size:.7rem;color:var(--text3);margin-bottom:4px}
-.odds-box .ov{font-size:1rem;font-weight:700;color:var(--accent)}
-.prob-bar-wrap{margin-bottom:14px}
-.prob-bar-wrap .label{font-size:.75rem;color:var(--text2);margin-bottom:6px;display:flex;justify-content:space-between}
-.prob-bar{height:10px;border-radius:5px;display:flex;overflow:hidden;gap:2px}
-.analysis-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:.8rem;color:var(--text2);line-height:1.6}
-.analysis-box h4{font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:6px}
-
-/* LOADING */
-.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;gap:14px;color:var(--text2)}
-.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* ERROR */
-.error-box{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:var(--radius);padding:20px;text-align:center;color:#fca5a5;margin:20px 0}
-.error-box button{margin-top:10px;padding:8px 20px;background:var(--accent4);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:.85rem}
-
-/* EMPTY */
-.empty{text-align:center;padding:40px;color:var(--text3);font-size:.85rem}
-
-/* RESPONSIVE */
-@media(max-width:600px){
-  .match-card{grid-template-columns:1fr auto 1fr;gap:6px}
-  .team-flag{font-size:1.4rem}
-  .team-name{font-size:.78rem}
-  .match-score{font-size:1.1rem}
-  .teams-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-  .groups-grid{grid-template-columns:1fr}
-  .hero h1{font-size:1.3rem}
+.tab{
+  display:flex;align-items:center;
+  padding:0 14px;cursor:pointer;
+  color:var(--t3);font-size:.8rem;font-weight:500;
+  white-space:nowrap;border-bottom:2px solid transparent;
+  transition:all .2s;user-select:none;position:relative;
+  letter-spacing:.01em;
+}
+.tab:hover{color:var(--t2)}
+.tab.active{color:var(--t1);border-bottom-color:var(--gold);font-weight:600}
+.tab.active::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent,rgba(245,158,11,0.04));
+  pointer-events:none;
 }
 
-/* page panels */
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero{
+  position:relative;overflow:hidden;
+  background:var(--ink-900);
+  padding:40px 24px 36px;text-align:center;
+  border-bottom:1px solid var(--glass-border);
+}
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 80% at 20% 50%,rgba(79,142,247,0.07) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 50%,rgba(245,158,11,0.06) 0%,transparent 70%),
+    radial-gradient(ellipse 80% 40% at 50% 100%,rgba(52,211,153,0.04) 0%,transparent 60%);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:20px;
+  background:var(--gold-dim);border:1px solid rgba(245,158,11,0.25);
+  font-size:.7rem;font-weight:600;color:var(--gold-light);
+  letter-spacing:.05em;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.hero h1{
+  font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;
+  letter-spacing:-.02em;line-height:1.1;
+  background:linear-gradient(135deg,var(--t1) 0%,var(--gold-light) 60%,var(--gold) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:8px;
+}
+.hero-sub{color:var(--t2);font-size:.88rem;font-weight:400;margin-bottom:24px}
+
+.hero-stats{
+  display:flex;justify-content:center;gap:0;
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-lg);overflow:hidden;
+  max-width:600px;margin:0 auto;
+}
+.hero-stat{
+  flex:1;padding:14px 12px;text-align:center;
+  border-right:1px solid var(--glass-border);
+}
+.hero-stat:last-child{border-right:none}
+.hero-stat .val{
+  font-size:1.5rem;font-weight:800;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-stat .lbl{font-size:.65rem;color:var(--t3);margin-top:3px;font-weight:500;letter-spacing:.03em;text-transform:uppercase}
+
+/* ══════════════════════════════════════
+   PAGE CONTAINERS
+══════════════════════════════════════ */
 .page{display:none}
 .page.active{display:block}
+.container{max-width:1200px;margin:0 auto;padding:20px 20px}
+
+/* ══════════════════════════════════════
+   SECTION TITLES
+══════════════════════════════════════ */
+.section-title{
+  font-size:.78rem;font-weight:700;color:var(--t3);
+  letter-spacing:.1em;text-transform:uppercase;
+  margin:24px 0 12px;display:flex;align-items:center;gap:8px;
+}
+.section-title::after{content:'';flex:1;height:1px;background:var(--glass-border)}
+
+/* ══════════════════════════════════════
+   DATE STRIP
+══════════════════════════════════════ */
+.date-strip{
+  display:flex;gap:6px;overflow-x:auto;
+  padding:4px 0 12px;scrollbar-width:none;
+}
+.date-strip::-webkit-scrollbar{display:none}
+.date-btn{
+  padding:7px 16px;border-radius:40px;
+  border:1px solid var(--glass-border);
+  background:var(--glass-1);color:var(--t2);
+  cursor:pointer;font-size:.78rem;font-weight:500;
+  white-space:nowrap;transition:all .2s;user-select:none;
+}
+.date-btn:hover{border-color:var(--glass-border-h);color:var(--t1);background:var(--glass-2)}
+.date-btn.active{
+  background:var(--blue-dim);border-color:var(--blue);
+  color:var(--t1);font-weight:600;
+}
+.date-btn.today{border-color:rgba(245,158,11,0.4);color:var(--gold-light)}
+.date-btn.active.today{background:var(--gold-dim);border-color:var(--gold)}
+
+/* ══════════════════════════════════════
+   MATCH CARDS
+══════════════════════════════════════ */
+.matches-grid{display:flex;flex-direction:column;gap:8px}
+.match-card{
+  background:var(--glass-1);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r-md);
+  padding:14px 18px;cursor:pointer;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:16px;
+  transition:all .2s;position:relative;overflow:hidden;
+}
+.match-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:transparent;transition:.2s;border-radius:3px 0 0 3px;
+}
+.match-card:hover{
+  border-color:var(--glass-border-h);background:var(--glass-2);
+  transform:translateX(2px);box-shadow:var(--s-sm);
+}
+.match-card:hover::before{background:var(--blue)}
+.match-card.live::before{background:var(--red);animation:pulse-bar 1.5s ease-in-out infinite}
+@keyframes pulse-bar{0%,100%{opacity:1}50%{opacity:.4}}
+
+.team-side{display:flex;align-items:center;gap:10px}
+.team-side.right{flex-direction:row-reverse;text-align:right}
+.team-flag{font-size:1.9rem;line-height:1;flex-shrink:0}
+.team-name{font-size:.88rem;font-weight:600;color:var(--t1)}
+.team-name .sub{
+  font-size:.68rem;color:var(--t3);font-weight:400;
+  display:block;margin-top:2px;
+}
+
+.match-center{text-align:center;min-width:90px}
+.match-score{
+  font-size:1.35rem;font-weight:800;color:var(--t1);
+  letter-spacing:3px;font-variant-numeric:tabular-nums;
+}
+.match-meta{margin-top:3px}
+.match-group-badge{
+  display:inline-flex;align-items:center;
+  padding:2px 8px;border-radius:6px;
+  background:var(--glass-2);color:var(--t2);
+  font-size:.64rem;font-weight:600;letter-spacing:.03em;
+  border:1px solid var(--glass-border);
+}
+.badge-live{background:var(--red-dim);color:var(--red);border-color:rgba(248,113,113,0.3)}
+.badge-done{background:var(--green-dim);color:var(--green);border-color:rgba(52,211,153,0.25)}
+
+/* ══════════════════════════════════════
+   GROUPS
+══════════════════════════════════════ */
+.groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.group-card{
+  background:var(--glass-1);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r-md);overflow:hidden;
+  transition:.2s;
+}
+.group-card:hover{border-color:var(--glass-border-h)}
+.group-header{
+  padding:10px 16px;
+  background:linear-gradient(90deg,rgba(245,158,11,0.08),transparent);
+  border-bottom:1px solid var(--glass-border);
+  display:flex;align-items:center;gap:10px;
+}
+.group-letter{
+  width:28px;height:28px;border-radius:7px;
+  background:var(--gold-dim);border:1px solid rgba(245,158,11,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.85rem;color:var(--gold-light);
+}
+.group-title{font-weight:600;font-size:.85rem;color:var(--t1)}
+.group-table{width:100%;border-collapse:collapse}
+.group-table th{
+  font-size:.63rem;color:var(--t3);font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:7px 10px;text-align:center;
+  border-bottom:1px solid var(--glass-border);
+}
+.group-table th:first-child{text-align:left}
+.group-table td{
+  font-size:.8rem;padding:8px 10px;
+  text-align:center;color:var(--t2);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.group-table td:first-child{
+  text-align:left;display:flex;align-items:center;gap:8px;
+}
+.group-table tr:last-child td{border-bottom:none}
+.group-table tr:hover td{background:var(--glass-1)}
+.rank-num{font-size:.65rem;color:var(--t4);width:12px;flex-shrink:0}
+.team-name-text{cursor:pointer;color:var(--t1);font-weight:500;transition:.15s}
+.team-name-text:hover{color:var(--blue)}
+
+/* ══════════════════════════════════════
+   TEAM CARDS
+══════════════════════════════════════ */
+.teams-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.filter-btn{
+  padding:5px 14px;border-radius:40px;
+  border:1px solid var(--glass-border);
+  background:var(--glass-1);color:var(--t2);
+  cursor:pointer;font-size:.75rem;font-weight:500;
+  transition:all .2s;user-select:none;
+}
+.filter-btn:hover{border-color:var(--glass-border-h);color:var(--t1)}
+.filter-btn.active{background:var(--blue-dim);border-color:var(--blue);color:var(--t1);font-weight:600}
+
+.teams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:10px}
+.team-card{
+  background:var(--glass-1);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r-md);
+  padding:18px 14px 14px;cursor:pointer;
+  transition:all .25s;text-align:center;
+  position:relative;overflow:hidden;
+}
+.team-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--blue-dim),transparent 60%);
+  opacity:0;transition:.25s;pointer-events:none;
+}
+.team-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:var(--s-md)}
+.team-card:hover::after{opacity:1}
+.team-card .flag{font-size:2.6rem;margin-bottom:10px;display:block;line-height:1}
+.team-card .tname{font-size:.88rem;font-weight:700;color:var(--t1);margin-bottom:3px}
+.team-card .tgroup{
+  font-size:.68rem;color:var(--t3);margin-bottom:8px;
+  display:inline-flex;align-items:center;gap:4px;
+}
+.team-card .trank{
+  display:inline-block;padding:2px 8px;border-radius:20px;
+  background:var(--gold-dim);border:1px solid rgba(245,158,11,0.25);
+  font-size:.68rem;font-weight:700;color:var(--gold-light);
+  margin-bottom:6px;
+}
+.team-card .tcoach{font-size:.7rem;color:var(--t3);margin-top:4px}
+.team-card .tstar{
+  font-size:.72rem;color:var(--green);margin-top:3px;
+  display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* ══════════════════════════════════════
+   NEWS CARDS
+══════════════════════════════════════ */
+.news-grid{display:flex;flex-direction:column;gap:8px}
+.news-card{
+  background:var(--glass-1);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r-md);
+  padding:16px 18px;cursor:pointer;
+  transition:all .2s;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.news-card:hover{border-color:var(--glass-border-h);background:var(--glass-2)}
+.news-card-accent{
+  width:3px;border-radius:3px;flex-shrink:0;align-self:stretch;min-height:40px;
+}
+.news-card-body{flex:1;min-width:0}
+.news-tag{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:2px 8px;border-radius:5px;
+  font-size:.63rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  margin-bottom:7px;
+}
+.tag-predict{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(79,142,247,0.25)}
+.tag-predict + .news-card-accent, .news-card.predict .news-card-accent{background:var(--blue)}
+.tag-review{background:var(--green-dim);color:var(--green);border:1px solid rgba(52,211,153,0.25)}
+.tag-news{background:var(--gold-dim);color:var(--gold-light);border:1px solid rgba(245,158,11,0.25)}
+.news-title{font-size:.9rem;font-weight:600;color:var(--t1);margin-bottom:5px;line-height:1.4}
+.news-excerpt{font-size:.76rem;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-footer{
+  display:flex;justify-content:space-between;
+  margin-top:9px;font-size:.67rem;color:var(--t3);
+}
+
+/* ══════════════════════════════════════
+   PREDICT CARDS
+══════════════════════════════════════ */
+.pred-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.pred-card{
+  background:var(--glass-1);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r-md);overflow:hidden;
+  cursor:pointer;transition:all .25s;
+}
+.pred-card:hover{border-color:var(--glass-border-h);transform:translateY(-2px);box-shadow:var(--s-md)}
+
+.pred-header{
+  padding:16px;
+  background:linear-gradient(135deg,rgba(15,22,45,.9),rgba(20,29,51,.9));
+  border-bottom:1px solid var(--glass-border);
+}
+.pred-teams{
+  display:grid;grid-template-columns:1fr 40px 1fr;
+  align-items:center;gap:8px;margin-bottom:6px;
+}
+.pred-team{text-align:center}
+.pred-flag{font-size:1.8rem;margin-bottom:4px}
+.pred-name{font-size:.78rem;font-weight:600;color:var(--t1)}
+.pred-vs{
+  text-align:center;font-size:.72rem;font-weight:700;
+  color:var(--t3);letter-spacing:.05em;
+}
+.pred-time{
+  font-size:.68rem;color:var(--t3);text-align:center;
+  display:flex;align-items:center;justify-content:center;gap:4px;
+}
+
+.pred-body{padding:14px 16px}
+.pred-bar-row{
+  display:flex;height:6px;border-radius:3px;overflow:hidden;margin-bottom:6px;
+}
+.pred-bar-h{background:#4f8ef7;transition:width .8s ease}
+.pred-bar-d{background:#475569;transition:width .8s ease}
+.pred-bar-a{background:#f87171;transition:width .8s ease}
+.pred-probs{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  margin-bottom:12px;
+}
+.pred-prob-item{text-align:center}
+.pred-prob-item .pct{font-size:.95rem;font-weight:700}
+.pred-prob-item .plbl{font-size:.63rem;color:var(--t3);margin-top:1px}
+.pred-score-box{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:9px;background:var(--gold-dim);
+  border:1px solid rgba(245,158,11,0.2);border-radius:var(--r-sm);
+  margin-bottom:10px;
+}
+.pred-score-box .lbl{font-size:.65rem;color:var(--t3);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.pred-score-box .score{font-size:1.1rem;font-weight:800;color:var(--gold-light)}
+.pred-analysis{
+  font-size:.73rem;color:var(--t2);line-height:1.55;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+
+/* ══════════════════════════════════════
+   STATS
+══════════════════════════════════════ */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-bottom:20px}
+.stat-box{
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-md);padding:18px;text-align:center;
+  transition:.2s;
+}
+.stat-box:hover{border-color:var(--glass-border-h)}
+.stat-box .sv{
+  font-size:2rem;font-weight:800;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.stat-box .sl{font-size:.7rem;color:var(--t3);margin-top:5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.chart-wrap{
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-md);padding:18px 20px;
+}
+.chart-wrap h3{font-size:.78rem;color:var(--t2);margin-bottom:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+/* ══════════════════════════════════════
+   ARCHIVE
+══════════════════════════════════════ */
+.archive-list{display:flex;flex-direction:column;gap:8px}
+.archive-item{
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-md);overflow:hidden;transition:.2s;
+}
+.archive-item:hover{border-color:var(--glass-border-h)}
+.archive-date{
+  padding:12px 16px;font-size:.82rem;font-weight:600;color:var(--t2);
+  cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  user-select:none;transition:.2s;
+}
+.archive-date:hover{color:var(--t1);background:var(--glass-1)}
+.arc-chevron{
+  width:20px;height:20px;border-radius:50%;background:var(--glass-2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;transition:.2s;color:var(--t3);
+}
+.archive-body{display:none}
+.archive-body.open{display:block;border-top:1px solid var(--glass-border)}
+
+/* ══════════════════════════════════════
+   MODALS
+══════════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(4,6,14,0.85);
+  z-index:1000;display:none;
+  align-items:flex-end;justify-content:center;
+  backdrop-filter:blur(8px) saturate(80%);
+  -webkit-backdrop-filter:blur(8px) saturate(80%);
+  padding:0;
+}
+.modal-overlay.open{display:flex;animation:fade-in .2s ease}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--ink-800);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r-xl) var(--r-xl) 0 0;
+  max-width:680px;width:100%;
+  max-height:92vh;overflow-y:auto;
+  position:relative;
+  animation:slide-up .3s cubic-bezier(.16,1,.3,1);
+}
+@media(min-width:640px){
+  .modal-overlay{align-items:center;padding:20px}
+  .modal{border-radius:var(--r-xl);max-height:88vh}
+  @keyframes slide-up{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+}
+@keyframes slide-up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+
+.modal::-webkit-scrollbar{width:3px}
+.modal::-webkit-scrollbar-thumb{background:var(--ink-500);border-radius:2px}
+
+.modal-header{
+  position:sticky;top:0;
+  background:rgba(16,22,40,0.95);
+  backdrop-filter:blur(12px);
+  padding:16px 20px;
+  border-bottom:1px solid var(--glass-border);
+  display:flex;justify-content:space-between;align-items:center;
+  z-index:1;
+}
+.modal-header h2{font-size:.95rem;font-weight:700;color:var(--t1)}
+.modal-close-btn{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--glass-2);border:1px solid var(--glass-border);
+  color:var(--t2);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;transition:.2s;
+}
+.modal-close-btn:hover{background:var(--red-dim);border-color:var(--red);color:var(--red)}
+.modal-body{padding:20px}
+
+/* Team modal internals */
+.tm-hero{
+  display:flex;align-items:center;gap:16px;
+  padding:16px;border-radius:var(--r-md);
+  background:linear-gradient(135deg,var(--ink-700),var(--ink-600));
+  border:1px solid var(--glass-border);margin-bottom:16px;
+}
+.tm-hero-flag{font-size:3.8rem;flex-shrink:0}
+.tm-hero-info h3{font-size:1.15rem;font-weight:800;color:var(--t1);margin-bottom:4px}
+.tm-hero-info p{font-size:.78rem;color:var(--t2);line-height:1.5;margin-bottom:2px}
+.tm-hero-info .best{color:var(--gold-light);font-weight:600}
+
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.meta-item{
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-sm);padding:10px 12px;
+}
+.meta-item .ml{font-size:.63rem;color:var(--t3);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}
+.meta-item .mv{font-size:.82rem;font-weight:600;color:var(--t1)}
+
+.tm-section{margin-bottom:16px}
+.tm-section-title{
+  font-size:.68rem;font-weight:700;color:var(--t3);
+  letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:8px;padding-bottom:6px;
+  border-bottom:1px solid var(--glass-border);
+}
+.tm-text{
+  font-size:.8rem;color:var(--t2);line-height:1.65;
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-sm);padding:12px;
+}
+
+.players-list{display:flex;flex-direction:column;gap:6px}
+.player-row{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 12px;
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-sm);transition:.15s;
+}
+.player-row:hover{border-color:var(--glass-border-h)}
+.player-pos{
+  width:26px;height:18px;border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.6rem;font-weight:700;flex-shrink:0;
+}
+.pos-fw{background:rgba(248,113,113,.15);color:var(--red)}
+.pos-mf{background:rgba(79,142,247,.15);color:var(--blue)}
+.pos-df{background:rgba(52,211,153,.15);color:var(--green)}
+.pos-gk{background:rgba(245,158,11,.15);color:var(--gold-light)}
+.player-name{font-size:.83rem;font-weight:600;color:var(--t1);flex:1}
+.player-club{font-size:.7rem;color:var(--t3)}
+.star-badge{
+  font-size:.62rem;padding:1px 6px;border-radius:6px;
+  background:var(--gold-dim);color:var(--gold-light);
+  border:1px solid rgba(245,158,11,.25);flex-shrink:0;
+}
+
+/* Match modal internals */
+.mm-hero{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  gap:12px;align-items:center;text-align:center;
+  padding:18px;
+  background:linear-gradient(135deg,var(--ink-700),var(--ink-600));
+  border:1px solid var(--glass-border);border-radius:var(--r-md);
+  margin-bottom:16px;
+}
+.mm-team{display:flex;flex-direction:column;align-items:center;gap:6px}
+.mm-flag{font-size:2.8rem}
+.mm-tname{font-size:.88rem;font-weight:700;color:var(--t1)}
+.mm-rank{font-size:.65rem;color:var(--t3)}
+.mm-center{}
+.mm-score{font-size:2rem;font-weight:900;color:var(--t1);letter-spacing:4px;font-variant-numeric:tabular-nums}
+.mm-time{font-size:.72rem;color:var(--t2);margin-top:3px}
+.mm-venue{font-size:.65rem;color:var(--t3);margin-top:2px}
+.mm-badge{
+  display:inline-block;margin-top:4px;padding:2px 8px;border-radius:5px;
+  font-size:.62rem;font-weight:600;
+  background:var(--blue-dim);color:var(--blue);border:1px solid rgba(79,142,247,.25);
+}
+
+.prob-section{margin-bottom:16px}
+.prob-header{
+  font-size:.68rem;font-weight:700;color:var(--t3);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;
+}
+.prob-bars-row{
+  display:flex;height:10px;border-radius:5px;overflow:hidden;margin-bottom:6px;
+}
+.prob-h{background:var(--blue);transition:width .8s ease}
+.prob-d{background:#475569;transition:width .8s ease}
+.prob-a{background:var(--red);transition:width .8s ease}
+.prob-labels{display:flex;justify-content:space-between;font-size:.72rem}
+.prob-pct{font-weight:700}
+.prob-lbl{color:var(--t3);font-size:.65rem;margin-top:2px}
+.prob-three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
+.prob-box{
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-sm);padding:10px;text-align:center;
+}
+.prob-box .pval{font-size:1.1rem;font-weight:800}
+.prob-box .pnam{font-size:.65rem;color:var(--t3);margin-top:3px}
+
+.pred-score-modal{
+  padding:12px;text-align:center;
+  background:var(--gold-dim);border:1px solid rgba(245,158,11,.2);
+  border-radius:var(--r-sm);margin-bottom:14px;
+}
+.pred-score-modal .l{font-size:.63rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+.pred-score-modal .s{font-size:1.4rem;font-weight:900;color:var(--gold-light)}
+
+.analysis-card{
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-sm);padding:12px;margin-bottom:8px;
+}
+.analysis-card .ah{font-size:.72rem;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.analysis-card .at{font-size:.78rem;color:var(--t2);line-height:1.6}
+
+.team-links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.team-link-btn{
+  background:var(--glass-1);border:1px solid var(--glass-border);
+  border-radius:var(--r-sm);padding:10px 12px;cursor:pointer;
+  text-align:center;transition:.2s;
+}
+.team-link-btn:hover{border-color:var(--blue);background:var(--blue-dim)}
+.team-link-btn .ll{font-size:.62rem;color:var(--t3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.team-link-btn .ln{font-size:.8rem;font-weight:600;color:var(--blue)}
+.team-link-btn .ls{font-size:.68rem;color:var(--green);margin-top:2px}
+
+/* News modal */
+.news-modal-content{font-size:.82rem;color:var(--t2);line-height:1.7}
+.news-modal-content p{margin-bottom:10px}
+
+/* LOADING */
+.loading{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:80px 20px;gap:16px;
+}
+.spinner{
+  width:32px;height:32px;border-radius:50%;
+  border:2px solid var(--glass-border);
+  border-top-color:var(--gold);
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:.78rem;color:var(--t3)}
+
+.empty{
+  text-align:center;padding:60px;
+  color:var(--t3);font-size:.82rem;
+}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  .hero h1{font-size:1.4rem}
+  .teams-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}
+  .pred-grid{grid-template-columns:1fr}
+  .meta-grid{grid-template-columns:1fr}
+  .mm-hero{grid-template-columns:1fr auto 1fr;gap:8px}
+  .mm-flag{font-size:2.2rem}
+  .prob-three{gap:5px}
+}
+
+/* Animations */
+@keyframes card-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.team-card, .match-card, .news-card, .pred-card{animation:card-in .3s ease both}
+
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">⚽ 世界杯2026 <span>综合平台</span></div>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">⚽</div>
+    <div>
+      <div class="nav-logo-text">World Cup 2026</div>
+      <div class="nav-logo-sub">赛事中心</div>
+    </div>
+  </div>
   <div class="tabs" id="tabs">
     <div class="tab active" data-tab="schedule">赛程</div>
     <div class="tab" data-tab="groups">小组</div>
@@ -237,109 +735,126 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
   </div>
 </nav>
 
-<div class="hero" id="heroSection">
-  <h1>🏆 2026 FIFA 世界杯</h1>
-  <p>美国 · 加拿大 · 墨西哥 | 2026年6月11日 – 7月19日</p>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge">🏆 FIFA World Cup 2026</div>
+  <h1>2026 FIFA 世界杯</h1>
+  <p class="hero-sub">美国 · 加拿大 · 墨西哥 联合承办 · 48支球队</p>
   <div class="hero-stats">
+    <div class="hero-stat"><div class="val" id="daysLeft">--</div><div class="lbl">赛事进度</div></div>
     <div class="hero-stat"><div class="val">48</div><div class="lbl">参赛球队</div></div>
-    <div class="hero-stat"><div class="val">104</div><div class="lbl">场比赛</div></div>
-    <div class="hero-stat"><div class="val">16</div><div class="lbl">场馆</div></div>
-    <div class="hero-stat"><div class="val" id="daysLeft">-</div><div class="lbl">赛事天数</div></div>
+    <div class="hero-stat"><div class="val">104</div><div class="lbl">总场次</div></div>
+    <div class="hero-stat"><div class="val">16</div><div class="lbl">举办城市</div></div>
   </div>
 </div>
 
-<div class="container">
-
-<!-- SCHEDULE PAGE -->
+<!-- ─── SCHEDULE ──────────────────────────────────── -->
 <div class="page active" id="page-schedule">
-  <div id="scheduleLoading" class="loading"><div class="spinner"></div><span>加载赛程...</span></div>
-  <div id="scheduleContent" style="display:none">
-    <div class="section-title">今日焦点</div>
-    <div id="todayMatches" class="matches-grid" style="margin-bottom:20px"></div>
-    <div class="section-title">按日期查看</div>
-    <div class="date-strip" id="dateStrip"></div>
-    <div id="dateMatchesContainer" style="margin-top:12px">
-      <div class="matches-grid" id="dateMatches"></div>
+  <div class="container">
+    <div id="scheduleLoading" class="loading">
+      <div class="spinner"></div>
+      <div class="loading-text">加载赛程数据…</div>
+    </div>
+    <div id="scheduleError" class="empty" style="display:none">⚠️ 数据加载失败，请刷新重试</div>
+    <div id="scheduleContent" style="display:none">
+      <div class="section-title">今日赛事</div>
+      <div id="todayMatches" class="matches-grid"></div>
+      <div class="section-title" style="margin-top:28px">全部赛程</div>
+      <div class="date-strip" id="dateStrip"></div>
+      <div id="dateMatches" class="matches-grid" style="margin-top:10px"></div>
     </div>
   </div>
-  <div id="scheduleError" class="error-box" style="display:none">
-    <p>加载失败，请检查网络连接</p>
-    <button onclick="init()">重新加载</button>
-  </div>
 </div>
 
-<!-- GROUPS PAGE -->
+<!-- ─── GROUPS ────────────────────────────────────── -->
 <div class="page" id="page-groups">
-  <div id="groupsContent" class="groups-grid" style="margin-top:8px"></div>
+  <div class="container">
+    <div class="section-title">小组赛分组</div>
+    <div id="groupsContent" class="groups-grid"></div>
+  </div>
 </div>
 
-<!-- TEAMS PAGE -->
+<!-- ─── TEAMS ─────────────────────────────────────── -->
 <div class="page" id="page-teams">
-  <div class="teams-filter" id="teamsFilter"></div>
-  <div class="teams-grid" id="teamsGrid"></div>
+  <div class="container">
+    <div class="section-title">参赛球队</div>
+    <div class="teams-filter" id="teamsFilter"></div>
+    <div id="teamsGrid" class="teams-grid"></div>
+  </div>
 </div>
 
-<!-- NEWS PAGE -->
+<!-- ─── NEWS ──────────────────────────────────────── -->
 <div class="page" id="page-news">
-  <div class="news-grid" id="newsGrid">
-    <div class="loading"><div class="spinner"></div><span>加载资讯...</span></div>
+  <div class="container">
+    <div class="section-title">赛事资讯</div>
+    <div id="newsGrid" class="news-grid"></div>
   </div>
 </div>
 
-<!-- PREDICT PAGE -->
+<!-- ─── PREDICT ───────────────────────────────────── -->
 <div class="page" id="page-predict">
-  <div id="predictLoading" class="loading"><div class="spinner"></div><span>加载预测...</span></div>
-  <div id="predictContent" style="display:none"></div>
-  <div id="predictEmpty" class="empty" style="display:none">今日暂无预测数据</div>
+  <div class="container">
+    <div class="section-title">AI 赛果预测</div>
+    <div id="predictLoading" class="loading" style="display:none">
+      <div class="spinner"></div>
+      <div class="loading-text">加载预测数据…</div>
+    </div>
+    <div id="predictContent"></div>
+    <div id="predictEmpty" class="empty" style="display:none">今日暂无预测数据</div>
+  </div>
 </div>
 
-<!-- STATS PAGE -->
+<!-- ─── STATS ─────────────────────────────────────── -->
 <div class="page" id="page-stats">
-  <div id="statsContent">
-    <div class="stats-grid" id="statsCards"></div>
-    <div class="chart-wrap"><h3>📊 预测准确率趋势</h3><canvas id="accuracyChart" height="160"></canvas></div>
+  <div class="container">
+    <div class="section-title">预测战绩</div>
+    <div id="statsCards" class="stats-grid"></div>
+    <div class="chart-wrap">
+      <h3>准确率趋势</h3>
+      <canvas id="accuracyChart" height="200"></canvas>
+    </div>
   </div>
 </div>
 
-<!-- ARCHIVE PAGE -->
+<!-- ─── ARCHIVE ───────────────────────────────────── -->
 <div class="page" id="page-archive">
-  <div class="archive-list" id="archiveList">
-    <div class="loading"><div class="spinner"></div><span>加载归档...</span></div>
+  <div class="container">
+    <div class="section-title">历史归档</div>
+    <div id="archiveList" class="archive-list"></div>
   </div>
 </div>
 
-</div><!-- /container -->
-
-<!-- TEAM MODAL -->
+<!-- ─── TEAM MODAL ────────────────────────────────── -->
 <div class="modal-overlay" id="teamModal">
   <div class="modal">
-    <div class="modal-close">
+    <div class="modal-header">
       <h2 id="teamModalTitle">球队详情</h2>
-      <button onclick="closeModal('teamModal')">✕</button>
+      <button class="modal-close-btn" onclick="closeModal('teamModal')">✕</button>
     </div>
     <div class="modal-body" id="teamModalBody"></div>
   </div>
 </div>
 
-<!-- MATCH MODAL -->
+<!-- ─── MATCH MODAL ───────────────────────────────── -->
 <div class="modal-overlay" id="matchModal">
   <div class="modal">
-    <div class="modal-close">
+    <div class="modal-header">
       <h2 id="matchModalTitle">赛事详情</h2>
-      <button onclick="closeModal('matchModal')">✕</button>
+      <button class="modal-close-btn" onclick="closeModal('matchModal')">✕</button>
     </div>
     <div class="modal-body" id="matchModalBody"></div>
   </div>
 </div>
 
-<!-- NEWS MODAL -->
+<!-- ─── NEWS MODAL ────────────────────────────────── -->
 <div class="modal-overlay" id="newsModal">
   <div class="modal">
-    <div class="modal-close">
+    <div class="modal-header">
       <h2 id="newsModalTitle">资讯详情</h2>
-      <button onclick="closeModal('newsModal')">✕</button>
+      <button class="modal-close-btn" onclick="closeModal('newsModal')">✕</button>
     </div>
-    <div class="modal-body" id="newsModalBody" style="font-size:.85rem;line-height:1.7;color:var(--text2)"></div>
+    <div class="modal-body" id="newsModalBody"></div>
   </div>
 </div>
 
@@ -481,7 +996,7 @@ function matchCardHTML(m){
     <div class="match-center">
       <div class="match-score">${score}</div>
       <div class="match-meta">${badge}</div>
-      <div class="match-meta" style="font-size:.65rem;color:var(--text3)">${m.venue||''}</div>
+      <div class="match-meta" style="font-size:.65rem;color:var(--t3)">${m.venue||''}</div>
     </div>
     <div class="team-side right">
       <div class="team-flag">${aFlag}</div>
@@ -508,7 +1023,7 @@ function renderGroups(){
       </tr>`;
     }).join('');
     return `<div class="group-card">
-      <div class="group-header">小组 ${g}</div>
+      <div class="group-header"><div class="group-letter">${g}</div><div class="group-title">第${g}组</div></div>
       <table class="group-table">
         <thead><tr><th>球队</th><th>排名</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>分</th></tr></thead>
         <tbody>${rows}</tbody>
@@ -573,27 +1088,33 @@ function openTeamModal(codeOrName){
   }).join('');
 
   document.getElementById('teamModalBody').innerHTML = `
-    <div class="team-modal-hero">
-      <div class="team-modal-flag">${t.flag}</div>
-      <div class="team-modal-info">
-        <h3>${t.name} (${t.nameEn})</h3>
+    <div class="tm-hero">
+      <div class="tm-hero-flag">${t.flag}</div>
+      <div class="tm-hero-info">
+        <h3>${t.name} <span style="font-weight:400;color:var(--t2)">(${t.nameEn})</span></h3>
         <p>小组 ${t.group} · FIFA第${t.fifaRank}名</p>
         <p>主帅：${t.coach} · 阵型：${t.formation}</p>
-        <p style="margin-top:4px;color:var(--accent)">🏆 ${t.bestFinish}</p>
+        <p class="best">🏆 ${t.bestFinish}</p>
       </div>
     </div>
-    <div class="modal-meta-grid">
-      <div class="modal-meta-item"><div class="label">联合会</div><div class="value">${t.confederation}</div></div>
-      <div class="modal-meta-item"><div class="label">核心球员</div><div class="value">⭐ ${t.starPlayer}</div></div>
-      <div class="modal-meta-item"><div class="label">打法特点</div><div class="value" style="font-size:.75rem">${t.formation}</div></div>
-      <div class="modal-meta-item"><div class="label">历史最佳</div><div class="value" style="font-size:.75rem">${t.bestFinish}</div></div>
+    <div class="meta-grid">
+      <div class="meta-item"><div class="ml">联合会</div><div class="mv">${t.confederation}</div></div>
+      <div class="meta-item"><div class="ml">核心球员</div><div class="mv" style="color:var(--green)">⭐ ${t.starPlayer}</div></div>
+      <div class="meta-item"><div class="ml">主要阵型</div><div class="mv">${t.formation}</div></div>
+      <div class="meta-item"><div class="ml">历史最佳</div><div class="mv" style="font-size:.75rem;color:var(--gold-light)">${t.bestFinish}</div></div>
     </div>
-    <div class="section-title" style="margin-top:0">队伍概况</div>
-    <div class="analysis-box" style="margin-bottom:14px">${t.overview||''}</div>
-    <div class="section-title" style="margin-top:0">世界杯历史</div>
-    <div class="analysis-box" style="margin-bottom:14px">${t.wcHistory||''}</div>
-    <div class="section-title" style="margin-top:0">关键球员</div>
-    <div class="players-list">${players}</div>
+    <div class="tm-section">
+      <div class="tm-section-title">队伍概况</div>
+      <div class="tm-text">${t.overview||''}</div>
+    </div>
+    <div class="tm-section">
+      <div class="tm-section-title">世界杯历史</div>
+      <div class="tm-text">${t.wcHistory||''}</div>
+    </div>
+    <div class="tm-section">
+      <div class="tm-section-title">关键球员</div>
+      <div class="players-list">${players}</div>
+    </div>
   `;
   openModal('teamModal');
 }
@@ -629,56 +1150,55 @@ async function openMatchModal(id){
     const h=p.home||33,dr=p.draw||33,a=p.away||34;
     const sc = pred.predictions.fable5?pred.predictions.fable5.score:'';
     predHTML = `
-      <div class="section-title" style="margin-top:0">预测概率</div>
-      <div class="odds-grid">
-        <div class="odds-box"><div class="ol">${hName}胜</div><div class="ov" style="color:#3b82f6">${h}%</div></div>
-        <div class="odds-box"><div class="ol">平局</div><div class="ov" style="color:#6b7280">${dr}%</div></div>
-        <div class="odds-box"><div class="ol">${aName}胜</div><div class="ov" style="color:#ef4444">${a}%</div></div>
-      </div>
-      <div class="prob-bar-wrap">
-        <div class="label"><span>${hName}</span><span>平</span><span>${aName}</span></div>
-        <div class="prob-bar">
-          <div style="background:#3b82f6;width:${h}%"></div>
-          <div style="background:#6b7280;width:${dr}%"></div>
-          <div style="background:#ef4444;width:${a}%"></div>
+      <div class="prob-section">
+        <div class="prob-header">AI 预测概率</div>
+        <div class="prob-three">
+          <div class="prob-box"><div class="pval" style="color:var(--blue)">${h}%</div><div class="pnam">${hName}胜</div></div>
+          <div class="prob-box"><div class="pval" style="color:#6b7280">${dr}%</div><div class="pnam">平局</div></div>
+          <div class="prob-box"><div class="pval" style="color:var(--red)">${a}%</div><div class="pnam">${aName}胜</div></div>
+        </div>
+        <div class="prob-bars-row">
+          <div class="prob-h" style="flex:${h}"></div>
+        <div class="prob-d" style="flex:${dr}"></div>
+        <div class="prob-a" style="flex:${a}"></div>
         </div>
       </div>
-      ${sc?`<div class="pred-score" style="margin-bottom:12px">🎯 预测比分：${sc}</div>`:''}
-      ${pred.analysis?`<div class="analysis-box"><h4>📋 赛前分析</h4>${pred.analysis}</div>`:''}
-      ${pred.keyRisk?`<div class="analysis-box" style="margin-top:8px;border-color:rgba(245,158,11,.3)"><h4>⚠️ 关键变数</h4>${pred.keyRisk}</div>`:''}
+      ${sc?`<div class="pred-score-modal"><div class="l">🎯 AI预测比分</div><div class="s">${sc}</div></div>`:''}
+      ${pred.analysis?`<div class="analysis-card"><div class="ah">📋 赛前分析</div><div class="at">${pred.analysis}</div></div>`:''}
+      ${pred.keyRisk?`<div class="analysis-card" style="border-color:rgba(245,158,11,.2)"><div class="ah" style="color:var(--gold-light)">⚠️ 关键变数</div><div class="at">${pred.keyRisk}</div></div>`:''}
     `;
   }
 
   document.getElementById('matchModalTitle').textContent = hName+' vs '+aName;
   document.getElementById('matchModalBody').innerHTML = `
-    <div class="match-modal-hero">
-      <div class="match-modal-team">
-        <div class="match-modal-flag">${hFlag}</div>
-        <div class="match-modal-name">${hName}</div>
-        ${hTeam.fifaRank?`<div style="font-size:.7rem;color:var(--text3)">FIFA #${hTeam.fifaRank}</div>`:''}
+    <div class="mm-hero">
+      <div class="mm-team">
+        <div class="mm-flag">${hFlag}</div>
+        <div class="mm-tname">${hName}</div>
+        ${hTeam.fifaRank?`<div class="mm-rank">FIFA #${hTeam.fifaRank}</div>`:''}
       </div>
-      <div>
-        <div class="match-modal-score">${score}</div>
-        <div class="match-modal-time">北京时间 ${bjDate} ${bjTime}</div>
-        <div style="font-size:.72rem;color:var(--text3);margin-top:4px">${m.venue||''}</div>
-        ${m.group?`<div style="font-size:.72rem;color:var(--accent2);margin-top:2px">小组 ${m.group}</div>`:''}
+      <div class="mm-center">
+        <div class="mm-score">${score}</div>
+        <div class="mm-time">${bjDate} ${bjTime} BJ</div>
+        <div class="mm-venue">${m.venue||''}</div>
+        ${m.group?`<div class="mm-badge">小组 ${m.group}</div>`:''}
       </div>
-      <div class="match-modal-team">
-        <div class="match-modal-flag">${aFlag}</div>
-        <div class="match-modal-name">${aName}</div>
-        ${aTeam.fifaRank?`<div style="font-size:.7rem;color:var(--text3)">FIFA #${aTeam.fifaRank}</div>`:''}
+      <div class="mm-team">
+        <div class="mm-flag">${aFlag}</div>
+        <div class="mm-tname">${aName}</div>
+        ${aTeam.fifaRank?`<div class="mm-rank">FIFA #${aTeam.fifaRank}</div>`:''}
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
-      <div class="analysis-box" onclick="openTeamModal('${m.home}')" style="cursor:pointer;text-align:center">
-        <div style="font-size:.7rem;color:var(--text3);margin-bottom:4px">主队阵容</div>
-        <div style="font-size:.8rem;color:var(--accent2)">🔍 查看 ${hName}</div>
-        ${hTeam.starPlayer?`<div style="font-size:.72rem;color:var(--accent3);margin-top:2px">⭐ ${hTeam.starPlayer}</div>`:''}
+    <div class="team-links">
+      <div class="team-link-btn" onclick="closeModal('matchModal');openTeamModal('${m.home}')">
+        <div class="ll">主队详情</div>
+        <div class="ln">🔍 ${hName}</div>
+        ${hTeam.starPlayer?`<div class="ls">⭐ ${hTeam.starPlayer}</div>`:''}
       </div>
-      <div class="analysis-box" onclick="openTeamModal('${m.away}')" style="cursor:pointer;text-align:center">
-        <div style="font-size:.7rem;color:var(--text3);margin-bottom:4px">客队阵容</div>
-        <div style="font-size:.8rem;color:var(--accent2)">🔍 查看 ${aName}</div>
-        ${aTeam.starPlayer?`<div style="font-size:.72rem;color:var(--accent3);margin-top:2px">⭐ ${aTeam.starPlayer}</div>`:''}
+      <div class="team-link-btn" onclick="closeModal('matchModal');openTeamModal('${m.away}')">
+        <div class="ll">客队详情</div>
+        <div class="ln">🔍 ${aName}</div>
+        ${aTeam.starPlayer?`<div class="ls">⭐ ${aTeam.starPlayer}</div>`:''}
       </div>
     </div>
     ${predHTML}
@@ -690,12 +1210,16 @@ async function openMatchModal(id){
 function renderNews(){
   const el = document.getElementById('newsGrid');
   const news = buildNewsItems();
+  const accentColor = (cls)=>cls==='tag-predict'?'var(--blue)':cls==='tag-review'?'var(--green)':'var(--gold)';
   el.innerHTML = news.map((n,i)=>`
     <div class="news-card" onclick="openNewsModal(${i})">
-      <div class="news-tag ${n.tagCls}">${n.tag}</div>
-      <div class="news-title">${n.title}</div>
-      <div class="news-excerpt">${n.excerpt}</div>
-      <div class="news-footer"><span>${n.time}</span><span>${n.source}</span></div>
+      <div class="news-card-accent" style="background:${accentColor(n.tagCls)}"></div>
+      <div class="news-card-body">
+        <div class="news-tag ${n.tagCls}">${n.tag}</div>
+        <div class="news-title">${n.title}</div>
+        <div class="news-excerpt">${n.excerpt}</div>
+        <div class="news-footer"><span>${n.time}</span><span>${n.source}</span></div>
+      </div>
     </div>
   `).join('');
 }
@@ -723,10 +1247,10 @@ function openNewsModal(idx){
   document.getElementById('newsModalTitle').textContent = n.title;
   document.getElementById('newsModalBody').innerHTML = `
     <div style="margin-bottom:12px"><span class="news-tag ${n.tagCls}">${n.tag}</span></div>
-    <h2 style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:12px;line-height:1.5">${n.title}</h2>
-    <p style="margin-bottom:12px">${n.excerpt}</p>
-    <p>这场比赛/资讯将持续更新。所有预测数据均由AI模型Fable5基于历史数据、当前状态、阵容信息和战术分析生成。预测仅供参考，实际比赛结果存在不确定性。</p>
-    <div class="news-footer" style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border)">${n.time} · ${n.source}</div>
+    <h2 style="font-size:1rem;font-weight:700;color:var(--t1);margin-bottom:14px;line-height:1.5">${n.title}</h2>
+    <div class="news-modal-content"><p>${n.excerpt}</p>
+    <p>所有预测数据均由AI模型Fable5基于历史数据、当前状态、阵容信息和战术分析生成，仅供参考，不构成投注建议。实际结果存在不确定性。</p></div>
+    <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--glass-border);font-size:.68rem;color:var(--t3)">${n.time} · ${n.source}</div>
   `;
   openModal('newsModal');
 }
@@ -761,21 +1285,21 @@ function predCardHTML(m){
         <div class="pred-vs">VS</div>
         <div class="pred-team"><div class="pred-flag">${aTeam.flag||'🏳️'}</div><div class="pred-name">${aTeam.name||m.away}</div></div>
       </div>
-      <div class="pred-time">${m.kickoffBeijing?m.kickoffBeijing.slice(11,16)+' 北京时间':''}</div>
+      <div class="pred-time">⏰ ${m.kickoffBeijing?m.kickoffBeijing.slice(5,10)+' '+m.kickoffBeijing.slice(11,16)+' BJ':''}</div>
     </div>
     <div class="pred-body">
-      <div class="pred-bars">
-        <div class="pred-bar-h" style="width:${h}%"></div>
-        <div class="pred-bar-d" style="width:${dr}%"></div>
-        <div class="pred-bar-a" style="width:${a}%"></div>
+      <div class="pred-bar-row">
+        <div class="pred-bar-h" style="flex:${h}"></div>
+        <div class="pred-bar-d" style="flex:${dr}"></div>
+        <div class="pred-bar-a" style="flex:${a}"></div>
       </div>
       <div class="pred-probs">
-        <span style="color:#3b82f6">${h}%</span>
-        <span style="color:#6b7280">${dr}%</span>
-        <span style="color:#ef4444">${a}%</span>
+        <div class="pred-prob-item"><div class="pct" style="color:var(--blue)">${h}%</div><div class="plbl">主胜</div></div>
+        <div class="pred-prob-item"><div class="pct" style="color:#6b7280">${dr}%</div><div class="plbl">平局</div></div>
+        <div class="pred-prob-item"><div class="pct" style="color:var(--red)">${a}%</div><div class="plbl">客胜</div></div>
       </div>
-      <div class="pred-score">🎯 ${score}</div>
-      ${m.analysis?`<div class="pred-analysis">${m.analysis.slice(0,120)}...</div>`:''}
+      <div class="pred-score-box"><span class="lbl">AI预测</span><span class="score">${score}</span></div>
+      ${m.analysis?`<div class="pred-analysis">${m.analysis.slice(0,110)}…</div>`:''}
     </div>
   </div>`;
 }
@@ -898,8 +1422,3 @@ document.addEventListener('keydown', e=>{
   }
 });
 
-// ─── BOOT ────────────────────────────────────────────────────────────────────
-init();
-</script>
-</body>
-</html>
