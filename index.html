@@ -4,51 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>世界杯 2026 · 预测站</title>
-<!-- Chart.js loaded on demand to avoid render-blocking -->
 <style>
-/* ─── Design Tokens ─── */
-:root{
-  --bg:#080c14;--surface:#0f1623;--card:#141d2e;--card2:#1a2438;
-  --border:#1e2d45;--border2:#243450;
-  --text:#e8eef8;--muted:#6b7fa0;--faint:#3a4a65;
-  --gold:#f0c040;--gold2:#d4a820;
-  --blue:#3d8ef0;--blue2:#2570d0;
-  --green:#34c972;--red:#f05060;--orange:#f08030;
-  --conf-UEFA:#3d8ef0;--conf-CONMEBOL:#34c972;--conf-CAF:#f0c040;
-  --conf-AFC:#e05080;--conf-CONCACAF:#a060f0;--conf-OFC:#40c0d0;
-  --r:10px;--r-sm:6px;
-  --shadow:0 4px 24px rgba(0,0,0,.5);
-  --glow:0 0 20px rgba(61,142,240,.25);
-}
+:root{--bg:#080c14;--card:#141d2e;--card2:#1a2438;--border:#1e2d45;--border2:#243450;--text:#e8eef8;--muted:#6b7fa0;--faint:#3a4a65;--gold:#f0c040;--blue:#3d8ef0;--blue2:#2570d0;--green:#34c972;--red:#f05060;--orange:#f08030;--conf-UEFA:#3d8ef0;--conf-CONMEBOL:#34c972;--conf-CAF:#f0c040;--conf-AFC:#e05080;--conf-CONCACAF:#a060f0;--conf-OFC:#40c0d0;--r:10px;--r-sm:6px;--shadow:0 4px 24px rgba(0,0,0,.5)}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
-a{color:inherit;text-decoration:none}
-button{cursor:pointer;font-family:inherit}
-
-/* ─── Scrollbar ─── */
-::-webkit-scrollbar{width:4px;height:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-
-/* ─── Top Nav ─── */
-#topnav{position:sticky;top:0;z-index:100;background:rgba(8,12,20,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0;padding:0 20px;height:54px}
-.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;margin-right:28px;color:var(--gold)}
-.nav-logo span{font-size:1.4rem}
+a{color:inherit;text-decoration:none}button{cursor:pointer;font-family:inherit}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+#topnav{position:sticky;top:0;z-index:100;background:rgba(8,12,20,.95);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;height:54px}
+.nav-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.1rem;margin-right:24px;color:var(--gold)}
 .nav-tabs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
 .nav-tabs::-webkit-scrollbar{display:none}
 .nav-tab{padding:8px 16px;border:none;background:none;color:var(--muted);font-size:.9rem;white-space:nowrap;border-radius:var(--r-sm);transition:all .2s}
 .nav-tab:hover{color:var(--text);background:var(--border)}
 .nav-tab.active{color:var(--gold);background:rgba(240,192,64,.1);font-weight:600}
-.nav-right{display:flex;align-items:center;gap:8px;margin-left:auto;padding-left:16px}
-#clockDisplay{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;min-width:80px;text-align:right}
-
-/* ─── Hero ─── */
-#hero{background:linear-gradient(160deg,#0d1a35 0%,#081020 50%,var(--bg) 100%);border-bottom:1px solid var(--border);padding:28px 20px 24px;position:relative;overflow:hidden}
-#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(61,142,240,.08) 0%,transparent 70%)}
-.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+#clockDisplay{font-size:.8rem;color:var(--muted);margin-left:auto;padding-left:16px}
+#hero{background:linear-gradient(160deg,#0d1a35 0%,#081020 50%,var(--bg) 100%);border-bottom:1px solid var(--border);padding:28px 20px 24px}
+.hero-inner{max-width:1100px;margin:0 auto}
 .hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.hero-title{font-size:clamp(1.4rem,4vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.2}
+.hero-title{font-size:clamp(1.4rem,4vw,2.2rem);font-weight:800;letter-spacing:-.5px}
 .hero-title em{color:var(--gold);font-style:normal}
 .hero-sub{color:var(--muted);font-size:.88rem;margin-top:4px}
 .hero-countdown{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
@@ -58,39 +31,20 @@ button{cursor:pointer;font-family:inherit}
 .hero-today{margin-top:20px}
 .hero-today-title{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px}
 .today-matches{display:flex;gap:10px;flex-wrap:wrap}
-
-/* ─── Live badge ─── */
+.match-pill{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;display:flex;align-items:center;gap:10px;min-width:180px;cursor:pointer;transition:border-color .2s}
+.match-pill:hover{border-color:var(--border2)}
+.pill-teams{font-size:.9rem;font-weight:600}
+.pill-meta{font-size:.72rem;color:var(--muted);margin-top:2px}
 .live-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(240,80,96,.15);color:var(--red);border:1px solid rgba(240,80,96,.3);border-radius:20px;padding:2px 8px;font-size:.72rem;font-weight:700}
 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-
-/* ─── Match Pill (hero) ─── */
-.match-pill{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;display:flex;align-items:center;gap:10px;min-width:200px;transition:border-color .2s;cursor:pointer}
-.match-pill:hover{border-color:var(--border2)}
-.match-pill.live-match{border-color:rgba(240,80,96,.4);box-shadow:0 0 12px rgba(240,80,96,.15)}
-.pill-teams{display:flex;align-items:center;gap:6px;font-size:.9rem;font-weight:600}
-.pill-flag{font-size:1.1rem}
-.pill-vs{color:var(--muted);font-size:.75rem;font-weight:400}
-.pill-meta{font-size:.72rem;color:var(--muted);margin-top:2px}
-.pill-score{background:var(--card2);border-radius:var(--r-sm);padding:2px 8px;font-weight:700;font-size:.9rem;color:var(--gold)}
-
-/* ─── Main Layout ─── */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 #app{max-width:1100px;margin:0 auto;padding:20px}
-
-/* ─── Page ─── */
-.page{display:none}
-.page.active{display:block}
-
-/* ─── Section title ─── */
+.page{display:none}.page.active{display:block}
 .sec-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
-
-/* ─── View Switcher ─── */
 .view-switch{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
 .view-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:20px;font-size:.82rem;transition:all .2s}
 .view-btn.active{background:rgba(61,142,240,.15);border-color:var(--blue);color:var(--blue);font-weight:600}
-
-/* ─── Date Strip ─── */
 .date-strip{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:16px}
 .date-strip::-webkit-scrollbar{display:none}
 .date-chip{flex-shrink:0;padding:6px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);font-size:.8rem;color:var(--muted);cursor:pointer;transition:all .2s;text-align:center}
@@ -98,10 +52,8 @@ button{cursor:pointer;font-family:inherit}
 .date-chip.active{background:rgba(61,142,240,.15);border-color:var(--blue);color:var(--blue);font-weight:600}
 .date-chip .dc-day{font-weight:700;font-size:.85rem}
 .date-chip .dc-sub{font-size:.68rem;opacity:.7}
-
-/* ─── Match Card ─── */
-.match-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:8px;transition:border-color .2s,transform .15s;cursor:pointer;position:relative;overflow:hidden}
-.match-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--border2);transition:background .2s}
+.match-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:8px;cursor:pointer;position:relative;overflow:hidden;transition:border-color .2s,transform .15s}
+.match-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--border2)}
 .match-card:hover{border-color:var(--border2);transform:translateY(-1px)}
 .match-card:hover::before{background:var(--blue)}
 .match-card.has-prediction::before{background:var(--gold)}
@@ -121,25 +73,413 @@ button{cursor:pointer;font-family:inherit}
 .mc-conf{font-size:.65rem;color:var(--muted)}
 .mc-center{display:flex;flex-direction:column;align-items:center;gap:4px}
 .mc-score{font-size:1.3rem;font-weight:800;color:var(--gold);letter-spacing:2px;min-width:70px;text-align:center}
-.mc-time{font-size:.78rem;color:var(--muted)}
-.mc-venue{font-size:.7rem;color:var(--faint);margin-top:8px;text-align:center}
-/* prediction preview inside card */
-.mc-pred{margin-top:10px;padding-top:10px;border-top:1px solid var(--border);display:flex;gap:6px;align-items:center}
-.pred-bar{flex:1;height:6px;border-radius:3px;overflow:hidden;display:flex}
-.pred-bar .ph{background:var(--blue)}.pred-bar .pd{background:var(--faint)}.pred-bar .pa{background:var(--red)}
-.pred-label{font-size:.72rem;color:var(--muted);white-space:nowrap}
-.pred-score{font-size:.78rem;color:var(--gold);font-weight:600;white-space:nowrap}
-
-/* ─── Group Grid ─── */
 .group-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
 .group-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
 .group-header{background:rgba(61,142,240,.1);border-bottom:1px solid var(--border);padding:8px 14px;display:flex;align-items:center;gap:8px}
 .group-letter{font-size:1.2rem;font-weight:800;color:var(--blue)}
 .group-subtitle{font-size:.72rem;color:var(--muted)}
 .group-table{width:100%;border-collapse:collapse;font-size:.82rem}
-.group-table th{padding:4px 10px;text-align:center;color:var(--faint);font-weight:500;font-size:.68rem;text-transform:uppercase;border-bottom:1px solid var(--border)}
+.group-table th{padding:4px 10px;text-align:center;color:var(--faint);font-weight:500;font-size:.68rem;border-bottom:1px solid var(--border)}
 .group-table th:first-child{text-align:left}
 .group-table td{padding:7px 10px;border-bottom:1px solid var(--border);text-align:center}
 .group-table td:first-child{text-align:left}
 .group-table tr:last-child td{border-bottom:none}
-.group-table .team-cell{display:flex;align-items:center;gap:6p
+.group-table .team-cell{display:flex;align-items:center;gap:6px}
+.group-table .pts{font-weight:700;color:var(--gold)}
+.qualify-indicator{width:3px;height:16px;border-radius:2px;flex-shrink:0}
+.qi-1,.qi-2{background:var(--green)}.qi-3rd{background:var(--orange);opacity:.7}.qi-out{background:transparent}
+.teams-search{width:100%;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:10px 14px;color:var(--text);font-size:.9rem;margin-bottom:14px;outline:none}
+.teams-search:focus{border-color:var(--blue)}
+.teams-search::placeholder{color:var(--muted)}
+.conf-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.cf-btn{padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:.78rem}
+.cf-UEFA.active{background:rgba(61,142,240,.12);border-color:var(--conf-UEFA);color:var(--conf-UEFA)}
+.cf-CONMEBOL.active{background:rgba(52,201,114,.12);border-color:var(--conf-CONMEBOL);color:var(--conf-CONMEBOL)}
+.cf-CAF.active{background:rgba(240,192,64,.12);border-color:var(--conf-CAF);color:var(--conf-CAF)}
+.cf-AFC.active{background:rgba(224,80,128,.12);border-color:var(--conf-AFC);color:var(--conf-AFC)}
+.cf-CONCACAF.active{background:rgba(160,96,240,.12);border-color:var(--conf-CONCACAF);color:var(--conf-CONCACAF)}
+.cf-OFC.active{background:rgba(64,192,208,.12);border-color:var(--conf-OFC);color:var(--conf-OFC)}
+.teams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.team-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px 12px;text-align:center;cursor:pointer;transition:all .2s}
+.team-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.team-card .tf{font-size:2.8rem;line-height:1.2}
+.team-card .tn{font-size:.82rem;font-weight:600;margin-top:4px}
+.team-card .tg{font-size:.7rem;color:var(--muted)}
+.team-card .tc-bar{height:2px;border-radius:1px;margin-top:8px}
+.conf-bar-UEFA{background:var(--conf-UEFA)}.conf-bar-CONMEBOL{background:var(--conf-CONMEBOL)}.conf-bar-CAF{background:var(--conf-CAF)}.conf-bar-AFC{background:var(--conf-AFC)}.conf-bar-CONCACAF{background:var(--conf-CONCACAF)}.conf-bar-OFC{background:var(--conf-OFC)}
+.pred-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:12px}
+.pred-card.has-result{border-left:3px solid var(--green)}
+.pred-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.pred-match-title{font-size:1.05rem;font-weight:700}
+.pred-match-sub{font-size:.75rem;color:var(--muted);margin-top:2px}
+.prob-table{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0}
+.prob-table th,.prob-table td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:center}
+.prob-table th{color:var(--muted);font-weight:500;font-size:.75rem}
+.prob-table td:first-child,.prob-table th:first-child{text-align:left}
+.prob-table tr:last-child td{border-bottom:none}
+.src-fable5{color:var(--gold);font-weight:700}
+.prob-vis{height:24px;border-radius:4px;overflow:hidden;display:flex}
+.prob-vis .pv-h{background:var(--blue)}.prob-vis .pv-d{background:var(--faint)}.prob-vis .pv-a{background:var(--red)}
+.score-pill{display:inline-block;background:rgba(240,192,64,.12);color:var(--gold);border:1px solid rgba(240,192,64,.3);border-radius:5px;padding:1px 8px;font-weight:700;font-size:.85rem}
+.analysis-block{font-size:.84rem;color:var(--muted);border-left:3px solid var(--blue);padding:8px 12px;margin:10px 0;background:rgba(61,142,240,.05);border-radius:0 var(--r-sm) var(--r-sm) 0;line-height:1.7}
+.key-risk{font-size:.8rem;color:var(--orange);margin-top:6px}
+.result-block{background:rgba(52,201,114,.07);border:1px solid rgba(52,201,114,.2);border-radius:var(--r-sm);padding:8px 12px;margin-top:10px;font-size:.85rem;display:flex;gap:12px;flex-wrap:wrap}
+.rb-hit{color:var(--green)}.rb-miss{color:var(--red)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center}
+.stat-box .s-num{font-size:1.7rem;font-weight:800;color:var(--gold);line-height:1}
+.stat-box .s-lbl{font-size:.72rem;color:var(--muted);margin-top:4px}
+.compare-table{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:16px}
+.compare-table table{width:100%;border-collapse:collapse;font-size:.88rem}
+.compare-table th,.compare-table td{padding:10px 14px;border-bottom:1px solid var(--border);text-align:center}
+.compare-table th{background:var(--card2);color:var(--muted);font-weight:500;font-size:.75rem}
+.compare-table td:first-child,.compare-table th:first-child{text-align:left}
+.compare-table tr:last-child td{border-bottom:none}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:12px}
+.chart-title{font-size:.82rem;color:var(--muted);margin-bottom:12px}
+canvas{max-height:280px}
+.archive-list .archive-row{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);margin-bottom:6px;cursor:pointer;transition:all .2s}
+.archive-list .archive-row:hover{border-color:var(--border2);background:var(--card2)}
+.ar-date{font-weight:600;font-size:.9rem}.ar-count{font-size:.78rem;color:var(--muted)}.ar-arrow{color:var(--blue);font-size:1.1rem}
+footer{text-align:center;color:var(--faint);font-size:.72rem;padding:28px 20px;border-top:1px solid var(--border);margin-top:28px;line-height:2}
+footer a{color:var(--muted)}
+.empty{text-align:center;padding:48px 0;color:var(--muted)}
+.empty .e-icon{font-size:2.5rem;opacity:.4;margin-bottom:8px}
+.empty p{font-size:.88rem}
+@media(max-width:600px){.mc-flag{font-size:1.5rem}.mc-score{font-size:1rem;min-width:56px}.hero-title{font-size:1.3rem}.teams-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}}
+</style>
+</head>
+<body>
+<nav id="topnav">
+  <div class="nav-logo"><span>&#x26BD;</span>世界杯 2026</div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-page="schedule">赛程</button>
+    <button class="nav-tab" data-page="groups">小组</button>
+    <button class="nav-tab" data-page="teams">球队</button>
+    <button class="nav-tab" data-page="predict">预测</button>
+    <button class="nav-tab" data-page="stats">战绩</button>
+    <button class="nav-tab" data-page="archive">归档</button>
+  </div>
+  <div id="clockDisplay"></div>
+</nav>
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div>
+        <div class="hero-title">FIFA <em>世界杯 2026</em></div>
+        <div class="hero-sub">加拿大 &middot; 墨西哥 &middot; 美国 &middot; 48支球队 &middot; 104场比赛</div>
+      </div>
+      <div>
+        <div style="font-size:.72rem;color:var(--muted);margin-bottom:6px;text-align:right">距决赛倒计时</div>
+        <div class="hero-countdown" id="countdown"></div>
+      </div>
+    </div>
+    <div id="heroToday" style="margin-top:20px"></div>
+  </div>
+</section>
+<div id="app">
+  <div class="page active" id="page-schedule">
+    <div class="view-switch" id="scheduleView">
+      <button class="view-btn active" data-view="date">按日期</button>
+      <button class="view-btn" data-view="group">按小组</button>
+      <button class="view-btn" data-view="venue">按球场</button>
+    </div>
+    <div id="dateStrip" class="date-strip"></div>
+    <div id="scheduleContent"></div>
+  </div>
+  <div class="page" id="page-groups"><div class="group-grid" id="groupGrid"></div></div>
+  <div class="page" id="page-teams">
+    <input class="teams-search" id="teamSearch" placeholder="搜索球队..." type="text">
+    <div class="conf-filter" id="confFilter">
+      <button class="cf-btn active" data-conf="ALL">全部 (48)</button>
+      <button class="cf-btn cf-UEFA" data-conf="UEFA">UEFA</button>
+      <button class="cf-btn cf-CONMEBOL" data-conf="CONMEBOL">CONMEBOL</button>
+      <button class="cf-btn cf-CAF" data-conf="CAF">CAF</button>
+      <button class="cf-btn cf-AFC" data-conf="AFC">AFC</button>
+      <button class="cf-btn cf-CONCACAF" data-conf="CONCACAF">CONCACAF</button>
+      <button class="cf-btn cf-OFC" data-conf="OFC">OFC</button>
+    </div>
+    <div class="teams-grid" id="teamsGrid"></div>
+  </div>
+  <div class="page" id="page-predict">
+    <div class="view-switch" id="predictDateSwitch"></div>
+    <div id="predictContent"></div>
+  </div>
+  <div class="page" id="page-stats">
+    <div class="stats-grid" id="statsBoxes"></div>
+    <div class="compare-table" id="compareTable"></div>
+    <div class="chart-card"><div class="chart-title">累计平均 Brier 评分走势</div><canvas id="brierChart"></canvas></div>
+  </div>
+  <div class="page" id="page-archive">
+    <div class="archive-list" id="archiveList"></div>
+    <div id="archiveDetail"></div>
+  </div>
+</div>
+<footer>本站内容为数据分析展示，<strong>仅供参考，不构成任何投注建议。</strong><br>预测由 <a href="https://www.anthropic.com" target="_blank">Claude Fable 5</a> 自动生成 &middot; 数据来源：<a href="https://theanalyst.com" target="_blank">Opta Analyst</a>、各大博彩市场公开赔率<br><a href="https://github.com/coolcatcool-code/worldcup-predict" target="_blank">GitHub ↗</a></footer>
+<script>
+var CACHE={},FX=null,IDX=null,brierChart=null;
+var FINAL_UTC=new Date('2026-07-19T19:00:00Z');
+var currentScheduleView='date',currentDateFilter=null,currentConfFilter='ALL',currentTeamSearch='';
+
+function gj(p){if(CACHE[p])return Promise.resolve(CACHE[p]);return fetch(p+'?t='+Date.now()).then(function(r){if(!r.ok)return null;return r.json().then(function(j){CACHE[p]=j;return j})}).catch(function(){return null})}
+
+function loadChartJs(){if(window.Chart)return Promise.resolve(true);return new Promise(function(res){var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';s.onload=function(){res(true)};s.onerror=function(){var s2=document.createElement('script');s2.src='https://unpkg.com/chart.js@4.4.1/dist/chart.umd.min.js';s2.onload=function(){res(true)};s2.onerror=function(){res(false)};document.head.appendChild(s2)};document.head.appendChild(s)})}
+
+function toBeijing(u){return new Date(new Date(u).getTime()+8*3600*1000)}
+function fmtDate(d){return (d.getUTCMonth()+1)+'月'+d.getUTCDate()+'日'}
+function fmtTime(d){return String(d.getUTCHours()).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0')}
+function fmtKey(d){return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0')}
+function nowBJ(){return new Date(Date.now()+8*3600*1000)}
+function todayBJ(){return fmtKey(nowBJ())}
+function isLive(u){var s=new Date(u),n=new Date();return n>=s&&n<=new Date(s.getTime()+110*60000)}
+function isFinished(u){return new Date()>new Date(new Date(u).getTime()+110*60000)}
+
+function updateClock(){var n=nowBJ();document.getElementById('clockDisplay').textContent=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+' 北京'}
+setInterval(updateClock,1000);updateClock();
+
+function updateCountdown(){
+  var diff=FINAL_UTC-Date.now();
+  if(diff<0){document.getElementById('countdown').innerHTML='<span style="color:var(--gold)">赛事已结束</span>';return}
+  var days=Math.floor(diff/864e5),hrs=Math.floor((diff%864e5)/36e5),mins=Math.floor((diff%36e5)/6e4),secs=Math.floor((diff%6e4)/1000);
+  function b(n,l){return '<div class="countdown-box"><div class="num">'+String(n).padStart(2,'0')+'</div><div class="lbl">'+l+'</div></div>'}
+  document.getElementById('countdown').innerHTML=b(days,'天')+b(hrs,'时')+b(mins,'分')+b(secs,'秒');
+}
+setInterval(updateCountdown,1000);updateCountdown();
+
+function renderHeroToday(){
+  if(!FX)return;
+  var today=todayBJ();
+  var todays=FX.matches.filter(function(m){return fmtKey(toBeijing(m.utc))===today});
+  if(!todays.length){document.getElementById('heroToday').innerHTML='';return}
+  var html='<div style="font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px">今日赛事 ('+todays.length+'场)</div><div class="today-matches">';
+  todays.forEach(function(m){
+    var hf=(FX.teams[m.home]&&FX.teams[m.home].flag)||'';
+    var af=(FX.teams[m.away]&&FX.teams[m.away].flag)||'';
+    var bj=toBeijing(m.utc),live=isLive(m.utc);
+    html+='<div class="match-pill'+(live?' live-match':'')+'" onclick="goToMatch(\''+m.id+'\')">'
+      +'<div><div class="pill-teams">'+hf+' '+m.home+' <span style="color:var(--muted);font-size:.75rem">vs</span> '+af+' '+m.away+'</div>'
+      +'<div class="pill-meta">'+(m.group?'G'+m.group+' ':'')+m.city+' '+fmtTime(bj)+'</div></div>'
+      +(live?'<span class="live-badge"><span class="live-dot"></span>直播</span>':'<span style="font-size:.78rem;color:var(--muted)">'+fmtTime(bj)+'</span>')+'</div>';
+  });
+  document.getElementById('heroToday').innerHTML=html+'</div>';
+}
+
+document.querySelectorAll('.nav-tab').forEach(function(b){b.onclick=function(){
+  document.querySelectorAll('.nav-tab').forEach(function(x){x.classList.remove('active')});
+  document.querySelectorAll('.page').forEach(function(x){x.classList.remove('active')});
+  b.classList.add('active');document.getElementById('page-'+b.dataset.page).classList.add('active');
+  renderPage(b.dataset.page);
+}});
+
+function renderPage(p){
+  if(p==='schedule')renderSchedule();
+  else if(p==='groups')renderGroups();
+  else if(p==='teams')renderTeams();
+  else if(p==='predict')renderPredict();
+  else if(p==='stats')renderStats();
+  else if(p==='archive')renderArchive();
+}
+
+function renderSchedule(){
+  if(!FX)return;
+  document.querySelectorAll('#scheduleView .view-btn').forEach(function(b){b.onclick=function(){
+    document.querySelectorAll('#scheduleView .view-btn').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');currentScheduleView=b.dataset.view;renderScheduleContent();
+  }});
+  renderDateStrip();renderScheduleContent();
+}
+
+function renderDateStrip(){
+  var dates=[...new Set(FX.matches.map(function(m){return fmtKey(toBeijing(m.utc))}))].sort();
+  var today=todayBJ();
+  if(!currentDateFilter)currentDateFilter=dates.includes(today)?today:dates[0];
+  var strip=document.getElementById('dateStrip');
+  strip.innerHTML=dates.map(function(d){
+    var p=d.split('-'),cnt=FX.matches.filter(function(m){return fmtKey(toBeijing(m.utc))===d}).length;
+    return '<div class="date-chip'+(d===currentDateFilter?' active':'')+'" data-d="'+d+'">'
+      +'<div class="dc-day">'+parseInt(p[1])+'/'+parseInt(p[2])+'</div>'
+      +'<div class="dc-sub">'+(d===today?'今日':'')+cnt+'场</div></div>';
+  }).join('');
+  strip.querySelectorAll('.date-chip').forEach(function(c){c.onclick=function(){
+    currentDateFilter=c.dataset.d;
+    strip.querySelectorAll('.date-chip').forEach(function(x){x.classList.remove('active')});
+    c.classList.add('active');renderScheduleContent();
+  }});
+}
+
+function renderScheduleContent(){
+  var c=document.getElementById('scheduleContent');
+  if(currentScheduleView==='date')c.innerHTML=renderByDate();
+  else if(currentScheduleView==='group')c.innerHTML=renderByGroup();
+  else c.innerHTML=renderByVenue();
+}
+
+function stageLabel(s){if(!s)return '';if(s.indexOf('R32')===0)return '32强赛';if(s.indexOf('R16')===0)return '16强赛';if(s.indexOf('QF')===0)return '1/4决赛';if(s.indexOf('SF')===0)return '半决赛';if(s==='3rd')return '三四名';if(s==='Final')return '决赛';return s}
+
+function matchCardHTML(m,opts){
+  opts=opts||{};
+  var t=FX.teams,hf=(t[m.home]&&t[m.home].flag)||'',af=(t[m.away]&&t[m.away].flag)||'';
+  var bj=toBeijing(m.utc),live=isLive(m.utc),fin=isFinished(m.utc);
+  var score=m.homeScore!==undefined
+    ?'<div class="mc-score">'+m.homeScore+' <span style="color:var(--faint)">-</span> '+m.awayScore+'</div>'
+    :'<div class="mc-score" style="color:var(--muted);font-size:.95rem">'+fmtTime(bj)+'</div>';
+  var badge=m.group?'<span class="mc-badge group-badge">G'+m.group+'</span>':'<span class="mc-badge stage-badge">'+stageLabel(m.round||m.slot||'')+'</span>';
+  return '<div class="match-card'+(live?' live-match':'')+(opts.hasPred?' has-prediction':'')+'" id="mc-'+m.id+'">'
+    +'<div class="mc-header"><div class="mc-meta">'+badge+' '+m.city+(live?'<span class="live-badge"><span class="live-dot"></span>直播</span>':'')+'</div>'
+    +'<div style="font-size:.72rem;color:var(--muted)">'+fmtDate(bj)+' '+fmtTime(bj)+'（北京）</div></div>'
+    +'<div class="mc-body"><div class="mc-team home"><div class="mc-flag">'+hf+'</div><div class="mc-name">'+m.home+'</div><div class="mc-conf">'+((t[m.home]&&t[m.home].confederation)||'')+'</div></div>'
+    +'<div class="mc-center">'+score+'<div style="font-size:.65rem;color:var(--faint)">'+m.venue+'</div></div>'
+    +'<div class="mc-team away"><div class="mc-flag">'+af+'</div><div class="mc-name">'+m.away+'</div><div class="mc-conf">'+((t[m.away]&&t[m.away].confederation)||'')+'</div></div>'
+    +'</div></div>';
+}
+
+function renderByDate(){
+  var ms=FX.matches.filter(function(m){return fmtKey(toBeijing(m.utc))===currentDateFilter});
+  if(!ms.length)return '<div class="empty"><div class="e-icon">&#128197;</div><p>该日期暂无赛事</p></div>';
+  return ms.map(function(m){return matchCardHTML(m)}).join('');
+}
+function renderByGroup(){
+  var html='';
+  'ABCDEFGHIJKL'.split('').forEach(function(g){var ms=FX.matches.filter(function(m){return m.group===g});if(!ms.length)return;html+='<div class="sec-title">G'+g+'组</div>'+ms.map(function(m){return matchCardHTML(m)}).join('')});
+  return html||'<div class="empty"><div class="e-icon">&#9917;</div><p>暂无数据</p></div>';
+}
+function renderByVenue(){
+  var vns=[...new Set(FX.matches.map(function(m){return m.venue}))].sort(),html='';
+  vns.forEach(function(v){var ms=FX.matches.filter(function(m){return m.venue===v});if(!ms.length)return;html+='<div class="sec-title">'+v+'</div>'+ms.map(function(m){return matchCardHTML(m)}).join('')});
+  return html;
+}
+
+function renderGroups(){
+  if(!FX)return;
+  document.getElementById('groupGrid').innerHTML='ABCDEFGHIJKL'.split('').map(function(g){
+    var teams=FX.groups[g]||[];
+    var rows=teams.map(function(t,i){var info=FX.teams[t]||{},qi=i<2?'qi-'+(i+1):i===2?'qi-3rd':'qi-out';
+      return '<tr><td><div class="team-cell"><div class="qualify-indicator '+qi+'"></div><span>'+(info.flag||'')+'</span><span>'+t+'</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>'}).join('');
+    var mc=FX.matches.filter(function(m){return m.group===g}).length;
+    return '<div class="group-card"><div class="group-header"><span class="group-letter">G'+g+'</span><span class="group-subtitle">'+mc+'场比赛</span></div>'
+      +'<table class="group-table"><tr><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>积</th></tr>'+rows+'</table></div>';
+  }).join('');
+}
+
+function renderTeams(){
+  if(!FX)return;
+  document.getElementById('teamSearch').oninput=function(e){currentTeamSearch=e.target.value;renderTeamCards()};
+  document.querySelectorAll('#confFilter .cf-btn').forEach(function(b){b.onclick=function(){
+    document.querySelectorAll('#confFilter .cf-btn').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');currentConfFilter=b.dataset.conf;renderTeamCards();
+  }});
+  renderTeamCards();
+}
+function renderTeamCards(){
+  var q=currentTeamSearch.toLowerCase();
+  var f=Object.entries(FX.teams).filter(function(e){var n=e[0],t=e[1];
+    if(currentConfFilter!=='ALL'&&t.confederation!==currentConfFilter)return false;
+    if(q&&n.toLowerCase().indexOf(q)===-1)return false;return true});
+  var grid=document.getElementById('teamsGrid');
+  if(!f.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="e-icon">&#128269;</div><p>无匹配球队</p></div>';return}
+  grid.innerHTML=f.map(function(e){var n=e[0],t=e[1];
+    return '<div class="team-card" onclick="showTeam(\''+n+'\')">'+'<div class="tf">'+(t.flag||'')+'</div>'
+      +'<div class="tn">'+n+'</div><div class="tg">G'+t.group+'组 &middot; '+t.confederation+'</div>'
+      +'<div class="tc-bar conf-bar-'+t.confederation+'"></div></div>'}).join('');
+}
+function showTeam(n){document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.remove('active')});document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});document.querySelector('[data-page="schedule"]').classList.add('active');document.getElementById('page-schedule').classList.add('active');currentScheduleView='group';document.querySelectorAll('#scheduleView .view-btn').forEach(function(b){b.classList.toggle('active',b.dataset.view==='group')});renderScheduleContent();window.scrollTo({top:0,behavior:'smooth'})}
+function goToMatch(id){document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.remove('active')});document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});document.querySelector('[data-page="schedule"]').classList.add('active');document.getElementById('page-schedule').classList.add('active');currentScheduleView='date';var m=FX.matches.find(function(x){return x.id===id});if(m)currentDateFilter=fmtKey(toBeijing(m.utc));renderDateStrip();renderScheduleContent();setTimeout(function(){var el=document.getElementById('mc-'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'})},100)}
+
+function renderPredict(){
+  return gj('data/index.json').then(function(idx){
+    var dates=((idx&&idx.dates)||[]).slice().sort().reverse();
+    var sw=document.getElementById('predictDateSwitch');
+    sw.innerHTML=dates.map(function(d,i){return '<button class="view-btn'+(i===0?' active':'')+'" data-d="'+d+'">'+d+'</button>'}).join('');
+    function load(d){return Promise.all([gj('data/predictions/'+d+'.json'),gj('data/reviews/'+d+'.json')]).then(function(r){
+      var data=r[0],rev=r[1],c=document.getElementById('predictContent');
+      if(!data||!data.matches){c.innerHTML='<div class="empty"><div class="e-icon">&#128302;</div><p>暂无预测数据</p></div>';return}
+      c.innerHTML='<p style="font-size:.75rem;color:var(--muted);margin-bottom:12px">预测日期：'+data.date+'</p>'+data.matches.map(function(m){return renderPredCard(m,rev)}).join('');
+    })}
+    sw.querySelectorAll('.view-btn').forEach(function(b){b.onclick=function(){sw.querySelectorAll('.view-btn').forEach(function(x){x.classList.remove('active')});b.classList.add('active');load(b.dataset.d)}});
+    if(dates[0])load(dates[0]);
+  });
+}
+
+function renderPredCard(m,rev){
+  if(!FX)return '';
+  var hf=(FX.teams[m.home]&&FX.teams[m.home].flag)||'',af=(FX.teams[m.away]&&FX.teams[m.away].flag)||'';
+  var f=m.predictions.fable5,o=m.predictions.opta,mk=m.predictions.market;
+  function probRow(lbl,p,cls){
+    if(!p)return '<tr><td class="'+(cls||'')+'">'+lbl+'</td><td colspan="4" style="color:var(--muted)">数据缺失</td></tr>';
+    var bar='<div class="prob-vis"><div class="pv-h" style="width:'+p.home+'%"></div><div class="pv-d" style="width:'+p.draw+'%"></div><div class="pv-a" style="width:'+p.away+'%"></div></div>';
+    return '<tr><td class="'+(cls||'')+'">'+lbl+'</td><td>'+bar+'<small style="color:var(--muted)">'+p.home+'%</small></td><td style="color:var(--muted)">'+p.draw+'%</td><td>'+p.away+'%</td><td>'+(p.score?'<span class="score-pill">'+p.score+'</span>':'—')+'</td></tr>';
+  }
+  var rm=rev?(rev.matches||[]).find(function(x){return x.id===m.id}):null;
+  var rb=rm?'<div class="result-block"><span>实际比分：<strong style="color:var(--green)">'+rm.actualScore+'</strong></span>'
+    +'<span class="'+(rm.fable5&&rm.fable5.outcomeHit?'rb-hit':'rb-miss')+'">'+(rm.fable5&&rm.fable5.outcomeHit?'✓方向命中':'✗方向未中')+'</span></div>':'';
+  return '<div class="pred-card'+(rm?' has-result':'')+'">'
+    +'<div class="pred-header"><div><div class="pred-match-title">'+hf+' '+m.home+' <span style="color:var(--muted);font-weight:400">vs</span> '+af+' '+m.away+'</div>'
+    +'<div class="pred-match-sub">'+(m.group?'G'+m.group+'组 · ':'')+' '+(m.venue||'')+'</div></div>'
+    +(rm?'<span class="mc-badge group-badge" style="background:rgba(52,201,114,.15);color:var(--green);border-color:rgba(52,201,114,.3)">已回顾</span>':'')+'</div>'
+    +'<table class="prob-table"><tr><th>来源</th><th>主胜</th><th>平局</th><th>客胜</th><th>比分</th></tr>'
+    +probRow('Fable 5',f,'src-fable5')+probRow('Opta',o)+probRow('博彩市场',mk)+'</table>'
+    +(m.analysis?'<div class="analysis-block">'+m.analysis+'</div>':'')
+    +(m.keyRisk?'<div class="key-risk">&#9888; '+m.keyRisk+'</div>':'')
+    +rb+'</div>';
+}
+
+function renderStats(){
+  return loadChartJs().then(function(ok){return gj('data/stats.json').then(function(s){
+    if(!s){document.getElementById('statsBoxes').innerHTML='<div class="empty" style="grid-column:1/-1"><div class="e-icon">&#128202;</div><p>暂无统计数据</p></div>';return}
+    var t=s.totals,n=t.matches||0;
+    function pct(x){return n?(100*x/n).toFixed(1)+'%':'—'}function avg(src){return n?(src.brierSum/n).toFixed(3):'—'}
+    document.getElementById('statsBoxes').innerHTML='<div class="stat-box"><div class="s-num">'+n+'</div><div class="s-lbl">已回顾场次</div></div>'
+      +'<div class="stat-box"><div class="s-num">'+pct(t.fable5.outcomeHits)+'</div><div class="s-lbl">Fable 5 方向命中率</div></div>'
+      +'<div class="stat-box"><div class="s-num">'+pct(t.fable5.scoreHits)+'</div><div class="s-lbl">Fable 5 比分命中率</div></div>'
+      +'<div class="stat-box"><div class="s-num">'+avg(t.fable5)+'</div><div class="s-lbl">Fable 5 平均Brier</div></div>';
+    document.getElementById('compareTable').innerHTML='<table><tr><th>来源</th><th>方向命中率</th><th>比分命中率</th><th>平均 Brier</th></tr>'
+      +'<tr><td class="src-fable5">Fable 5</td><td>'+pct(t.fable5.outcomeHits)+'</td><td>'+pct(t.fable5.scoreHits)+'</td><td>'+avg(t.fable5)+'</td></tr>'
+      +'<tr><td>Opta</td><td>'+pct(t.opta.outcomeHits)+'</td><td>—</td><td>'+avg(t.opta)+'</td></tr>'
+      +'<tr><td>博彩市场</td><td>'+pct(t.market.outcomeHits)+'</td><td>—</td><td>'+avg(t.market)+'</td></tr></table>';
+    if(!ok){document.querySelector('.chart-card').innerHTML='<div class="empty"><div class="e-icon">&#128200;</div><p>图表库加载失败</p></div>';return}
+    var sr=s.series||[];if(brierChart)brierChart.destroy();
+    brierChart=new Chart(document.getElementById('brierChart'),{type:'line',data:{labels:sr.map(function(x){return x.date}),datasets:[
+      {label:'Fable 5',data:sr.map(function(x){return x.fable5}),borderColor:'#f0c040',backgroundColor:'rgba(240,192,64,.08)',tension:.4,pointRadius:3},
+      {label:'Opta',data:sr.map(function(x){return x.opta}),borderColor:'#3d8ef0',backgroundColor:'rgba(61,142,240,.06)',tension:.4,pointRadius:3},
+      {label:'市场',data:sr.map(function(x){return x.market}),borderColor:'#f05060',backgroundColor:'rgba(240,80,96,.06)',tension:.4,pointRadius:3}
+    ]},options:{plugins:{legend:{labels:{color:'#6b7fa0',boxWidth:12}}},scales:{x:{ticks:{color:'#6b7fa0',maxTicksLimit:10},grid:{color:'rgba(30,45,69,.5)'}},y:{ticks:{color:'#6b7fa0'},grid:{color:'rgba(30,45,69,.5)'}}}}});
+  })});
+}
+
+function renderArchive(){
+  return gj('data/index.json').then(function(idx){
+    var dates=((idx&&idx.dates)||[]).slice().sort().reverse();
+    var list=document.getElementById('archiveList'),detail=document.getElementById('archiveDetail');
+    if(!dates.length){list.innerHTML='<div class="empty"><div class="e-icon">&#128193;</div><p>暂无归档数据</p></div>';return}
+    list.innerHTML=dates.map(function(d){return '<div class="archive-row" data-d="'+d+'"><div><div class="ar-date">'+d+'</div><div class="ar-count">点击查看</div></div><div class="ar-arrow">&#x203A;</div></div>'}).join('');
+    list.querySelectorAll('.archive-row').forEach(function(row){row.onclick=function(){
+      Promise.all([gj('data/predictions/'+row.dataset.d+'.json'),gj('data/reviews/'+row.dataset.d+'.json')]).then(function(r){
+        if(!r[0]){detail.innerHTML='';return}
+        detail.innerHTML='<div style="margin-top:16px"><div class="sec-title">'+row.dataset.d+' 预测详情</div>'+r[0].matches.map(function(m){return renderPredCard(m,r[1])}).join('')+'</div>';
+        detail.scrollIntoView({behavior:'smooth'});
+      });
+    }});
+  });
+}
+
+function init(){
+  var sc=document.getElementById('scheduleContent');
+  sc.innerHTML='<div style="text-align:center;padding:48px 0;color:var(--muted)"><div style="font-size:2rem;margin-bottom:8px">&#9203;</div><p>赛程数据加载中...</p></div>';
+  gj('data/fixtures.json').then(function(fx){
+    FX=fx;return gj('data/index.json');
+  }).then(function(idx){
+    IDX=idx||{dates:[]};
+    if(!FX){
+      sc.innerHTML='<div style="text-align:center;padding:48px 0"><div style="font-size:2rem;margin-bottom:8px">&#9888;</div>'
+        +'<p style="color:var(--red);font-weight:600">数据加载失败</p>'
+        +'<p style="color:var(--muted);font-size:.85rem;margin-top:8px">请刷新页面重试。如持续出现，可能是当前网络无法访问 GitHub Pages。</p>'
+        +'<button onclick="location.reload()" style="margin-top:16px;background:var(--blue);color:#fff;border:none;border-radius:6px;padding:8px 20px;cursor:pointer">刷新重试</button></div>';
+      return;
+    }
+    renderHeroToday();renderSchedule();
+  }).catch(function(){sc.innerHTML='<div style="text-align:center;padding:48px 0;color:var(--red)"><p>加载出错，请刷新重试</p></div>'});
+}
+init();
+</script>
+</body>
+</html>
