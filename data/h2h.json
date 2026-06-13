@@ -1,0 +1,420 @@
+{
+  "updatedAt": "2026-06-13",
+  "records": {
+    "BRA_MAR": {
+      "matches": [
+        {
+          "date": "2022-11-25",
+          "comp": "2022世界杯",
+          "result": "2-0",
+          "winner": "BRA",
+          "scorers": [
+            "Richarlison×2"
+          ]
+        },
+        {
+          "date": "1998-07-03",
+          "comp": "1998世界杯",
+          "result": "3-0",
+          "winner": "BRA",
+          "scorers": [
+            "Ronaldo",
+            "Bebeto",
+            "Rivaldo"
+          ]
+        }
+      ],
+      "summary": {
+        "BRA_W": 7,
+        "draws": 1,
+        "MAR_W": 1
+      }
+    },
+    "FRA_SEN": {
+      "matches": [
+        {
+          "date": "2022-12-14",
+          "comp": "2022世界杯",
+          "result": "3-0",
+          "winner": "FRA",
+          "scorers": [
+            "Kylian Mbappé",
+            "Olivier Giroud×2"
+          ]
+        },
+        {
+          "date": "2002-05-31",
+          "comp": "2002世界杯",
+          "result": "0-1",
+          "winner": "SEN",
+          "scorers": [
+            "Papa Bouba Diop"
+          ],
+          "note": "史诗级爆冷"
+        },
+        {
+          "date": "1996-08-24",
+          "comp": "友谊赛",
+          "result": "2-0",
+          "winner": "FRA",
+          "scorers": [
+            "Éric Cantona",
+            "Christophe Dugarry"
+          ]
+        }
+      ],
+      "summary": {
+        "FRA_W": 5,
+        "draws": 1,
+        "SEN_W": 2
+      }
+    },
+    "GER_NED": {
+      "matches": [
+        {
+          "date": "2023-11-18",
+          "comp": "欧洲杯预选赛",
+          "result": "2-3",
+          "winner": "NED",
+          "scorers": [
+            "Wout Weghorst",
+            "Cody Gakpo",
+            "Memphis Depay"
+          ]
+        },
+        {
+          "date": "2023-03-28",
+          "comp": "友谊赛",
+          "result": "2-2",
+          "winner": "draw",
+          "scorers": [
+            "Gündogan",
+            "Müller / Depay×2"
+          ]
+        },
+        {
+          "date": "2022-09-25",
+          "comp": "UEFA国家联赛",
+          "result": "0-1",
+          "winner": "NED",
+          "scorers": [
+            "Cody Gakpo"
+          ]
+        },
+        {
+          "date": "2021-03-25",
+          "comp": "世界杯预选",
+          "result": "2-4",
+          "winner": "NED",
+          "scorers": [
+            "Memphis Depay×2",
+            "Daley Blind",
+            "Donyell Malen"
+          ]
+        },
+        {
+          "date": "2019-11-19",
+          "comp": "欧洲杯预选",
+          "result": "2-4",
+          "winner": "NED",
+          "scorers": [
+            "Georginio Wijnaldum×2",
+            "Memphis Depay×2"
+          ]
+        }
+      ],
+      "summary": {
+        "GER_W": 45,
+        "draws": 22,
+        "NED_W": 30
+      }
+    },
+    "ARG_FRA": {
+      "matches": [
+        {
+          "date": "2022-12-18",
+          "comp": "2022世界杯决赛",
+          "result": "3-3 (4-2P)",
+          "winner": "ARG",
+          "scorers": [
+            "Messi×2",
+            "Di María / Mbappé×3"
+          ],
+          "note": "史上最佳决赛"
+        },
+        {
+          "date": "2018-06-30",
+          "comp": "2018世界杯",
+          "result": "4-3",
+          "winner": "FRA",
+          "scorers": [
+            "Pavard",
+            "Mbappé×2",
+            "Griezmann / Di María",
+            "Mercado",
+            "Agüero"
+          ]
+        },
+        {
+          "date": "1978-06-06",
+          "comp": "1978世界杯",
+          "result": "2-1",
+          "winner": "ARG",
+          "scorers": [
+            "Luque",
+            "Bertoni / Platini"
+          ]
+        }
+      ],
+      "summary": {
+        "ARG_W": 6,
+        "draws": 3,
+        "FRA_W": 7
+      }
+    },
+    "ENG_CRO": {
+      "matches": [
+        {
+          "date": "2021-06-13",
+          "comp": "2020欧洲杯",
+          "result": "1-0",
+          "winner": "ENG",
+          "scorers": [
+            "Raheem Sterling"
+          ]
+        },
+        {
+          "date": "2018-07-11",
+          "comp": "2018世界杯半决赛",
+          "result": "1-2",
+          "winner": "CRO",
+          "scorers": [
+            "Ivan Perišić",
+            "Mario Mandžukić / Kieran Trippier"
+          ]
+        },
+        {
+          "date": "2018-11-18",
+          "comp": "UEFA国家联赛",
+          "result": "0-0",
+          "winner": "draw"
+        }
+      ],
+      "summary": {
+        "ENG_W": 7,
+        "draws": 5,
+        "CRO_W": 6
+      }
+    },
+    "ESP_URU": {
+      "matches": [
+        {
+          "date": "2023-11-20",
+          "comp": "友谊赛",
+          "result": "3-1",
+          "winner": "ESP",
+          "scorers": [
+            "Ferran Torres",
+            "Joselu",
+            "Lamine Yamal"
+          ]
+        },
+        {
+          "date": "2018-07-01",
+          "comp": "2018世界杯",
+          "result": "2-2 (2-4P)",
+          "winner": "URU",
+          "scorers": [
+            "Edinson Cavani×2 / Gerard Piqué、Pepe(og)"
+          ]
+        },
+        {
+          "date": "2013-03-06",
+          "comp": "友谊赛",
+          "result": "3-1",
+          "winner": "ESP"
+        }
+      ],
+      "summary": {
+        "ESP_W": 14,
+        "draws": 5,
+        "URU_W": 4
+      }
+    },
+    "POR_COL": {
+      "matches": [
+        {
+          "date": "2022-09-27",
+          "comp": "UEFA国家联赛",
+          "result": "0-4",
+          "winner": "POR",
+          "scorers": [
+            "Rafael Leão×2",
+            "João Félix",
+            "Cristiano Ronaldo"
+          ]
+        },
+        {
+          "date": "2017-11-13",
+          "comp": "友谊赛",
+          "result": "1-1",
+          "winner": "draw"
+        }
+      ],
+      "summary": {
+        "POR_W": 3,
+        "draws": 3,
+        "COL_W": 2
+      }
+    },
+    "MEX_KOR": {
+      "matches": [
+        {
+          "date": "2022-11-26",
+          "comp": "2022世界杯",
+          "result": "2-3",
+          "winner": "KOR"
+        },
+        {
+          "date": "2018-06-23",
+          "comp": "2018世界杯",
+          "result": "1-2",
+          "winner": "KOR",
+          "note": "韩国爆冷打乱卫冕冠军德国出线"
+        },
+        {
+          "date": "2014-06-22",
+          "comp": "2014世界杯",
+          "result": "0-0",
+          "winner": "draw"
+        }
+      ],
+      "summary": {
+        "MEX_W": 11,
+        "draws": 6,
+        "KOR_W": 3
+      }
+    },
+    "NED_JPN": {
+      "matches": [
+        {
+          "date": "2022-12-05",
+          "comp": "2022世界杯",
+          "result": "3-1",
+          "winner": "NED",
+          "scorers": [
+            "Davy Klaassen",
+            "Cody Gakpo",
+            "Denzel Dumfries / Daizen Maeda"
+          ]
+        },
+        {
+          "date": "2022-03-29",
+          "comp": "友谊赛",
+          "result": "1-3",
+          "winner": "JPN",
+          "note": "日本主场大逆转"
+        },
+        {
+          "date": "2014-06-19",
+          "comp": "2014世界杯",
+          "result": "0-0",
+          "winner": "draw"
+        }
+      ],
+      "summary": {
+        "NED_W": 8,
+        "draws": 4,
+        "JPN_W": 4
+      }
+    },
+    "BEL_EGY": {
+      "matches": [
+        {
+          "date": "2018-06-06",
+          "comp": "友谊赛",
+          "result": "3-0",
+          "winner": "BEL"
+        },
+        {
+          "date": "2014-06-01",
+          "comp": "友谊赛",
+          "result": "1-2",
+          "winner": "EGY"
+        }
+      ],
+      "summary": {
+        "BEL_W": 5,
+        "draws": 2,
+        "EGY_W": 2
+      }
+    },
+    "USA_AUS": {
+      "matches": [
+        {
+          "date": "2023-11-18",
+          "comp": "友谊赛",
+          "result": "0-2",
+          "winner": "AUS"
+        },
+        {
+          "date": "2022-09-24",
+          "comp": "友谊赛",
+          "result": "2-1",
+          "winner": "USA"
+        }
+      ],
+      "summary": {
+        "USA_W": 6,
+        "draws": 2,
+        "AUS_W": 5
+      }
+    },
+    "GER_CIV": {
+      "matches": [
+        {
+          "date": "2006-06-24",
+          "comp": "2006世界杯",
+          "result": "3-2",
+          "winner": "GER",
+          "note": "德国主场世界杯晋级16强关键战"
+        }
+      ],
+      "summary": {
+        "GER_W": 4,
+        "draws": 1,
+        "CIV_W": 1
+      }
+    },
+    "ARG_ALG": {
+      "matches": [
+        {
+          "date": "2023-01-06",
+          "comp": "友谊赛",
+          "result": "2-0",
+          "winner": "ARG"
+        }
+      ],
+      "summary": {
+        "ARG_W": 3,
+        "draws": 2,
+        "ALG_W": 0
+      }
+    },
+    "CAN_QAT": {
+      "matches": [
+        {
+          "date": "2024-09-09",
+          "comp": "友谊赛",
+          "result": "1-0",
+          "winner": "CAN"
+        }
+      ],
+      "summary": {
+        "CAN_W": 1,
+        "draws": 0,
+        "QAT_W": 0
+      }
+    }
+  }
+}

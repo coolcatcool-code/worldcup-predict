@@ -3,726 +3,358 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#060913">
+<meta name="description" content="2026 FIFA 世界杯赛事中心 — 实时比分、AI预测、48支球队完整资料">
+<link rel="manifest" href="manifest.json">
 <title>2026 FIFA World Cup · 赛事中心</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 :root{
-  /* Core palette */
-  --ink-950:#060913;
-  --ink-900:#0b0f1e;
-  --ink-800:#101628;
-  --ink-700:#141d33;
-  --ink-600:#1a2540;
-  --ink-500:#1f2e4d;
-  --ink-400:#253659;
-
-  /* Glass surfaces */
-  --glass-1:rgba(255,255,255,0.03);
-  --glass-2:rgba(255,255,255,0.055);
-  --glass-3:rgba(255,255,255,0.08);
-  --glass-border:rgba(255,255,255,0.08);
-  --glass-border-h:rgba(255,255,255,0.14);
-
-  /* Accent system */
-  --gold:#f59e0b;
-  --gold-light:#fbbf24;
-  --gold-dim:rgba(245,158,11,0.15);
-  --blue:#4f8ef7;
-  --blue-dim:rgba(79,142,247,0.15);
-  --green:#34d399;
-  --green-dim:rgba(52,211,153,0.12);
-  --red:#f87171;
-  --red-dim:rgba(248,113,113,0.12);
+  --ink-950:#060913;--ink-900:#0b0f1e;--ink-800:#101628;--ink-700:#141d33;
+  --ink-600:#1a2540;--ink-500:#1f2e4d;
+  --glass-1:rgba(255,255,255,0.03);--glass-2:rgba(255,255,255,0.055);--glass-3:rgba(255,255,255,0.08);
+  --gb:rgba(255,255,255,0.08);--gbh:rgba(255,255,255,0.14);
+  --gold:#f59e0b;--gold-l:#fbbf24;--gold-d:rgba(245,158,11,0.15);
+  --blue:#4f8ef7;--blue-d:rgba(79,142,247,0.15);
+  --green:#34d399;--green-d:rgba(52,211,153,0.12);
+  --red:#f87171;--red-d:rgba(248,113,113,0.12);
   --violet:#a78bfa;
-
-  /* Text */
-  --t1:#f0f4ff;
-  --t2:#8fa3c0;
-  --t3:#4d6480;
-  --t4:#2d4060;
-
-  /* Radius */
-  --r-sm:8px;
-  --r-md:14px;
-  --r-lg:20px;
-  --r-xl:28px;
-
-  /* Shadows */
-  --s-sm:0 2px 8px rgba(0,0,0,0.4);
-  --s-md:0 8px 32px rgba(0,0,0,0.5);
-  --s-lg:0 20px 60px rgba(0,0,0,0.6);
-  --s-gold:0 0 24px rgba(245,158,11,0.2);
+  --t1:#f0f4ff;--t2:#8fa3c0;--t3:#4d6480;--t4:#2d4060;
+  --r-sm:8px;--r-md:14px;--r-lg:20px;--r-xl:28px;
+  --s-sm:0 2px 8px rgba(0,0,0,.4);--s-md:0 8px 32px rgba(0,0,0,.5);--s-lg:0 20px 60px rgba(0,0,0,.6);
 }
+body{background:var(--ink-950);color:var(--t1);font-family:'Inter',system-ui,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-thumb{background:var(--ink-500);border-radius:2px}
 
-body{
-  background:var(--ink-950);
-  color:var(--t1);
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
-  min-height:100vh;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-
-/* ══════════════════════════════════════
-   SCROLLBAR
-══════════════════════════════════════ */
-::-webkit-scrollbar{width:4px;height:4px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--ink-500);border-radius:2px}
-
-/* ══════════════════════════════════════
-   NAV
-══════════════════════════════════════ */
-.nav{
-  position:sticky;top:0;z-index:200;
-  background:rgba(6,9,19,0.85);
-  backdrop-filter:blur(24px) saturate(180%);
-  -webkit-backdrop-filter:blur(24px) saturate(180%);
-  border-bottom:1px solid var(--glass-border);
-  display:flex;align-items:stretch;padding:0 20px;
-  height:56px;gap:20px;
-}
-.nav-logo{
-  display:flex;align-items:center;gap:10px;
-  flex-shrink:0;text-decoration:none;
-}
-.nav-logo-icon{
-  width:32px;height:32px;border-radius:8px;
-  background:linear-gradient(135deg,var(--gold),#ff8c00);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1rem;font-weight:900;color:#000;
-  box-shadow:var(--s-gold);
-}
-.nav-logo-text{font-size:.92rem;font-weight:700;color:var(--t1)}
-.nav-logo-sub{font-size:.68rem;font-weight:400;color:var(--t3);margin-top:1px}
-
+/* ── NAV ─────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:200;background:rgba(6,9,19,0.88);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--gb);display:flex;align-items:stretch;padding:0 16px;height:52px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:9px;flex-shrink:0;text-decoration:none}
+.nav-logo-icon{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--gold),#ff8c00);display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:900;color:#000;box-shadow:0 0 16px rgba(245,158,11,.3)}
+.nav-logo-text{font-size:.88rem;font-weight:700;color:var(--t1)}
+.nav-logo-sub{font-size:.62rem;font-weight:400;color:var(--t3);margin-top:1px}
 .tabs{display:flex;align-items:stretch;gap:0;overflow-x:auto;scrollbar-width:none;flex:1}
 .tabs::-webkit-scrollbar{display:none}
-.tab{
-  display:flex;align-items:center;
-  padding:0 14px;cursor:pointer;
-  color:var(--t3);font-size:.8rem;font-weight:500;
-  white-space:nowrap;border-bottom:2px solid transparent;
-  transition:all .2s;user-select:none;position:relative;
-  letter-spacing:.01em;
-}
+.tab{display:flex;align-items:center;padding:0 12px;cursor:pointer;color:var(--t3);font-size:.78rem;font-weight:500;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;user-select:none}
 .tab:hover{color:var(--t2)}
 .tab.active{color:var(--t1);border-bottom-color:var(--gold);font-weight:600}
-.tab.active::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to bottom,transparent,rgba(245,158,11,0.04));
-  pointer-events:none;
-}
+.nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.nav-btn{width:32px;height:32px;border-radius:8px;background:var(--glass-1);border:1px solid var(--gb);color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:.2s;flex-shrink:0}
+.nav-btn:hover{background:var(--glass-2);border-color:var(--gbh);color:var(--t1)}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.2s ease-in-out infinite;margin-right:4px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ══════════════════════════════════════
-   HERO
-══════════════════════════════════════ */
-.hero{
-  position:relative;overflow:hidden;
-  background:var(--ink-900);
-  padding:40px 24px 36px;text-align:center;
-  border-bottom:1px solid var(--glass-border);
-}
-.hero-bg{
-  position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 60% 80% at 20% 50%,rgba(79,142,247,0.07) 0%,transparent 70%),
-    radial-gradient(ellipse 50% 60% at 80% 50%,rgba(245,158,11,0.06) 0%,transparent 70%),
-    radial-gradient(ellipse 80% 40% at 50% 100%,rgba(52,211,153,0.04) 0%,transparent 60%);
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:4px 12px;border-radius:20px;
-  background:var(--gold-dim);border:1px solid rgba(245,158,11,0.25);
-  font-size:.7rem;font-weight:600;color:var(--gold-light);
-  letter-spacing:.05em;text-transform:uppercase;
-  margin-bottom:14px;
-}
-.hero h1{
-  font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;
-  letter-spacing:-.02em;line-height:1.1;
-  background:linear-gradient(135deg,var(--t1) 0%,var(--gold-light) 60%,var(--gold) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;margin-bottom:8px;
-}
-.hero-sub{color:var(--t2);font-size:.88rem;font-weight:400;margin-bottom:24px}
-
-.hero-stats{
-  display:flex;justify-content:center;gap:0;
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-lg);overflow:hidden;
-  max-width:600px;margin:0 auto;
-}
-.hero-stat{
-  flex:1;padding:14px 12px;text-align:center;
-  border-right:1px solid var(--glass-border);
-}
+/* ── HERO ────────────────────────────────────── */
+.hero{position:relative;overflow:hidden;background:var(--ink-900);padding:32px 20px 28px;text-align:center;border-bottom:1px solid var(--gb)}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 80% at 20% 50%,rgba(79,142,247,.07) 0%,transparent 70%),radial-gradient(ellipse 50% 60% at 80% 50%,rgba(245,158,11,.06) 0%,transparent 70%),radial-gradient(ellipse 80% 40% at 50% 100%,rgba(52,211,153,.04) 0%,transparent 60%)}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:20px;background:var(--gold-d);border:1px solid rgba(245,158,11,.25);font-size:.65rem;font-weight:700;color:var(--gold-l);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:900;letter-spacing:-.02em;background:linear-gradient(135deg,var(--t1) 0%,var(--gold-l) 60%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.hero-sub{color:var(--t2);font-size:.82rem;margin-bottom:20px}
+.hero-stats{display:flex;justify-content:center;background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-lg);overflow:hidden;max-width:560px;margin:0 auto}
+.hero-stat{flex:1;padding:12px 8px;text-align:center;border-right:1px solid var(--gb)}
 .hero-stat:last-child{border-right:none}
-.hero-stat .val{
-  font-size:1.5rem;font-weight:800;
-  background:linear-gradient(135deg,var(--gold-light),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.hero-stat .lbl{font-size:.65rem;color:var(--t3);margin-top:3px;font-weight:500;letter-spacing:.03em;text-transform:uppercase}
+.hero-stat .val{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat .lbl{font-size:.6rem;color:var(--t3);margin-top:2px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
 
-/* ══════════════════════════════════════
-   PAGE CONTAINERS
-══════════════════════════════════════ */
-.page{display:none}
-.page.active{display:block}
-.container{max-width:1200px;margin:0 auto;padding:20px 20px}
+/* ── INSTALL BANNER ──────────────────────────── */
+#installBanner{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--ink-700);border-top:1px solid var(--gb);padding:12px 16px;align-items:center;gap:12px}
+#installBanner.show{display:flex}
+#installBanner .ib-text{flex:1;font-size:.8rem;color:var(--t1)}
+#installBanner .ib-sub{font-size:.68rem;color:var(--t2);margin-top:1px}
+#installBanner .ib-install{padding:8px 16px;border-radius:8px;background:var(--gold);color:#000;font-size:.78rem;font-weight:700;border:none;cursor:pointer}
+#installBanner .ib-close{width:28px;height:28px;border-radius:50%;background:var(--glass-2);border:none;color:var(--t2);cursor:pointer;font-size:.8rem}
 
-/* ══════════════════════════════════════
-   SECTION TITLES
-══════════════════════════════════════ */
-.section-title{
-  font-size:.78rem;font-weight:700;color:var(--t3);
-  letter-spacing:.1em;text-transform:uppercase;
-  margin:24px 0 12px;display:flex;align-items:center;gap:8px;
-}
-.section-title::after{content:'';flex:1;height:1px;background:var(--glass-border)}
+/* ── SEARCH OVERLAY ──────────────────────────── */
+.search-overlay{position:fixed;inset:0;z-index:500;background:rgba(4,6,14,.9);backdrop-filter:blur(12px);display:none;flex-direction:column;padding:20px 16px}
+.search-overlay.open{display:flex;animation:fade-in .15s ease}
+.search-box{display:flex;align-items:center;gap:10px;background:var(--ink-700);border:1px solid var(--gbh);border-radius:var(--r-md);padding:12px 16px;margin-bottom:16px}
+.search-input{flex:1;background:none;border:none;outline:none;color:var(--t1);font-size:1rem;font-family:inherit}
+.search-input::placeholder{color:var(--t3)}
+.search-close-btn{background:none;border:none;color:var(--t2);cursor:pointer;font-size:.9rem;padding:4px}
+.search-results{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
+.search-result-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-sm);cursor:pointer;transition:.15s}
+.search-result-item:hover{background:var(--glass-2);border-color:var(--gbh)}
+.sr-icon{font-size:1.5rem;width:36px;text-align:center;flex-shrink:0}
+.sr-main{flex:1;min-width:0}
+.sr-title{font-size:.88rem;font-weight:600;color:var(--t1)}
+.sr-sub{font-size:.72rem;color:var(--t2);margin-top:2px}
+.sr-type{font-size:.62rem;color:var(--t3);flex-shrink:0}
+.search-empty{text-align:center;padding:40px;color:var(--t3);font-size:.82rem}
 
-/* ══════════════════════════════════════
-   DATE STRIP
-══════════════════════════════════════ */
-.date-strip{
-  display:flex;gap:6px;overflow-x:auto;
-  padding:4px 0 12px;scrollbar-width:none;
-}
+/* ── PAGES ───────────────────────────────────── */
+.page{display:none}.page.active{display:block}
+.container{max-width:1200px;margin:0 auto;padding:16px 20px}
+
+/* ── SECTION TITLES ──────────────────────────── */
+.section-title{font-size:.72rem;font-weight:700;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--gb)}
+
+/* ── DATE STRIP ──────────────────────────────── */
+.date-strip{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
 .date-strip::-webkit-scrollbar{display:none}
-.date-btn{
-  padding:7px 16px;border-radius:40px;
-  border:1px solid var(--glass-border);
-  background:var(--glass-1);color:var(--t2);
-  cursor:pointer;font-size:.78rem;font-weight:500;
-  white-space:nowrap;transition:all .2s;user-select:none;
-}
-.date-btn:hover{border-color:var(--glass-border-h);color:var(--t1);background:var(--glass-2)}
-.date-btn.active{
-  background:var(--blue-dim);border-color:var(--blue);
-  color:var(--t1);font-weight:600;
-}
-.date-btn.today{border-color:rgba(245,158,11,0.4);color:var(--gold-light)}
-.date-btn.active.today{background:var(--gold-dim);border-color:var(--gold)}
+.date-btn{padding:6px 14px;border-radius:40px;border:1px solid var(--gb);background:var(--glass-1);color:var(--t2);cursor:pointer;font-size:.76rem;font-weight:500;white-space:nowrap;transition:all .2s;user-select:none}
+.date-btn:hover{border-color:var(--gbh);color:var(--t1)}
+.date-btn.active{background:var(--blue-d);border-color:var(--blue);color:var(--t1);font-weight:600}
+.date-btn.today{border-color:rgba(245,158,11,.4)}
+.date-btn.active.today{background:var(--gold-d);border-color:var(--gold)}
 
-/* ══════════════════════════════════════
-   MATCH CARDS
-══════════════════════════════════════ */
-.matches-grid{display:flex;flex-direction:column;gap:8px}
-.match-card{
-  background:var(--glass-1);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r-md);
-  padding:14px 18px;cursor:pointer;
-  display:grid;grid-template-columns:1fr auto 1fr;
-  align-items:center;gap:16px;
-  transition:all .2s;position:relative;overflow:hidden;
-}
-.match-card::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:transparent;transition:.2s;border-radius:3px 0 0 3px;
-}
-.match-card:hover{
-  border-color:var(--glass-border-h);background:var(--glass-2);
-  transform:translateX(2px);box-shadow:var(--s-sm);
-}
+/* ── MATCH CARDS ─────────────────────────────── */
+.matches-grid{display:flex;flex-direction:column;gap:7px}
+.match-card{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-md);padding:12px 16px;cursor:pointer;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;transition:all .2s;position:relative;overflow:hidden}
+.match-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:.2s;border-radius:3px 0 0 3px}
+.match-card:hover{border-color:var(--gbh);background:var(--glass-2);transform:translateX(2px)}
 .match-card:hover::before{background:var(--blue)}
+.match-card.live{border-color:rgba(248,113,113,.3)}
 .match-card.live::before{background:var(--red);animation:pulse-bar 1.5s ease-in-out infinite}
-@keyframes pulse-bar{0%,100%{opacity:1}50%{opacity:.4}}
-
-.team-side{display:flex;align-items:center;gap:10px}
+.match-card.fav-match{border-color:rgba(245,158,11,.25)}
+.match-card.fav-match::before{background:var(--gold)}
+@keyframes pulse-bar{0%,100%{opacity:1}50%{opacity:.3}}
+.team-side{display:flex;align-items:center;gap:9px}
 .team-side.right{flex-direction:row-reverse;text-align:right}
-.team-flag{font-size:1.9rem;line-height:1;flex-shrink:0}
-.team-name{font-size:.88rem;font-weight:600;color:var(--t1)}
-.team-name .sub{
-  font-size:.68rem;color:var(--t3);font-weight:400;
-  display:block;margin-top:2px;
-}
+.team-flag{font-size:1.75rem;line-height:1;flex-shrink:0}
+.team-name{font-size:.85rem;font-weight:600;color:var(--t1)}
+.team-name .sub{font-size:.65rem;color:var(--t3);font-weight:400;display:block;margin-top:2px}
+.match-center{text-align:center;min-width:80px}
+.match-score{font-size:1.25rem;font-weight:800;color:var(--t1);letter-spacing:3px;font-variant-numeric:tabular-nums}
+.match-score.live-score{color:var(--red)}
+.match-group-badge{display:inline-flex;align-items:center;padding:2px 7px;border-radius:5px;background:var(--glass-2);color:var(--t2);font-size:.62rem;font-weight:600;letter-spacing:.03em;border:1px solid var(--gb);margin-top:3px}
+.badge-live{background:var(--red-d);color:var(--red);border-color:rgba(248,113,113,.3)}
+.badge-done{background:var(--green-d);color:var(--green);border-color:rgba(52,211,153,.25)}
 
-.match-center{text-align:center;min-width:90px}
-.match-score{
-  font-size:1.35rem;font-weight:800;color:var(--t1);
-  letter-spacing:3px;font-variant-numeric:tabular-nums;
-}
-.match-meta{margin-top:3px}
-.match-group-badge{
-  display:inline-flex;align-items:center;
-  padding:2px 8px;border-radius:6px;
-  background:var(--glass-2);color:var(--t2);
-  font-size:.64rem;font-weight:600;letter-spacing:.03em;
-  border:1px solid var(--glass-border);
-}
-.badge-live{background:var(--red-dim);color:var(--red);border-color:rgba(248,113,113,0.3)}
-.badge-done{background:var(--green-dim);color:var(--green);border-color:rgba(52,211,153,0.25)}
+/* ── SKELETON ────────────────────────────────── */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.skeleton{background:linear-gradient(90deg,var(--ink-700) 25%,var(--ink-600) 50%,var(--ink-700) 75%);background-size:200% 100%;animation:shimmer 1.4s ease-in-out infinite;border-radius:6px}
+.skel-match{height:64px;border-radius:var(--r-md);margin-bottom:7px}
+.skel-team-card{height:160px;border-radius:var(--r-md)}
+.skel-text{height:14px;border-radius:4px;margin-bottom:8px}
+.skel-text.short{width:40%}
 
-/* ══════════════════════════════════════
-   GROUPS
-══════════════════════════════════════ */
-.groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
-.group-card{
-  background:var(--glass-1);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r-md);overflow:hidden;
-  transition:.2s;
-}
-.group-card:hover{border-color:var(--glass-border-h)}
-.group-header{
-  padding:10px 16px;
-  background:linear-gradient(90deg,rgba(245,158,11,0.08),transparent);
-  border-bottom:1px solid var(--glass-border);
-  display:flex;align-items:center;gap:10px;
-}
-.group-letter{
-  width:28px;height:28px;border-radius:7px;
-  background:var(--gold-dim);border:1px solid rgba(245,158,11,0.3);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:.85rem;color:var(--gold-light);
-}
-.group-title{font-weight:600;font-size:.85rem;color:var(--t1)}
+/* ── FAVORITE SECTION ────────────────────────── */
+.fav-section{background:linear-gradient(135deg,rgba(245,158,11,.06),transparent);border:1px solid rgba(245,158,11,.15);border-radius:var(--r-md);padding:12px 16px;margin-bottom:16px}
+.fav-section-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:.72rem;font-weight:700;color:var(--gold-l);letter-spacing:.06em;text-transform:uppercase}
+.fav-empty-hint{font-size:.75rem;color:var(--t3);padding:8px 0}
+
+/* ── GROUP CARDS ─────────────────────────────── */
+.groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+.group-card{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-md);overflow:hidden;transition:.2s}
+.group-card:hover{border-color:var(--gbh)}
+.group-header{padding:9px 14px;background:linear-gradient(90deg,rgba(245,158,11,.08),transparent);border-bottom:1px solid var(--gb);display:flex;align-items:center;gap:10px}
+.group-letter{width:26px;height:26px;border-radius:6px;background:var(--gold-d);border:1px solid rgba(245,158,11,.3);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;color:var(--gold-l);flex-shrink:0}
+.group-title{font-weight:600;font-size:.82rem;color:var(--t1)}
 .group-table{width:100%;border-collapse:collapse}
-.group-table th{
-  font-size:.63rem;color:var(--t3);font-weight:600;
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:7px 10px;text-align:center;
-  border-bottom:1px solid var(--glass-border);
-}
-.group-table th:first-child{text-align:left}
-.group-table td{
-  font-size:.8rem;padding:8px 10px;
-  text-align:center;color:var(--t2);
-  border-bottom:1px solid rgba(255,255,255,0.03);
-}
-.group-table td:first-child{
-  text-align:left;display:flex;align-items:center;gap:8px;
-}
+.group-table th{font-size:.6rem;color:var(--t3);font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;text-align:center;border-bottom:1px solid var(--gb)}
+.group-table th:first-child{text-align:left;padding-left:12px}
+.group-table td{font-size:.78rem;padding:7px 10px;text-align:center;color:var(--t2);border-bottom:1px solid rgba(255,255,255,.03)}
+.group-table td:first-child{text-align:left;padding-left:12px}
 .group-table tr:last-child td{border-bottom:none}
 .group-table tr:hover td{background:var(--glass-1)}
-.rank-num{font-size:.65rem;color:var(--t4);width:12px;flex-shrink:0}
+.group-table .rank-num{font-size:.62rem;color:var(--t4);margin-right:6px}
+.qualify-line td{border-bottom:1px solid rgba(52,211,153,.25)!important}
+.team-row-flag{margin-right:4px}
 .team-name-text{cursor:pointer;color:var(--t1);font-weight:500;transition:.15s}
 .team-name-text:hover{color:var(--blue)}
 
-/* ══════════════════════════════════════
-   TEAM CARDS
-══════════════════════════════════════ */
-.teams-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
-.filter-btn{
-  padding:5px 14px;border-radius:40px;
-  border:1px solid var(--glass-border);
-  background:var(--glass-1);color:var(--t2);
-  cursor:pointer;font-size:.75rem;font-weight:500;
-  transition:all .2s;user-select:none;
-}
-.filter-btn:hover{border-color:var(--glass-border-h);color:var(--t1)}
-.filter-btn.active{background:var(--blue-dim);border-color:var(--blue);color:var(--t1);font-weight:600}
-
-.teams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:10px}
-.team-card{
-  background:var(--glass-1);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r-md);
-  padding:18px 14px 14px;cursor:pointer;
-  transition:all .25s;text-align:center;
-  position:relative;overflow:hidden;
-}
-.team-card::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,var(--blue-dim),transparent 60%);
-  opacity:0;transition:.25s;pointer-events:none;
-}
+/* ── TEAM CARDS ──────────────────────────────── */
+.teams-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.filter-btn{padding:5px 12px;border-radius:40px;border:1px solid var(--gb);background:var(--glass-1);color:var(--t2);cursor:pointer;font-size:.73rem;font-weight:500;transition:all .2s;user-select:none}
+.filter-btn:hover{border-color:var(--gbh);color:var(--t1)}
+.filter-btn.active{background:var(--blue-d);border-color:var(--blue);color:var(--t1);font-weight:600}
+.teams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:9px}
+.team-card{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-md);padding:16px 12px 12px;cursor:pointer;transition:all .25s;text-align:center;position:relative;overflow:hidden}
+.team-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--blue-d),transparent 60%);opacity:0;transition:.25s;pointer-events:none}
 .team-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:var(--s-md)}
 .team-card:hover::after{opacity:1}
-.team-card .flag{font-size:2.6rem;margin-bottom:10px;display:block;line-height:1}
-.team-card .tname{font-size:.88rem;font-weight:700;color:var(--t1);margin-bottom:3px}
-.team-card .tgroup{
-  font-size:.68rem;color:var(--t3);margin-bottom:8px;
-  display:inline-flex;align-items:center;gap:4px;
-}
-.team-card .trank{
-  display:inline-block;padding:2px 8px;border-radius:20px;
-  background:var(--gold-dim);border:1px solid rgba(245,158,11,0.25);
-  font-size:.68rem;font-weight:700;color:var(--gold-light);
-  margin-bottom:6px;
-}
-.team-card .tcoach{font-size:.7rem;color:var(--t3);margin-top:4px}
-.team-card .tstar{
-  font-size:.72rem;color:var(--green);margin-top:3px;
-  display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
+.team-card.favorited{border-color:rgba(245,158,11,.3)}
+.fav-btn{position:absolute;top:8px;right:8px;width:24px;height:24px;background:var(--glass-2);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.75rem;z-index:1;transition:.2s;color:var(--t3)}
+.fav-btn:hover{background:var(--gold-d);color:var(--gold-l)}
+.fav-btn.active{background:var(--gold-d);color:var(--gold-l)}
+.team-card .flag{font-size:2.4rem;margin-bottom:8px;display:block;line-height:1}
+.team-card .tname{font-size:.85rem;font-weight:700;color:var(--t1);margin-bottom:2px}
+.team-card .tgroup{font-size:.65rem;color:var(--t3);margin-bottom:7px}
+.team-card .trank{display:inline-block;padding:2px 7px;border-radius:20px;background:var(--gold-d);border:1px solid rgba(245,158,11,.25);font-size:.65rem;font-weight:700;color:var(--gold-l);margin-bottom:5px}
+.team-card .tcoach{font-size:.67rem;color:var(--t3);margin-top:3px}
+.team-card .tstar{font-size:.7rem;color:var(--green);margin-top:3px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* ══════════════════════════════════════
-   NEWS CARDS
-══════════════════════════════════════ */
-.news-grid{display:flex;flex-direction:column;gap:8px}
-.news-card{
-  background:var(--glass-1);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r-md);
-  padding:16px 18px;cursor:pointer;
-  transition:all .2s;
-  display:flex;gap:14px;align-items:flex-start;
-}
-.news-card:hover{border-color:var(--glass-border-h);background:var(--glass-2)}
-.news-card-accent{
-  width:3px;border-radius:3px;flex-shrink:0;align-self:stretch;min-height:40px;
-}
+/* ── NEWS ────────────────────────────────────── */
+.news-grid{display:flex;flex-direction:column;gap:7px}
+.news-card{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-md);padding:14px 16px;cursor:pointer;transition:all .2s;display:flex;gap:12px;align-items:flex-start}
+.news-card:hover{border-color:var(--gbh);background:var(--glass-2)}
+.news-card-accent{width:3px;border-radius:3px;flex-shrink:0;align-self:stretch;min-height:40px}
 .news-card-body{flex:1;min-width:0}
-.news-tag{
-  display:inline-flex;align-items:center;gap:4px;
-  padding:2px 8px;border-radius:5px;
-  font-size:.63rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
-  margin-bottom:7px;
-}
-.tag-predict{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(79,142,247,0.25)}
-.tag-predict + .news-card-accent, .news-card.predict .news-card-accent{background:var(--blue)}
-.tag-review{background:var(--green-dim);color:var(--green);border:1px solid rgba(52,211,153,0.25)}
-.tag-news{background:var(--gold-dim);color:var(--gold-light);border:1px solid rgba(245,158,11,0.25)}
-.news-title{font-size:.9rem;font-weight:600;color:var(--t1);margin-bottom:5px;line-height:1.4}
-.news-excerpt{font-size:.76rem;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.news-footer{
-  display:flex;justify-content:space-between;
-  margin-top:9px;font-size:.67rem;color:var(--t3);
-}
+.news-tag{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:4px;font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.tag-predict{background:var(--blue-d);color:var(--blue);border:1px solid rgba(79,142,247,.25)}
+.tag-review{background:var(--green-d);color:var(--green);border:1px solid rgba(52,211,153,.25)}
+.tag-news{background:var(--gold-d);color:var(--gold-l);border:1px solid rgba(245,158,11,.25)}
+.news-title{font-size:.88rem;font-weight:600;color:var(--t1);margin-bottom:4px;line-height:1.4}
+.news-excerpt{font-size:.74rem;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-footer{display:flex;justify-content:space-between;margin-top:8px;font-size:.64rem;color:var(--t3)}
 
-/* ══════════════════════════════════════
-   PREDICT CARDS
-══════════════════════════════════════ */
-.pred-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
-.pred-card{
-  background:var(--glass-1);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r-md);overflow:hidden;
-  cursor:pointer;transition:all .25s;
-}
-.pred-card:hover{border-color:var(--glass-border-h);transform:translateY(-2px);box-shadow:var(--s-md)}
-
-.pred-header{
-  padding:16px;
-  background:linear-gradient(135deg,rgba(15,22,45,.9),rgba(20,29,51,.9));
-  border-bottom:1px solid var(--glass-border);
-}
-.pred-teams{
-  display:grid;grid-template-columns:1fr 40px 1fr;
-  align-items:center;gap:8px;margin-bottom:6px;
-}
+/* ── PREDICT ─────────────────────────────────── */
+.pred-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.pred-card{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-md);overflow:hidden;cursor:pointer;transition:all .25s}
+.pred-card:hover{border-color:var(--gbh);transform:translateY(-2px);box-shadow:var(--s-md)}
+.pred-header{padding:14px;background:linear-gradient(135deg,rgba(15,22,45,.9),rgba(20,29,51,.9));border-bottom:1px solid var(--gb)}
+.pred-teams{display:grid;grid-template-columns:1fr 36px 1fr;align-items:center;gap:6px;margin-bottom:5px}
 .pred-team{text-align:center}
-.pred-flag{font-size:1.8rem;margin-bottom:4px}
-.pred-name{font-size:.78rem;font-weight:600;color:var(--t1)}
-.pred-vs{
-  text-align:center;font-size:.72rem;font-weight:700;
-  color:var(--t3);letter-spacing:.05em;
-}
-.pred-time{
-  font-size:.68rem;color:var(--t3);text-align:center;
-  display:flex;align-items:center;justify-content:center;gap:4px;
-}
-
-.pred-body{padding:14px 16px}
-.pred-bar-row{
-  display:flex;height:6px;border-radius:3px;overflow:hidden;margin-bottom:6px;
-}
-.pred-bar-h{background:#4f8ef7;transition:width .8s ease}
-.pred-bar-d{background:#475569;transition:width .8s ease}
-.pred-bar-a{background:#f87171;transition:width .8s ease}
-.pred-probs{
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  margin-bottom:12px;
-}
+.pred-flag{font-size:1.7rem;margin-bottom:3px}
+.pred-name{font-size:.75rem;font-weight:600;color:var(--t1)}
+.pred-vs{text-align:center;font-size:.68rem;font-weight:700;color:var(--t3);letter-spacing:.05em}
+.pred-time{font-size:.65rem;color:var(--t3);text-align:center}
+.pred-body{padding:12px 14px}
+.pred-bar-row{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-bottom:5px}
+.pred-bar-h{background:#4f8ef7;transition:flex .8s ease}
+.pred-bar-d{background:#475569;transition:flex .8s ease}
+.pred-bar-a{background:#f87171;transition:flex .8s ease}
+.pred-probs{display:grid;grid-template-columns:1fr 1fr 1fr;margin-bottom:10px}
 .pred-prob-item{text-align:center}
-.pred-prob-item .pct{font-size:.95rem;font-weight:700}
-.pred-prob-item .plbl{font-size:.63rem;color:var(--t3);margin-top:1px}
-.pred-score-box{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:9px;background:var(--gold-dim);
-  border:1px solid rgba(245,158,11,0.2);border-radius:var(--r-sm);
-  margin-bottom:10px;
-}
-.pred-score-box .lbl{font-size:.65rem;color:var(--t3);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
-.pred-score-box .score{font-size:1.1rem;font-weight:800;color:var(--gold-light)}
-.pred-analysis{
-  font-size:.73rem;color:var(--t2);line-height:1.55;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
-}
+.pred-prob-item .pct{font-size:.9rem;font-weight:700}
+.pred-prob-item .plbl{font-size:.6rem;color:var(--t3);margin-top:1px}
+.pred-score-box{display:flex;align-items:center;justify-content:center;gap:8px;padding:8px;background:var(--gold-d);border:1px solid rgba(245,158,11,.2);border-radius:var(--r-sm);margin-bottom:8px}
+.pred-score-box .lbl{font-size:.62rem;color:var(--t3);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.pred-score-box .score{font-size:1rem;font-weight:800;color:var(--gold-l)}
+.pred-analysis{font-size:.7rem;color:var(--t2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
-/* ══════════════════════════════════════
-   STATS
-══════════════════════════════════════ */
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-bottom:20px}
-.stat-box{
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-md);padding:18px;text-align:center;
-  transition:.2s;
-}
-.stat-box:hover{border-color:var(--glass-border-h)}
-.stat-box .sv{
-  font-size:2rem;font-weight:800;
-  background:linear-gradient(135deg,var(--gold-light),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.stat-box .sl{font-size:.7rem;color:var(--t3);margin-top:5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
-.chart-wrap{
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-md);padding:18px 20px;
-}
-.chart-wrap h3{font-size:.78rem;color:var(--t2);margin-bottom:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+/* ── STATS ───────────────────────────────────── */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:9px;margin-bottom:18px}
+.stat-box{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-md);padding:16px;text-align:center;transition:.2s}
+.stat-box:hover{border-color:var(--gbh)}
+.stat-box .sv{font-size:1.9rem;font-weight:800;background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-box .sl{font-size:.67rem;color:var(--t3);margin-top:4px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.chart-wrap{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-md);padding:16px}
+.chart-wrap h3{font-size:.72rem;color:var(--t2);margin-bottom:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
 
-/* ══════════════════════════════════════
-   ARCHIVE
-══════════════════════════════════════ */
-.archive-list{display:flex;flex-direction:column;gap:8px}
-.archive-item{
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-md);overflow:hidden;transition:.2s;
-}
-.archive-item:hover{border-color:var(--glass-border-h)}
-.archive-date{
-  padding:12px 16px;font-size:.82rem;font-weight:600;color:var(--t2);
-  cursor:pointer;display:flex;justify-content:space-between;align-items:center;
-  user-select:none;transition:.2s;
-}
+/* ── ARCHIVE ─────────────────────────────────── */
+.archive-list{display:flex;flex-direction:column;gap:7px}
+.archive-item{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-md);overflow:hidden;transition:.2s}
+.archive-item:hover{border-color:var(--gbh)}
+.archive-date{padding:11px 14px;font-size:.8rem;font-weight:600;color:var(--t2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:.15s}
 .archive-date:hover{color:var(--t1);background:var(--glass-1)}
-.arc-chevron{
-  width:20px;height:20px;border-radius:50%;background:var(--glass-2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.65rem;transition:.2s;color:var(--t3);
-}
-.archive-body{display:none}
-.archive-body.open{display:block;border-top:1px solid var(--glass-border)}
+.arc-chevron{width:18px;height:18px;border-radius:50%;background:var(--glass-2);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--t3);transition:.2s}
+.archive-body{display:none}.archive-body.open{display:block;border-top:1px solid var(--gb)}
 
-/* ══════════════════════════════════════
-   MODALS
-══════════════════════════════════════ */
-.modal-overlay{
-  position:fixed;inset:0;
-  background:rgba(4,6,14,0.85);
-  z-index:1000;display:none;
-  align-items:flex-end;justify-content:center;
-  backdrop-filter:blur(8px) saturate(80%);
-  -webkit-backdrop-filter:blur(8px) saturate(80%);
-  padding:0;
-}
-.modal-overlay.open{display:flex;animation:fade-in .2s ease}
+/* ── MODALS ──────────────────────────────────── */
+.modal-overlay{position:fixed;inset:0;background:rgba(4,6,14,.88);z-index:1000;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(10px);padding:0}
+.modal-overlay.open{display:flex;animation:fade-in .18s ease}
 @keyframes fade-in{from{opacity:0}to{opacity:1}}
-.modal{
-  background:var(--ink-800);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r-xl) var(--r-xl) 0 0;
-  max-width:680px;width:100%;
-  max-height:92vh;overflow-y:auto;
-  position:relative;
-  animation:slide-up .3s cubic-bezier(.16,1,.3,1);
-}
-@media(min-width:640px){
-  .modal-overlay{align-items:center;padding:20px}
-  .modal{border-radius:var(--r-xl);max-height:88vh}
-  @keyframes slide-up{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
-}
+.modal{background:var(--ink-800);border:1px solid var(--gb);border-radius:var(--r-xl) var(--r-xl) 0 0;max-width:680px;width:100%;max-height:92vh;overflow-y:auto;animation:slide-up .28s cubic-bezier(.16,1,.3,1)}
+@media(min-width:640px){.modal-overlay{align-items:center;padding:20px}.modal{border-radius:var(--r-xl);max-height:88vh}}
 @keyframes slide-up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
-
+@media(min-width:640px){@keyframes slide-up{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}}
 .modal::-webkit-scrollbar{width:3px}
 .modal::-webkit-scrollbar-thumb{background:var(--ink-500);border-radius:2px}
-
-.modal-header{
-  position:sticky;top:0;
-  background:rgba(16,22,40,0.95);
-  backdrop-filter:blur(12px);
-  padding:16px 20px;
-  border-bottom:1px solid var(--glass-border);
-  display:flex;justify-content:space-between;align-items:center;
-  z-index:1;
-}
-.modal-header h2{font-size:.95rem;font-weight:700;color:var(--t1)}
-.modal-close-btn{
-  width:28px;height:28px;border-radius:50%;
-  background:var(--glass-2);border:1px solid var(--glass-border);
-  color:var(--t2);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.85rem;transition:.2s;
-}
-.modal-close-btn:hover{background:var(--red-dim);border-color:var(--red);color:var(--red)}
-.modal-body{padding:20px}
+.modal-header{position:sticky;top:0;background:rgba(16,22,40,.96);backdrop-filter:blur(12px);padding:14px 18px;border-bottom:1px solid var(--gb);display:flex;justify-content:space-between;align-items:center;z-index:1}
+.modal-header h2{font-size:.92rem;font-weight:700;color:var(--t1)}
+.modal-close-btn{width:26px;height:26px;border-radius:50%;background:var(--glass-2);border:1px solid var(--gb);color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:.2s}
+.modal-close-btn:hover{background:var(--red-d);border-color:var(--red);color:var(--red)}
+.modal-body{padding:16px 18px}
 
 /* Team modal internals */
-.tm-hero{
-  display:flex;align-items:center;gap:16px;
-  padding:16px;border-radius:var(--r-md);
-  background:linear-gradient(135deg,var(--ink-700),var(--ink-600));
-  border:1px solid var(--glass-border);margin-bottom:16px;
-}
-.tm-hero-flag{font-size:3.8rem;flex-shrink:0}
-.tm-hero-info h3{font-size:1.15rem;font-weight:800;color:var(--t1);margin-bottom:4px}
-.tm-hero-info p{font-size:.78rem;color:var(--t2);line-height:1.5;margin-bottom:2px}
-.tm-hero-info .best{color:var(--gold-light);font-weight:600}
-
-.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-.meta-item{
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-sm);padding:10px 12px;
-}
-.meta-item .ml{font-size:.63rem;color:var(--t3);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}
-.meta-item .mv{font-size:.82rem;font-weight:600;color:var(--t1)}
-
-.tm-section{margin-bottom:16px}
-.tm-section-title{
-  font-size:.68rem;font-weight:700;color:var(--t3);
-  letter-spacing:.08em;text-transform:uppercase;
-  margin-bottom:8px;padding-bottom:6px;
-  border-bottom:1px solid var(--glass-border);
-}
-.tm-text{
-  font-size:.8rem;color:var(--t2);line-height:1.65;
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-sm);padding:12px;
-}
-
-.players-list{display:flex;flex-direction:column;gap:6px}
-.player-row{
-  display:flex;align-items:center;gap:10px;
-  padding:9px 12px;
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-sm);transition:.15s;
-}
-.player-row:hover{border-color:var(--glass-border-h)}
-.player-pos{
-  width:26px;height:18px;border-radius:4px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.6rem;font-weight:700;flex-shrink:0;
-}
+.tm-hero{display:flex;align-items:center;gap:14px;padding:14px;border-radius:var(--r-md);background:linear-gradient(135deg,var(--ink-700),var(--ink-600));border:1px solid var(--gb);margin-bottom:14px}
+.tm-hero-flag{font-size:3.5rem;flex-shrink:0}
+.tm-hero-info h3{font-size:1.1rem;font-weight:800;color:var(--t1);margin-bottom:3px}
+.tm-hero-info p{font-size:.76rem;color:var(--t2);line-height:1.5;margin-bottom:2px}
+.tm-hero-info .best{color:var(--gold-l);font-weight:600;font-size:.76rem}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}
+.meta-item{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-sm);padding:9px 11px}
+.meta-item .ml{font-size:.6rem;color:var(--t3);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.meta-item .mv{font-size:.8rem;font-weight:600;color:var(--t1)}
+.tm-section{margin-bottom:14px}
+.tm-section-title{font-size:.65rem;font-weight:700;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid var(--gb)}
+.tm-text{font-size:.78rem;color:var(--t2);line-height:1.65;background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-sm);padding:11px}
+.players-list{display:flex;flex-direction:column;gap:5px}
+.player-row{display:flex;align-items:center;gap:9px;padding:8px 11px;background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-sm);transition:.15s}
+.player-row:hover{border-color:var(--gbh)}
+.player-pos{width:25px;height:17px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:700;flex-shrink:0}
 .pos-fw{background:rgba(248,113,113,.15);color:var(--red)}
 .pos-mf{background:rgba(79,142,247,.15);color:var(--blue)}
 .pos-df{background:rgba(52,211,153,.15);color:var(--green)}
-.pos-gk{background:rgba(245,158,11,.15);color:var(--gold-light)}
-.player-name{font-size:.83rem;font-weight:600;color:var(--t1);flex:1}
-.player-club{font-size:.7rem;color:var(--t3)}
-.star-badge{
-  font-size:.62rem;padding:1px 6px;border-radius:6px;
-  background:var(--gold-dim);color:var(--gold-light);
-  border:1px solid rgba(245,158,11,.25);flex-shrink:0;
-}
+.pos-gk{background:rgba(245,158,11,.15);color:var(--gold-l)}
+.player-name{font-size:.8rem;font-weight:600;color:var(--t1);flex:1}
+.player-club{font-size:.68rem;color:var(--t3)}
+.star-badge{font-size:.6rem;padding:1px 5px;border-radius:5px;background:var(--gold-d);color:var(--gold-l);border:1px solid rgba(245,158,11,.25);flex-shrink:0}
 
 /* Match modal internals */
-.mm-hero{
-  display:grid;grid-template-columns:1fr auto 1fr;
-  gap:12px;align-items:center;text-align:center;
-  padding:18px;
-  background:linear-gradient(135deg,var(--ink-700),var(--ink-600));
-  border:1px solid var(--glass-border);border-radius:var(--r-md);
-  margin-bottom:16px;
-}
-.mm-team{display:flex;flex-direction:column;align-items:center;gap:6px}
-.mm-flag{font-size:2.8rem}
-.mm-tname{font-size:.88rem;font-weight:700;color:var(--t1)}
-.mm-rank{font-size:.65rem;color:var(--t3)}
-.mm-center{}
-.mm-score{font-size:2rem;font-weight:900;color:var(--t1);letter-spacing:4px;font-variant-numeric:tabular-nums}
-.mm-time{font-size:.72rem;color:var(--t2);margin-top:3px}
-.mm-venue{font-size:.65rem;color:var(--t3);margin-top:2px}
-.mm-badge{
-  display:inline-block;margin-top:4px;padding:2px 8px;border-radius:5px;
-  font-size:.62rem;font-weight:600;
-  background:var(--blue-dim);color:var(--blue);border:1px solid rgba(79,142,247,.25);
-}
+.mm-hero{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;text-align:center;padding:16px;background:linear-gradient(135deg,var(--ink-700),var(--ink-600));border:1px solid var(--gb);border-radius:var(--r-md);margin-bottom:14px}
+.mm-team{display:flex;flex-direction:column;align-items:center;gap:5px}
+.mm-flag{font-size:2.6rem}
+.mm-tname{font-size:.85rem;font-weight:700;color:var(--t1)}
+.mm-rank{font-size:.63rem;color:var(--t3)}
+.mm-score{font-size:1.9rem;font-weight:900;color:var(--t1);letter-spacing:4px}
+.mm-score.live{color:var(--red)}
+.mm-time{font-size:.7rem;color:var(--t2);margin-top:2px}
+.mm-venue{font-size:.63rem;color:var(--t3);margin-top:1px}
+.mm-badge{display:inline-block;margin-top:4px;padding:2px 7px;border-radius:5px;font-size:.6rem;font-weight:600;background:var(--blue-d);color:var(--blue);border:1px solid rgba(79,142,247,.25)}
+.team-links{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}
+.team-link-btn{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-sm);padding:9px 11px;cursor:pointer;text-align:center;transition:.2s}
+.team-link-btn:hover{border-color:var(--blue);background:var(--blue-d)}
+.team-link-btn .ll{font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.team-link-btn .ln{font-size:.78rem;font-weight:600;color:var(--blue)}
+.team-link-btn .ls{font-size:.66rem;color:var(--green);margin-top:2px}
+.prob-section{margin-bottom:14px}
+.prob-header{font-size:.65rem;font-weight:700;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:9px}
+.prob-three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-bottom:12px}
+.prob-box{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-sm);padding:9px;text-align:center}
+.prob-box .pval{font-size:1.05rem;font-weight:800}
+.prob-box .pnam{font-size:.62rem;color:var(--t3);margin-top:2px}
+.prob-bars-row{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:10px}
+.prob-h{background:var(--blue)}.prob-d{background:#475569}.prob-a{background:var(--red)}
+.pred-score-modal{padding:10px;text-align:center;background:var(--gold-d);border:1px solid rgba(245,158,11,.2);border-radius:var(--r-sm);margin-bottom:12px}
+.pred-score-modal .l{font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.pred-score-modal .s{font-size:1.3rem;font-weight:900;color:var(--gold-l)}
+.analysis-card{background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-sm);padding:11px;margin-bottom:7px}
+.analysis-card .ah{font-size:.7rem;font-weight:700;color:var(--t1);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.analysis-card .at{font-size:.76rem;color:var(--t2);line-height:1.6}
 
-.prob-section{margin-bottom:16px}
-.prob-header{
-  font-size:.68rem;font-weight:700;color:var(--t3);
-  letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;
-}
-.prob-bars-row{
-  display:flex;height:10px;border-radius:5px;overflow:hidden;margin-bottom:6px;
-}
-.prob-h{background:var(--blue);transition:width .8s ease}
-.prob-d{background:#475569;transition:width .8s ease}
-.prob-a{background:var(--red);transition:width .8s ease}
-.prob-labels{display:flex;justify-content:space-between;font-size:.72rem}
-.prob-pct{font-weight:700}
-.prob-lbl{color:var(--t3);font-size:.65rem;margin-top:2px}
-.prob-three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
-.prob-box{
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-sm);padding:10px;text-align:center;
-}
-.prob-box .pval{font-size:1.1rem;font-weight:800}
-.prob-box .pnam{font-size:.65rem;color:var(--t3);margin-top:3px}
-
-.pred-score-modal{
-  padding:12px;text-align:center;
-  background:var(--gold-dim);border:1px solid rgba(245,158,11,.2);
-  border-radius:var(--r-sm);margin-bottom:14px;
-}
-.pred-score-modal .l{font-size:.63rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
-.pred-score-modal .s{font-size:1.4rem;font-weight:900;color:var(--gold-light)}
-
-.analysis-card{
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-sm);padding:12px;margin-bottom:8px;
-}
-.analysis-card .ah{font-size:.72rem;font-weight:700;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:5px}
-.analysis-card .at{font-size:.78rem;color:var(--t2);line-height:1.6}
-
-.team-links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-.team-link-btn{
-  background:var(--glass-1);border:1px solid var(--glass-border);
-  border-radius:var(--r-sm);padding:10px 12px;cursor:pointer;
-  text-align:center;transition:.2s;
-}
-.team-link-btn:hover{border-color:var(--blue);background:var(--blue-dim)}
-.team-link-btn .ll{font-size:.62rem;color:var(--t3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
-.team-link-btn .ln{font-size:.8rem;font-weight:600;color:var(--blue)}
-.team-link-btn .ls{font-size:.68rem;color:var(--green);margin-top:2px}
+/* H2H section */
+.h2h-section{margin-bottom:14px}
+.h2h-summary{display:flex;align-items:center;margin-bottom:10px}
+.h2h-bar{flex:1;height:8px;border-radius:4px;overflow:hidden;display:flex}
+.h2h-h-wins{background:#4f8ef7}
+.h2h-draws{background:#475569}
+.h2h-a-wins{background:#f87171}
+.h2h-labels{display:grid;grid-template-columns:1fr 1fr 1fr;font-size:.68rem;margin-bottom:10px;text-align:center}
+.h2h-match{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;background:var(--glass-1);border:1px solid var(--gb);border-radius:var(--r-sm);margin-bottom:5px;font-size:.75rem}
+.h2h-match-date{font-size:.62rem;color:var(--t3);min-width:70px}
+.h2h-match-comp{font-size:.62rem;color:var(--t3);max-width:80px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.h2h-match-score{font-weight:700;color:var(--t1);background:var(--glass-2);padding:2px 8px;border-radius:4px}
+.h2h-match-note{font-size:.6rem;color:var(--gold-l);margin-top:2px;text-align:center}
 
 /* News modal */
-.news-modal-content{font-size:.82rem;color:var(--t2);line-height:1.7}
+.news-modal-content{font-size:.8rem;color:var(--t2);line-height:1.7}
 .news-modal-content p{margin-bottom:10px}
 
-/* LOADING */
-.loading{
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:80px 20px;gap:16px;
-}
-.spinner{
-  width:32px;height:32px;border-radius:50%;
-  border:2px solid var(--glass-border);
-  border-top-color:var(--gold);
-  animation:spin .8s linear infinite;
-}
+/* Loading */
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px 20px;gap:14px}
+.spinner{width:28px;height:28px;border-radius:50%;border:2px solid var(--gb);border-top-color:var(--gold);animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loading-text{font-size:.78rem;color:var(--t3)}
+.loading-text{font-size:.75rem;color:var(--t3)}
+.empty{text-align:center;padding:50px;color:var(--t3);font-size:.8rem}
 
-.empty{
-  text-align:center;padding:60px;
-  color:var(--t3);font-size:.82rem;
-}
-
-/* RESPONSIVE */
+/* Responsive */
 @media(max-width:480px){
-  .hero h1{font-size:1.4rem}
-  .teams-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}
+  .hero h1{font-size:1.35rem}
+  .teams-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr))}
   .pred-grid{grid-template-columns:1fr}
   .meta-grid{grid-template-columns:1fr}
-  .mm-hero{grid-template-columns:1fr auto 1fr;gap:8px}
-  .mm-flag{font-size:2.2rem}
-  .prob-three{gap:5px}
+  .mm-flag{font-size:2rem}
+  .prob-three{gap:4px}
+  .team-flag{font-size:1.5rem}
+  .match-card{padding:10px 12px;gap:8px}
 }
-
-/* Animations */
-@keyframes card-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.team-card, .match-card, .news-card, .pred-card{animation:card-in .3s ease both}
-
+@media(max-width:360px){
+  .nav-logo-sub{display:none}
+  .team-name .sub{display:none}
+  .match-score{font-size:1.1rem}
+}
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-logo">
     <div class="nav-logo-icon">⚽</div>
-    <div>
-      <div class="nav-logo-text">World Cup 2026</div>
-      <div class="nav-logo-sub">赛事中心</div>
-    </div>
+    <div><div class="nav-logo-text">World Cup 2026</div><div class="nav-logo-sub">赛事中心</div></div>
   </div>
   <div class="tabs" id="tabs">
     <div class="tab active" data-tab="schedule">赛程</div>
@@ -733,6 +365,10 @@ body{
     <div class="tab" data-tab="stats">战绩</div>
     <div class="tab" data-tab="archive">归档</div>
   </div>
+  <div class="nav-actions">
+    <div class="live-dot" id="liveDot" style="display:none"></div>
+    <button class="nav-btn" id="searchBtn" title="搜索">🔍</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -740,42 +376,55 @@ body{
   <div class="hero-bg"></div>
   <div class="hero-badge">🏆 FIFA World Cup 2026</div>
   <h1>2026 FIFA 世界杯</h1>
-  <p class="hero-sub">美国 · 加拿大 · 墨西哥 联合承办 · 48支球队</p>
+  <p class="hero-sub">美国 · 加拿大 · 墨西哥 · 48支球队 · 104场赛事</p>
   <div class="hero-stats">
     <div class="hero-stat"><div class="val" id="daysLeft">--</div><div class="lbl">赛事进度</div></div>
     <div class="hero-stat"><div class="val">48</div><div class="lbl">参赛球队</div></div>
-    <div class="hero-stat"><div class="val">104</div><div class="lbl">总场次</div></div>
+    <div class="hero-stat"><div class="val" id="liveCount">0</div><div class="lbl">今日赛事</div></div>
     <div class="hero-stat"><div class="val">16</div><div class="lbl">举办城市</div></div>
   </div>
 </div>
 
-<!-- ─── SCHEDULE ──────────────────────────────────── -->
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <span style="font-size:1rem;color:var(--t3)">🔍</span>
+    <input class="search-input" id="searchInput" placeholder="搜索球队、球员、比赛…" autocomplete="off">
+    <button class="search-close-btn" id="searchCloseBtn">✕</button>
+  </div>
+  <div class="search-results" id="searchResults">
+    <div class="search-empty">输入关键词开始搜索</div>
+  </div>
+</div>
+
+<!-- SCHEDULE PAGE -->
 <div class="page active" id="page-schedule">
   <div class="container">
-    <div id="scheduleLoading" class="loading">
-      <div class="spinner"></div>
-      <div class="loading-text">加载赛程数据…</div>
-    </div>
-    <div id="scheduleError" class="empty" style="display:none">⚠️ 数据加载失败，请刷新重试</div>
+    <div id="scheduleLoading" class="loading"><div class="spinner"></div><div class="loading-text">加载赛程…</div></div>
+    <div id="scheduleError" class="empty" style="display:none">⚠️ 数据加载失败</div>
     <div id="scheduleContent" style="display:none">
+      <div id="favSection" class="fav-section" style="display:none">
+        <div class="fav-section-header">⭐ 我关注的赛事</div>
+        <div id="favMatches"></div>
+      </div>
       <div class="section-title">今日赛事</div>
       <div id="todayMatches" class="matches-grid"></div>
-      <div class="section-title" style="margin-top:28px">全部赛程</div>
+      <div class="section-title" style="margin-top:24px">全部赛程</div>
       <div class="date-strip" id="dateStrip"></div>
-      <div id="dateMatches" class="matches-grid" style="margin-top:10px"></div>
+      <div id="dateMatches" class="matches-grid" style="margin-top:8px"></div>
     </div>
   </div>
 </div>
 
-<!-- ─── GROUPS ────────────────────────────────────── -->
+<!-- GROUPS PAGE -->
 <div class="page" id="page-groups">
   <div class="container">
-    <div class="section-title">小组赛分组</div>
+    <div class="section-title">小组赛积分</div>
     <div id="groupsContent" class="groups-grid"></div>
   </div>
 </div>
 
-<!-- ─── TEAMS ─────────────────────────────────────── -->
+<!-- TEAMS PAGE -->
 <div class="page" id="page-teams">
   <div class="container">
     <div class="section-title">参赛球队</div>
@@ -784,7 +433,7 @@ body{
   </div>
 </div>
 
-<!-- ─── NEWS ──────────────────────────────────────── -->
+<!-- NEWS PAGE -->
 <div class="page" id="page-news">
   <div class="container">
     <div class="section-title">赛事资讯</div>
@@ -792,32 +441,26 @@ body{
   </div>
 </div>
 
-<!-- ─── PREDICT ───────────────────────────────────── -->
+<!-- PREDICT PAGE -->
 <div class="page" id="page-predict">
   <div class="container">
     <div class="section-title">AI 赛果预测</div>
-    <div id="predictLoading" class="loading" style="display:none">
-      <div class="spinner"></div>
-      <div class="loading-text">加载预测数据…</div>
-    </div>
+    <div id="predictLoading" class="loading" style="display:none"><div class="spinner"></div><div class="loading-text">加载预测…</div></div>
     <div id="predictContent"></div>
     <div id="predictEmpty" class="empty" style="display:none">今日暂无预测数据</div>
   </div>
 </div>
 
-<!-- ─── STATS ─────────────────────────────────────── -->
+<!-- STATS PAGE -->
 <div class="page" id="page-stats">
   <div class="container">
     <div class="section-title">预测战绩</div>
     <div id="statsCards" class="stats-grid"></div>
-    <div class="chart-wrap">
-      <h3>准确率趋势</h3>
-      <canvas id="accuracyChart" height="200"></canvas>
-    </div>
+    <div class="chart-wrap"><h3>准确率趋势</h3><canvas id="accuracyChart" height="200"></canvas></div>
   </div>
 </div>
 
-<!-- ─── ARCHIVE ───────────────────────────────────── -->
+<!-- ARCHIVE PAGE -->
 <div class="page" id="page-archive">
   <div class="container">
     <div class="section-title">历史归档</div>
@@ -825,89 +468,154 @@ body{
   </div>
 </div>
 
-<!-- ─── TEAM MODAL ────────────────────────────────── -->
+<!-- MODALS -->
 <div class="modal-overlay" id="teamModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h2 id="teamModalTitle">球队详情</h2>
-      <button class="modal-close-btn" onclick="closeModal('teamModal')">✕</button>
-    </div>
-    <div class="modal-body" id="teamModalBody"></div>
-  </div>
+  <div class="modal"><div class="modal-header"><h2 id="teamModalTitle">球队详情</h2><button class="modal-close-btn" onclick="closeModal('teamModal')">✕</button></div><div class="modal-body" id="teamModalBody"></div></div>
 </div>
-
-<!-- ─── MATCH MODAL ───────────────────────────────── -->
 <div class="modal-overlay" id="matchModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h2 id="matchModalTitle">赛事详情</h2>
-      <button class="modal-close-btn" onclick="closeModal('matchModal')">✕</button>
-    </div>
-    <div class="modal-body" id="matchModalBody"></div>
-  </div>
+  <div class="modal"><div class="modal-header"><h2 id="matchModalTitle">赛事详情</h2><button class="modal-close-btn" onclick="closeModal('matchModal')">✕</button></div><div class="modal-body" id="matchModalBody"></div></div>
+</div>
+<div class="modal-overlay" id="newsModal">
+  <div class="modal"><div class="modal-header"><h2 id="newsModalTitle">资讯详情</h2><button class="modal-close-btn" onclick="closeModal('newsModal')">✕</button></div><div class="modal-body" id="newsModalBody"></div></div>
 </div>
 
-<!-- ─── NEWS MODAL ────────────────────────────────── -->
-<div class="modal-overlay" id="newsModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h2 id="newsModalTitle">资讯详情</h2>
-      <button class="modal-close-btn" onclick="closeModal('newsModal')">✕</button>
-    </div>
-    <div class="modal-body" id="newsModalBody"></div>
-  </div>
+<!-- PWA INSTALL BANNER -->
+<div id="installBanner">
+  <span style="font-size:1.4rem">📲</span>
+  <div><div class="ib-text">安装到主屏幕</div><div class="ib-sub">随时查看实时比分和预测</div></div>
+  <button class="ib-install" id="installBtn">安装</button>
+  <button class="ib-close" id="installClose">✕</button>
 </div>
 
 <script>
-// ─── GLOBALS ───────────────────────────────────────────────────────────────
-const BASE = location.hostname === 'localhost' ? '' : '';
-const CACHE = {};
-let FX = null, TP = null, IDX = null;
-let currentTab = 'schedule';
-let currentDateStr = null;
+// ══════════════════════════════════════════════════════════════
+//  GLOBALS
+// ══════════════════════════════════════════════════════════════
+const CACHE={}, ESPN_BASE='https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard';
+let FX=null, TP=null, IDX=null, H2H=null, STANDINGS=null;
+let espnScores={};   // keyed by "HOME_CODE-AWAY_CODE"
+let favorites=[];
+let deferredInstall=null;
+const ALL_MATCHES=()=>FX?[...(FX.matches||[]),...(FX.knockout||[])]:[];
 
-function toBeijing(u){ return new Date(new Date(u).getTime() + 8*3600*1000); }
-function fmtKey(d){ return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0'); }
-function fmtTime(u){ const d=toBeijing(u); return String(d.getUTCHours()).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0'); }
-function nowBJ(){ return toBeijing(Date.now()); }
-function todayKey(){ return fmtKey(nowBJ()); }
+// ── TIME HELPERS ──────────────────────────────────────────────
+const toBJ=u=>new Date(new Date(u).getTime()+8*3600*1000);
+const fmtKey=d=>d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+const fmtTime=u=>{const d=toBJ(u);return String(d.getUTCHours()).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0')};
+const nowBJ=()=>toBJ(Date.now());
+const todayKey=()=>fmtKey(nowBJ());
+const espnDate=d=>d.replace(/-/g,'');
 
+// ── FETCH HELPER ──────────────────────────────────────────────
 async function gj(path){
   if(CACHE[path]) return CACHE[path];
   try{
-    const r = await fetch(path+'?t='+Date.now());
+    const r=await fetch(path+'?t='+Date.now());
     if(!r.ok) return null;
-    const j = await r.json();
-    CACHE[path] = j;
-    return j;
-  } catch(e){ return null; }
+    const j=await r.json();
+    CACHE[path]=j; return j;
+  }catch{return null}
 }
 
-// ─── INIT ───────────────────────────────────────────────────────────────────
+// ── ESPN LIVE SCORES (client-side) ────────────────────────────
+async function fetchESPN(dateStr){
+  try{
+    const url=`${ESPN_BASE}?dates=${espnDate(dateStr)}`;
+    const r=await fetch(url,{headers:{'User-Agent':'Mozilla/5.0'}});
+    if(!r.ok) return;
+    const d=await r.json();
+    let liveCount=0;
+    (d.events||[]).forEach(ev=>{
+      const comp=ev.competitions?.[0]; if(!comp) return;
+      const status=comp.status?.type||{};
+      const comps=comp.competitors||[];
+      if(comps.length<2) return;
+      const home=comps.find(c=>c.homeAway==='home')||comps[0];
+      const away=comps.find(c=>c.homeAway==='away')||comps[1];
+      const hAbv=(home.team?.abbreviation||'').toUpperCase();
+      const aAbv=(away.team?.abbreviation||'').toUpperCase();
+      const score=`${home.score||0}-${away.score||0}`;
+      const key=`${hAbv}_${aAbv}`;
+      const isLive=status.state==='in';
+      if(isLive) liveCount++;
+      espnScores[key]={score,state:status.state,clock:status.displayClock,period:status.period,completed:status.completed};
+    });
+    // show live indicator
+    if(liveCount>0){
+      document.getElementById('liveDot').style.display='block';
+    }
+    CACHE['espn_'+dateStr]=true;
+  }catch(e){/* ESPN unavailable, graceful fallback */}
+}
+
+function getESPNScore(m){
+  if(!m) return null;
+  const hCode=(getTeamByName(m.home)||{}).code||m.home.slice(0,3).toUpperCase();
+  const aCode=(getTeamByName(m.away)||{}).code||m.away.slice(0,3).toUpperCase();
+  return espnScores[`${hCode}_${aCode}`]||espnScores[`${aCode}_${hCode}`]||null;
+}
+
+// ── ESPN TEAM CODE MAPPING ────────────────────────────────────
+const ESPN_MAP={
+  'KOR':'KOR','CZE':'CZE','BIH':'BIH','CUW':'CUW','CPV':'CPV',
+  'KSA':'KSA','IRN':'IRN','IRQ':'IRQ','ALG':'ALG','COD':'COD',
+  'UZB':'UZB','GHA':'GHA','PAN':'PAN','PAR':'PAR','HAI':'HTI',
+  'ZAF':'RSA','NED':'NED','TUR':'TUR','SUI':'SUI','SCO':'SCO',
+};
+
+// ── FAVORITES ─────────────────────────────────────────────────
+function loadFavs(){try{favorites=JSON.parse(localStorage.getItem('wc_favs')||'[]')}catch{favorites=[]}}
+function saveFavs(){localStorage.setItem('wc_favs',JSON.stringify(favorites))}
+function isFav(code){return favorites.includes(code)}
+function toggleFav(code,e){
+  if(e){e.stopPropagation()}
+  if(isFav(code)) favorites=favorites.filter(c=>c!==code);
+  else favorites.push(code);
+  saveFavs();
+  document.querySelectorAll(`[data-fav-code="${code}"]`).forEach(btn=>{
+    btn.classList.toggle('active',isFav(code));
+    btn.textContent=isFav(code)?'♥':'♡';
+  });
+  document.querySelectorAll(`[data-team-code="${code}"]`).forEach(card=>{
+    card.classList.toggle('favorited',isFav(code));
+  });
+  renderFavSection();
+}
+
+// ── INIT ──────────────────────────────────────────────────────
 async function init(){
-  document.getElementById('scheduleError').style.display='none';
-  document.getElementById('scheduleLoading').style.display='flex';
-  document.getElementById('scheduleContent').style.display='none';
+  loadFavs();
+  // Hero days counter
+  const start=new Date('2026-06-11'), end=new Date('2026-07-19'), now=new Date();
+  if(now<start){document.getElementById('daysLeft').textContent=Math.ceil((start-now)/86400000)+'天后'}
+  else if(now<=end){document.getElementById('daysLeft').textContent='第'+Math.floor((now-start)/86400000+1)+'天'}
+  else{document.getElementById('daysLeft').textContent='已结束'}
 
-  // hero days count
-  const start = new Date('2026-06-11');
-  const end = new Date('2026-07-19');
-  const now = new Date();
-  if(now < start){ const d=Math.ceil((start-now)/86400000); document.getElementById('daysLeft').textContent=d+'天后'; }
-  else if(now <= end){ const d=Math.floor((now-start)/86400000)+1; document.getElementById('daysLeft').textContent='第'+d+'天'; }
-  else{ document.getElementById('daysLeft').textContent='已结束'; }
+  // Show skeletons
+  showSkeleton();
 
-  [FX, TP, IDX] = await Promise.all([
-    gj('data/fixtures.json'),
-    gj('data/team_profiles.json'),
-    gj('data/index.json')
+  // Load all data in parallel
+  [FX,TP,IDX,H2H,STANDINGS]=await Promise.all([
+    gj('data/fixtures.json'),gj('data/team_profiles.json'),gj('data/index.json'),
+    gj('data/h2h.json'),gj('data/standings.json')
   ]);
 
-  if(!FX){ document.getElementById('scheduleLoading').style.display='none'; document.getElementById('scheduleError').style.display='block'; return; }
+  if(!FX){
+    document.getElementById('scheduleLoading').style.display='none';
+    document.getElementById('scheduleError').style.display='block';
+    return;
+  }
 
-  document.getElementById('scheduleLoading').style.display='none';
-  document.getElementById('scheduleContent').style.display='block';
+  // Fetch ESPN scores for today + yesterday
+  const today=todayKey();
+  const yesterday=fmtKey(new Date(Date.now()-86400000+8*3600*1000));
+  await Promise.all([fetchESPN(today),fetchESPN(yesterday)]);
 
+  // Count today's matches
+  const todayMs=ALL_MATCHES().filter(m=>fmtKey(toBJ(m.utc))===today);
+  document.getElementById('liveCount').textContent=todayMs.length;
+
+  hideSkeleton();
   renderSchedule();
   renderGroups();
   renderTeams();
@@ -916,87 +624,97 @@ async function init(){
   renderArchive();
 }
 
-// ─── TABS ───────────────────────────────────────────────────────────────────
-document.getElementById('tabs').addEventListener('click', e=>{
-  const tab = e.target.closest('[data-tab]');
-  if(!tab) return;
-  const t = tab.dataset.tab;
+function showSkeleton(){
+  document.getElementById('scheduleLoading').style.display='none';
+  const sc=document.getElementById('scheduleContent');
+  sc.style.display='block';
+  document.getElementById('todayMatches').innerHTML=[1,2,3].map(()=>`<div class="skel-match skeleton"></div>`).join('');
+  document.getElementById('dateMatches').innerHTML=[1,2].map(()=>`<div class="skel-match skeleton"></div>`).join('');
+}
+function hideSkeleton(){/* content will be overwritten by renders */}
+
+// ── TABS ──────────────────────────────────────────────────────
+document.getElementById('tabs').addEventListener('click',e=>{
+  const tab=e.target.closest('[data-tab]'); if(!tab) return;
+  const t=tab.dataset.tab;
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   tab.classList.add('active');
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
   document.getElementById('page-'+t).classList.add('active');
-  currentTab = t;
   if(t==='predict') renderPredict();
   if(t==='stats') renderStats();
 });
 
-// ─── SCHEDULE ───────────────────────────────────────────────────────────────
+// ── SCHEDULE ──────────────────────────────────────────────────
 function renderSchedule(){
   if(!FX) return;
-  const allMatches = [...(FX.matches||[]), ...(FX.knockout||[])];
-  const today = todayKey();
-  const byDate = {};
-  allMatches.forEach(m=>{
-    const k = fmtKey(toBeijing(m.utc));
-    if(!byDate[k]) byDate[k]=[];
-    byDate[k].push(m);
-  });
-
-  const todayArr = byDate[today]||[];
-  const todayEl = document.getElementById('todayMatches');
-  todayEl.innerHTML = todayArr.length ? todayArr.map(m=>matchCardHTML(m)).join('') : '<div class="empty">今日暂无比赛</div>';
-
-  const allDates = Object.keys(byDate).sort();
-  const strip = document.getElementById('dateStrip');
-  strip.innerHTML = allDates.map(d=>{
-    const label = d===today ? '今天' : d.slice(5).replace('-','/');
-    const isToday = d===today;
+  const all=ALL_MATCHES();
+  const today=todayKey();
+  const byDate={};
+  all.forEach(m=>{const k=fmtKey(toBJ(m.utc));if(!byDate[k])byDate[k]=[];byDate[k].push(m)});
+  const todayArr=byDate[today]||[];
+  document.getElementById('todayMatches').innerHTML=todayArr.length?todayArr.map(m=>matchCardHTML(m)).join(''):'<div class="empty">今日暂无比赛</div>';
+  // Date strip
+  const dates=Object.keys(byDate).sort();
+  const strip=document.getElementById('dateStrip');
+  strip.innerHTML=dates.map(d=>{
+    const label=d===today?'今天':d.slice(5).replace('-','/');
     return `<button class="date-btn${d===today?' active today':''}" data-date="${d}">${label}</button>`;
   }).join('');
-
-  strip.addEventListener('click', e=>{
-    const btn = e.target.closest('.date-btn');
-    if(!btn) return;
-    document.querySelectorAll('.date-btn').forEach(x=>x.classList.remove('active'));
+  strip.addEventListener('click',e=>{
+    const btn=e.target.closest('.date-btn'); if(!btn) return;
+    strip.querySelectorAll('.date-btn').forEach(x=>x.classList.remove('active'));
     btn.classList.add('active');
-    currentDateStr = btn.dataset.date;
-    renderDateMatches(byDate[currentDateStr]||[]);
+    const dateArr=byDate[btn.dataset.date]||[];
+    fetchESPN(btn.dataset.date).then(()=>{
+      document.getElementById('dateMatches').innerHTML=dateArr.length?dateArr.map(m=>matchCardHTML(m)).join(''):'<div class="empty">该日期无比赛</div>';
+    });
   });
-
-  currentDateStr = today;
-  renderDateMatches(todayArr);
+  document.getElementById('dateMatches').innerHTML=todayArr.length?todayArr.map(m=>matchCardHTML(m)).join(''):'<div class="empty">今日暂无比赛</div>';
+  renderFavSection();
 }
 
-function renderDateMatches(arr){
-  const el = document.getElementById('dateMatches');
-  el.innerHTML = arr.length ? arr.map(m=>matchCardHTML(m)).join('') : '<div class="empty">该日期无比赛</div>';
+function renderFavSection(){
+  if(!FX) return;
+  const el=document.getElementById('favSection');
+  const fm=document.getElementById('favMatches');
+  if(!favorites.length){el.style.display='none';return}
+  const upcoming=ALL_MATCHES().filter(m=>{
+    const hCode=(getTeamByName(m.home)||{}).code||'';
+    const aCode=(getTeamByName(m.away)||{}).code||'';
+    return (isFav(hCode)||isFav(aCode))&&new Date(m.utc)>Date.now()-7200000;
+  }).slice(0,6);
+  if(!upcoming.length){el.style.display='none';return}
+  el.style.display='block';
+  fm.innerHTML=upcoming.map(m=>matchCardHTML(m)).join('');
 }
 
 function matchCardHTML(m){
-  const hTeam = getTeamByName(m.home);
-  const aTeam = getTeamByName(m.away);
-  const hFlag = hTeam?hTeam.flag:(FX.teams&&FX.teams[m.home]?FX.teams[m.home].flag:'🏳️');
-  const aFlag = aTeam?aTeam.flag:(FX.teams&&FX.teams[m.away]?FX.teams[m.away].flag:'🏳️');
-  const hName = hTeam?hTeam.name:m.home;
-  const aName = aTeam?aTeam.name:m.away;
-  const bjTime = fmtTime(m.utc);
-  const now = Date.now();
-  const ms = new Date(m.utc).getTime();
-  const isLive = now>ms && now<ms+105*60*1000;
-  const isDone = now>ms+105*60*1000;
-  const badge = isLive ? '<span class="match-group-badge badge-live">🔴 进行中</span>'
-               : isDone ? '<span class="match-group-badge badge-done">已结束</span>'
-               : `<span class="match-group-badge">${m.group?'小组'+m.group:m.round||'淘汰赛'}</span>`;
-  const score = m.score || (isDone?'? - ?':bjTime);
-  return `<div class="match-card${isLive?' live':''}" onclick="openMatchModal('${m.id}')">
+  const hT=getTeamByName(m.home)||{}, aT=getTeamByName(m.away)||{};
+  const hFlag=hT.flag||(FX.teams?.[m.home]?.flag||'🏳️');
+  const aFlag=aT.flag||(FX.teams?.[m.away]?.flag||'🏳️');
+  const hName=hT.name||m.home, aName=aT.name||m.away;
+  const ms=new Date(m.utc).getTime(), now=Date.now();
+  const isLive=now>ms&&now<ms+110*60*1000;
+  const isDone=now>ms+110*60*1000;
+  const espn=getESPNScore(m);
+  const scoreVal=m.score||(espn?.score)||(isDone?'-':fmtTime(m.utc));
+  const scoreClass=isLive||espn?.state==='in'?'match-score live-score':'match-score';
+  let badge=isLive?'<span class="match-group-badge badge-live">🔴 进行中</span>'
+            :isDone?'<span class="match-group-badge badge-done">已结束</span>'
+            :`<span class="match-group-badge">${m.group?'小组'+m.group:m.round||'淘汰赛'}</span>`;
+  if(espn?.state==='in') badge='<span class="match-group-badge badge-live">🔴 '+espn.clock+'</span>';
+  const hCode=hT.code||'', aCode=aT.code||'';
+  const isFavMatch=isFav(hCode)||isFav(aCode);
+  return `<div class="match-card${isLive?' live':''}${isFavMatch?' fav-match':''}" onclick="openMatchModal('${m.id}')">
     <div class="team-side">
       <div class="team-flag">${hFlag}</div>
       <div class="team-name">${hName}<span class="sub">${m.home}</span></div>
     </div>
     <div class="match-center">
-      <div class="match-score">${score}</div>
-      <div class="match-meta">${badge}</div>
-      <div class="match-meta" style="font-size:.65rem;color:var(--t3)">${m.venue||''}</div>
+      <div class="${scoreClass}">${scoreVal}</div>
+      <div>${badge}</div>
+      <div style="font-size:.6rem;color:var(--t3);margin-top:2px">${m.venue||''}</div>
     </div>
     <div class="team-side right">
       <div class="team-flag">${aFlag}</div>
@@ -1005,45 +723,76 @@ function matchCardHTML(m){
   </div>`;
 }
 
-// ─── GROUPS ─────────────────────────────────────────────────────────────────
+// ── GROUPS ────────────────────────────────────────────────────
 function renderGroups(){
   if(!FX) return;
-  const el = document.getElementById('groupsContent');
-  const groups = FX.groups||{};
-  el.innerHTML = Object.entries(groups).sort(([a],[b])=>a.localeCompare(b)).map(([g,teams])=>{
-    const rows = teams.map((t,i)=>{
-      const tp = getTeamByCode(t) || getTeamByName(t) || {};
-      const flag = tp.flag || (FX.teams&&FX.teams[t]?FX.teams[t].flag:'🏳️');
-      const name = tp.name || t;
-      const rank = tp.fifaRank||'-';
-      return `<tr>
-        <td><span class="rank-num">${i+1}</span>${flag} <span class="team-name-text" onclick="openTeamModal('${t}')" style="cursor:pointer">${name}</span></td>
-        <td>${rank}</td>
-        <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+  const el=document.getElementById('groupsContent');
+  // Compute standings from match results
+  const computed=computeStandings();
+  const groups=FX.groups||{};
+  el.innerHTML=Object.entries(groups).sort(([a],[b])=>a.localeCompare(b)).map(([g,teams])=>{
+    const standing=computed[g]||teams.map(t=>({code:t,mp:0,w:0,d:0,l:0,gf:0,ga:0,gd:0,pts:0}));
+    standing.sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf);
+    const rows=standing.map((s,i)=>{
+      const tp=getTeamByCode(s.code)||getTeamByName(s.code)||{};
+      const flag=tp.flag||'🏳️', name=tp.name||s.code;
+      const qualify=i<2?'qualify-line':'';
+      return `<tr class="${qualify}">
+        <td><span class="rank-num">${i+1}</span><span class="team-row-flag">${flag}</span><span class="team-name-text" onclick="openTeamModal('${s.code}')">${name}</span></td>
+        <td>${s.mp}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td>
+        <td>${s.gf}</td><td>${s.ga}</td>
+        <td style="color:${s.gd>0?'var(--green)':s.gd<0?'var(--red)':'var(--t2)'}">${s.gd>0?'+':''}${s.gd}</td>
+        <td style="font-weight:700;color:var(--t1)">${s.pts}</td>
       </tr>`;
     }).join('');
     return `<div class="group-card">
       <div class="group-header"><div class="group-letter">${g}</div><div class="group-title">第${g}组</div></div>
       <table class="group-table">
-        <thead><tr><th>球队</th><th>排名</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>分</th></tr></thead>
+        <thead><tr><th>球队</th><th>场</th><th>胜</th><th>平</th><th>负</th><th>进</th><th>失</th><th>净</th><th>分</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>`;
   }).join('');
 }
 
-// ─── TEAMS ──────────────────────────────────────────────────────────────────
+function computeStandings(){
+  const result={};
+  if(!FX) return result;
+  const init=code=>({code,mp:0,w:0,d:0,l:0,gf:0,ga:0,gd:0,pts:0});
+  ALL_MATCHES().forEach(m=>{
+    if(!m.group||!m.score) return;
+    const parts=m.score.split('-').map(Number);
+    if(parts.length<2||isNaN(parts[0])||isNaN(parts[1])) return;
+    const [hg,ag]=parts;
+    const g=m.group.replace('组','');
+    if(!result[g]) result[g]={};
+    const hCode=(getTeamByName(m.home)||{}).code||m.home;
+    const aCode=(getTeamByName(m.away)||{}).code||m.away;
+    if(!result[g][hCode]) result[g][hCode]=init(hCode);
+    if(!result[g][aCode]) result[g][aCode]=init(aCode);
+    const h=result[g][hCode], a=result[g][aCode];
+    h.mp++;a.mp++;h.gf+=hg;h.ga+=ag;a.gf+=ag;a.ga+=hg;
+    h.gd=h.gf-h.ga;a.gd=a.gf-a.ga;
+    if(hg>ag){h.w++;h.pts+=3;a.l++}
+    else if(hg<ag){a.w++;a.pts+=3;h.l++}
+    else{h.d++;h.pts++;a.d++;a.pts++}
+  });
+  const out={};
+  Object.entries(result).forEach(([g,teams])=>{out[g]=Object.values(teams)});
+  return out;
+}
+
+// ── TEAMS ─────────────────────────────────────────────────────
 function renderTeams(){
   if(!TP) return;
-  const teams = TP.teams||{};
-  const confs = [...new Set(Object.values(teams).map(t=>t.confederation).filter(Boolean))].sort();
-  const filter = document.getElementById('teamsFilter');
-  filter.innerHTML = ['全部',...confs].map((c,i)=>
+  const teams=TP.teams||{};
+  const confs=[...new Set(Object.values(teams).map(t=>t.confederation).filter(Boolean))].sort();
+  const filter=document.getElementById('teamsFilter');
+  filter.innerHTML=['全部',...confs].map((c,i)=>
     `<button class="filter-btn${i===0?' active':''}" data-conf="${c}">${c}</button>`
   ).join('');
-  filter.addEventListener('click', e=>{
-    const btn = e.target.closest('.filter-btn');
-    if(!btn) return;
+  filter.addEventListener('click',e=>{
+    const btn=e.target.closest('.filter-btn'); if(!btn) return;
     filter.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
     btn.classList.add('active');
     renderTeamCards(btn.dataset.conf);
@@ -1052,166 +801,180 @@ function renderTeams(){
 }
 
 function renderTeamCards(conf){
-  const teams = TP?TP.teams:{};
-  const grid = document.getElementById('teamsGrid');
-  const entries = Object.entries(teams).filter(([,t])=>conf==='全部'||t.confederation===conf)
+  const teams=TP?TP.teams:{};
+  const grid=document.getElementById('teamsGrid');
+  const entries=Object.entries(teams).filter(([,t])=>conf==='全部'||t.confederation===conf)
     .sort(([,a],[,b])=>a.fifaRank-b.fifaRank);
-  grid.innerHTML = entries.map(([code,t])=>`
-    <div class="team-card" onclick="openTeamModal('${code}')">
+  grid.innerHTML=entries.map(([code,t])=>`
+    <div class="team-card${isFav(code)?' favorited':''}" data-team-code="${code}" onclick="openTeamModal('${code}')">
+      <button class="fav-btn${isFav(code)?' active':''}" data-fav-code="${code}" onclick="toggleFav('${code}',event)">${isFav(code)?'♥':'♡'}</button>
       <div class="flag">${t.flag}</div>
       <div class="tname">${t.name}</div>
       <div class="tgroup">小组 ${t.group} · ${t.confederation}</div>
       <div class="trank">FIFA #${t.fifaRank}</div>
       <div class="tcoach">⚙️ ${t.coach}</div>
       <div class="tstar">⭐ ${t.starPlayer}</div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-// ─── TEAM MODAL ──────────────────────────────────────────────────────────────
+// ── TEAM MODAL ────────────────────────────────────────────────
 function openTeamModal(codeOrName){
-  const teams = TP?TP.teams:{};
-  let t = teams[codeOrName];
-  if(!t) t = Object.values(teams).find(x=>x.nameEn===codeOrName||x.name===codeOrName||x.nameEn.toLowerCase()===codeOrName.toLowerCase());
+  const teams=TP?TP.teams:{};
+  let t=teams[codeOrName];
+  if(!t) t=Object.values(teams).find(x=>x.nameEn===codeOrName||x.name===codeOrName||x.nameEn?.toLowerCase()===codeOrName?.toLowerCase());
   if(!t) return;
-  document.getElementById('teamModalTitle').textContent = t.flag+' '+t.name;
-  const players = (t.keyPlayers||[]).map((p,i)=>{
-    const pos = p.pos||'';
-    const posCls = pos==='FW'?'pos-fw':pos==='MF'?'pos-mf':pos==='DF'?'pos-df':'pos-gk';
-    const isStar = p.name===t.starPlayer;
+  const code=t.code||codeOrName;
+  document.getElementById('teamModalTitle').textContent=t.flag+' '+t.name;
+  const players=(t.keyPlayers||[]).map(p=>{
+    const pos=p.pos||'';
+    const pc=pos==='FW'?'pos-fw':pos==='MF'?'pos-mf':pos==='DF'?'pos-df':'pos-gk';
     return `<div class="player-row">
-      <div class="player-pos ${posCls}">${pos}</div>
+      <div class="player-pos ${pc}">${pos}</div>
       <div class="player-name">${p.name}</div>
       <div class="player-club">${p.club}</div>
-      ${isStar?'<div class="star-badge">⭐ 核心</div>':''}
+      ${p.name===t.starPlayer?'<div class="star-badge">⭐ 核心</div>':''}
     </div>`;
   }).join('');
-
-  document.getElementById('teamModalBody').innerHTML = `
+  document.getElementById('teamModalBody').innerHTML=`
     <div class="tm-hero">
       <div class="tm-hero-flag">${t.flag}</div>
       <div class="tm-hero-info">
-        <h3>${t.name} <span style="font-weight:400;color:var(--t2)">(${t.nameEn})</span></h3>
+        <h3>${t.name} <span style="font-weight:400;color:var(--t2);font-size:.85rem">(${t.nameEn})</span></h3>
         <p>小组 ${t.group} · FIFA第${t.fifaRank}名</p>
         <p>主帅：${t.coach} · 阵型：${t.formation}</p>
         <p class="best">🏆 ${t.bestFinish}</p>
       </div>
     </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <span style="font-size:.8rem;color:var(--t2)">关注这支球队</span>
+      <button onclick="toggleFav('${code}',event)" data-fav-code="${code}" style="padding:6px 14px;border-radius:20px;border:1px solid ${isFav(code)?'var(--gold)':'var(--gb)'};background:${isFav(code)?'var(--gold-d)':'var(--glass-1)'};color:${isFav(code)?'var(--gold-l)':'var(--t2)'};cursor:pointer;font-size:.78rem;transition:.2s">${isFav(code)?'♥ 已关注':'♡ 关注'}</button>
+    </div>
     <div class="meta-grid">
       <div class="meta-item"><div class="ml">联合会</div><div class="mv">${t.confederation}</div></div>
       <div class="meta-item"><div class="ml">核心球员</div><div class="mv" style="color:var(--green)">⭐ ${t.starPlayer}</div></div>
       <div class="meta-item"><div class="ml">主要阵型</div><div class="mv">${t.formation}</div></div>
-      <div class="meta-item"><div class="ml">历史最佳</div><div class="mv" style="font-size:.75rem;color:var(--gold-light)">${t.bestFinish}</div></div>
+      <div class="meta-item"><div class="ml">历史最佳</div><div class="mv" style="font-size:.72rem;color:var(--gold-l)">${t.bestFinish}</div></div>
     </div>
-    <div class="tm-section">
-      <div class="tm-section-title">队伍概况</div>
-      <div class="tm-text">${t.overview||''}</div>
-    </div>
-    <div class="tm-section">
-      <div class="tm-section-title">世界杯历史</div>
-      <div class="tm-text">${t.wcHistory||''}</div>
-    </div>
-    <div class="tm-section">
-      <div class="tm-section-title">关键球员</div>
-      <div class="players-list">${players}</div>
-    </div>
-  `;
+    <div class="tm-section"><div class="tm-section-title">队伍概况</div><div class="tm-text">${t.overview||''}</div></div>
+    <div class="tm-section"><div class="tm-section-title">世界杯历史</div><div class="tm-text">${t.wcHistory||''}</div></div>
+    <div class="tm-section"><div class="tm-section-title">关键球员</div><div class="players-list">${players}</div></div>`;
   openModal('teamModal');
 }
 
-// ─── MATCH MODAL ─────────────────────────────────────────────────────────────
+// ── MATCH MODAL ───────────────────────────────────────────────
 async function openMatchModal(id){
   if(!FX) return;
-  const allMatches = [...(FX.matches||[]), ...(FX.knockout||[])];
-  const m = allMatches.find(x=>x.id===id);
+  const m=ALL_MATCHES().find(x=>x.id===id);
   if(!m) return;
-  const hTeam = getTeamByName(m.home)||{};
-  const aTeam = getTeamByName(m.away)||{};
-  const hFlag = hTeam.flag||(FX.teams&&FX.teams[m.home]?FX.teams[m.home].flag:'🏳️');
-  const aFlag = aTeam.flag||(FX.teams&&FX.teams[m.away]?FX.teams[m.away].flag:'🏳️');
-  const hName = hTeam.name||m.home;
-  const aName = aTeam.name||m.away;
-  const bjTime = fmtTime(m.utc);
-  const bjDate = fmtKey(toBeijing(m.utc));
-  const score = m.score||'-';
+  const hT=getTeamByName(m.home)||{}, aT=getTeamByName(m.away)||{};
+  const hFlag=hT.flag||(FX.teams?.[m.home]?.flag||'🏳️');
+  const aFlag=aT.flag||(FX.teams?.[m.away]?.flag||'🏳️');
+  const hName=hT.name||m.home, aName=aT.name||m.away;
+  const bjTime=fmtTime(m.utc), bjDate=fmtKey(toBJ(m.utc));
+  const espn=getESPNScore(m);
+  const score=m.score||(espn?.score)||'-';
+  const isLive=espn?.state==='in';
 
-  // Try to find prediction
-  let pred = null;
-  const predData = await gj(`data/predictions/${bjDate}.json`);
-  if(predData&&predData.matches){
-    pred = predData.matches.find(x=>x.id===id||
-      (x.homeCode&&hTeam.code&&x.homeCode===hTeam.code)||
-      (x.home&&(x.home===m.home||x.home===hName)));
+  let predHTML='';
+  const predData=await gj(`data/predictions/${bjDate}.json`);
+  if(predData?.matches){
+    const pred=predData.matches.find(x=>x.id===id||(x.homeCode&&hT.code&&x.homeCode===hT.code));
+    if(pred?.predictions){
+      const p=pred.predictions.fable5||pred.predictions.opta||{};
+      const h=p.home||33,dr=p.draw||33,a=p.away||34,sc=pred.predictions.fable5?.score||'';
+      predHTML=`
+        <div class="prob-section">
+          <div class="prob-header">AI 预测概率（Fable 5）</div>
+          <div class="prob-three">
+            <div class="prob-box"><div class="pval" style="color:var(--blue)">${h}%</div><div class="pnam">${hName}胜</div></div>
+            <div class="prob-box"><div class="pval" style="color:#6b7280">${dr}%</div><div class="pnam">平局</div></div>
+            <div class="prob-box"><div class="pval" style="color:var(--red)">${a}%</div><div class="pnam">${aName}胜</div></div>
+          </div>
+          <div class="prob-bars-row"><div class="prob-h" style="flex:${h}"></div><div class="prob-d" style="flex:${dr}"></div><div class="prob-a" style="flex:${a}"></div></div>
+        </div>
+        ${sc?`<div class="pred-score-modal"><div class="l">🎯 AI预测比分</div><div class="s">${sc}</div></div>`:''}
+        ${pred.analysis?`<div class="analysis-card"><div class="ah">📋 赛前分析</div><div class="at">${pred.analysis}</div></div>`:''}
+        ${pred.keyRisk?`<div class="analysis-card" style="border-color:rgba(245,158,11,.2)"><div class="ah" style="color:var(--gold-l)">⚠️ 关键变数</div><div class="at">${pred.keyRisk}</div></div>`:''}`;
+    }
   }
 
-  let predHTML = '';
-  if(pred&&pred.predictions){
-    const p = pred.predictions.fable5||pred.predictions.opta||{};
-    const h=p.home||33,dr=p.draw||33,a=p.away||34;
-    const sc = pred.predictions.fable5?pred.predictions.fable5.score:'';
-    predHTML = `
-      <div class="prob-section">
-        <div class="prob-header">AI 预测概率</div>
-        <div class="prob-three">
-          <div class="prob-box"><div class="pval" style="color:var(--blue)">${h}%</div><div class="pnam">${hName}胜</div></div>
-          <div class="prob-box"><div class="pval" style="color:#6b7280">${dr}%</div><div class="pnam">平局</div></div>
-          <div class="prob-box"><div class="pval" style="color:var(--red)">${a}%</div><div class="pnam">${aName}胜</div></div>
-        </div>
-        <div class="prob-bars-row">
-          <div class="prob-h" style="flex:${h}"></div>
-        <div class="prob-d" style="flex:${dr}"></div>
-        <div class="prob-a" style="flex:${a}"></div>
-        </div>
-      </div>
-      ${sc?`<div class="pred-score-modal"><div class="l">🎯 AI预测比分</div><div class="s">${sc}</div></div>`:''}
-      ${pred.analysis?`<div class="analysis-card"><div class="ah">📋 赛前分析</div><div class="at">${pred.analysis}</div></div>`:''}
-      ${pred.keyRisk?`<div class="analysis-card" style="border-color:rgba(245,158,11,.2)"><div class="ah" style="color:var(--gold-light)">⚠️ 关键变数</div><div class="at">${pred.keyRisk}</div></div>`:''}
-    `;
-  }
+  // H2H
+  const h2hHTML=buildH2H(hT.code||m.home,aT.code||m.away,hName,aName);
 
-  document.getElementById('matchModalTitle').textContent = hName+' vs '+aName;
-  document.getElementById('matchModalBody').innerHTML = `
+  document.getElementById('matchModalTitle').textContent=hName+' vs '+aName;
+  document.getElementById('matchModalBody').innerHTML=`
     <div class="mm-hero">
       <div class="mm-team">
-        <div class="mm-flag">${hFlag}</div>
-        <div class="mm-tname">${hName}</div>
-        ${hTeam.fifaRank?`<div class="mm-rank">FIFA #${hTeam.fifaRank}</div>`:''}
+        <div class="mm-flag">${hFlag}</div><div class="mm-tname">${hName}</div>
+        ${hT.fifaRank?`<div class="mm-rank">FIFA #${hT.fifaRank}</div>`:''}
       </div>
-      <div class="mm-center">
-        <div class="mm-score">${score}</div>
-        <div class="mm-time">${bjDate} ${bjTime} BJ</div>
+      <div>
+        <div class="mm-score${isLive?' live':''}">${score}</div>
+        <div class="mm-time">${bjDate} ${bjTime} 北京时间</div>
         <div class="mm-venue">${m.venue||''}</div>
         ${m.group?`<div class="mm-badge">小组 ${m.group}</div>`:''}
+        ${isLive?`<div style="margin-top:4px;font-size:.65rem;color:var(--red)">🔴 进行中 ${espn.clock}</div>`:''}
       </div>
       <div class="mm-team">
-        <div class="mm-flag">${aFlag}</div>
-        <div class="mm-tname">${aName}</div>
-        ${aTeam.fifaRank?`<div class="mm-rank">FIFA #${aTeam.fifaRank}</div>`:''}
+        <div class="mm-flag">${aFlag}</div><div class="mm-tname">${aName}</div>
+        ${aT.fifaRank?`<div class="mm-rank">FIFA #${aT.fifaRank}</div>`:''}
       </div>
     </div>
     <div class="team-links">
       <div class="team-link-btn" onclick="closeModal('matchModal');openTeamModal('${m.home}')">
-        <div class="ll">主队详情</div>
-        <div class="ln">🔍 ${hName}</div>
-        ${hTeam.starPlayer?`<div class="ls">⭐ ${hTeam.starPlayer}</div>`:''}
+        <div class="ll">主队详情</div><div class="ln">🔍 ${hName}</div>
+        ${hT.starPlayer?`<div class="ls">⭐ ${hT.starPlayer}</div>`:''}
       </div>
       <div class="team-link-btn" onclick="closeModal('matchModal');openTeamModal('${m.away}')">
-        <div class="ll">客队详情</div>
-        <div class="ln">🔍 ${aName}</div>
-        ${aTeam.starPlayer?`<div class="ls">⭐ ${aTeam.starPlayer}</div>`:''}
+        <div class="ll">客队详情</div><div class="ln">🔍 ${aName}</div>
+        ${aT.starPlayer?`<div class="ls">⭐ ${aT.starPlayer}</div>`:''}
       </div>
     </div>
     ${predHTML}
-  `;
+    ${h2hHTML}`;
   openModal('matchModal');
 }
 
-// ─── NEWS ────────────────────────────────────────────────────────────────────
+// ── H2H ───────────────────────────────────────────────────────
+function buildH2H(hCode,aCode,hName,aName){
+  if(!H2H) return '';
+  const key=[`${hCode}_${aCode}`,`${aCode}_${hCode}`].find(k=>H2H.records?.[k]);
+  const rec=key?H2H.records[key]:null;
+  if(!rec?.matches?.length) return '';
+  const s=rec.summary||{};
+  const hw=s[`${hCode}_W`]||s.BRA_W||s.FRA_W||s.GER_W||s.ARG_W||s.ENG_W||s.ESP_W||s.NED_W||s.MEX_W||s.CAN_W||s.USA_W||0;
+  const aw=s[`${aCode}_W`]||s.MAR_W||s.SEN_W||s.NED_W||s.CRO_W||s.URU_W||s.COL_W||s.JPN_W||s.KOR_W||s.QAT_W||s.PAR_W||s.ALG_W||0;
+  const dr=s.draws||0;
+  const total=(hw+aw+dr)||1;
+  const matches=rec.matches.slice(-5).reverse().map(r=>`
+    <div class="h2h-match">
+      <span class="h2h-match-date">${r.date}</span>
+      <span class="h2h-match-score">${r.result}</span>
+      <span class="h2h-match-comp">${r.comp}</span>
+    </div>
+    ${r.note?`<div class="h2h-match-note">${r.note}</div>`:''}`).join('');
+  return `<div class="h2h-section">
+    <div class="tm-section-title">历史交锋</div>
+    <div class="h2h-labels">
+      <span style="color:var(--blue)">${hName} ${hw}胜</span>
+      <span style="color:var(--t3)">${dr}平</span>
+      <span style="color:var(--red)">${aw}胜 ${aName}</span>
+    </div>
+    <div class="h2h-bar">
+      <div class="h2h-h-wins" style="flex:${hw||.1}"></div>
+      <div class="h2h-draws" style="flex:${dr||.1}"></div>
+      <div class="h2h-a-wins" style="flex:${aw||.1}"></div>
+    </div>
+    <div style="margin-top:10px">${matches}</div>
+  </div>`;
+}
+
+// ── NEWS ──────────────────────────────────────────────────────
 function renderNews(){
-  const el = document.getElementById('newsGrid');
-  const news = buildNewsItems();
-  const accentColor = (cls)=>cls==='tag-predict'?'var(--blue)':cls==='tag-review'?'var(--green)':'var(--gold)';
-  el.innerHTML = news.map((n,i)=>`
+  buildNewsItems();
+  const el=document.getElementById('newsGrid');
+  const accentColor=cls=>cls==='tag-predict'?'var(--blue)':cls==='tag-review'?'var(--green)':'var(--gold)';
+  el.innerHTML=NEWS_ITEMS.map((n,i)=>`
     <div class="news-card" onclick="openNewsModal(${i})">
       <div class="news-card-accent" style="background:${accentColor(n.tagCls)}"></div>
       <div class="news-card-body">
@@ -1220,79 +983,68 @@ function renderNews(){
         <div class="news-excerpt">${n.excerpt}</div>
         <div class="news-footer"><span>${n.time}</span><span>${n.source}</span></div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-let NEWS_ITEMS = [];
+let NEWS_ITEMS=[];
 function buildNewsItems(){
-  NEWS_ITEMS = [
-    {tag:'📰 赛事快讯',tagCls:'tag-news',title:'世界杯揭幕战：墨西哥1-0击败南非，主场首战告捷',excerpt:'墨西哥在阿兹特卡球场迎来主场首战，圣地亚哥·希门尼斯第67分钟点球破门，1-0击败南非。12万球迷沸腾，黄绿大军如期开始卫冕征程。',time:'2026-06-11',source:'赛事资讯'},
-    {tag:'⭐ 球员焦点',tagCls:'tag-news',title:'梅西38岁告别世界杯：我只想再为阿根廷赢一次',excerpt:'阿根廷超级球星莱昂内尔·梅西确认2026世界杯将是他的最后一届。他表示："每次穿上这件球衣都是特别的，我希望用最美好的方式告别。"',time:'2026-06-10',source:'球员动态'},
-    {tag:'🔮 赛前预测',tagCls:'tag-predict',title:'今日焦点预测：巴西vs摩洛哥，五冠王开门红？',excerpt:'FIFA排名第一的巴西将对阵2022年四强摩洛哥，本届最受关注的小组赛之一。Fable5模型预测巴西胜率62%，但摩洛哥防守体系不可小觑。',time:'2026-06-13',source:'AI预测'},
-    {tag:'🔮 赛前预测',tagCls:'tag-predict',title:'法国vs塞内加尔：姆巴佩能否复仇2002年的屈辱？',excerpt:'2002年塞内加尔开门击败法国震惊世界。24年后两队相遇，姆巴佩领衔的法国是夺冠热门之一，但马内的塞内加尔绝非等闲之辈。',time:'2026-06-16',source:'AI预测'},
+  NEWS_ITEMS=[
+    {tag:'📰 赛事快讯',tagCls:'tag-news',title:'世界杯揭幕战：墨西哥1-0击败南非，主场首战告捷',excerpt:'墨西哥在阿兹特卡球场迎来主场首战，圣地亚哥·希门尼斯第67分钟点球破门，1-0击败南非。12万球迷沸腾，黄绿大军开门红。',time:'2026-06-11',source:'赛事资讯'},
+    {tag:'⭐ 球员焦点',tagCls:'tag-news',title:'梅西38岁告别世界杯：我只想再为阿根廷赢一次',excerpt:'阿根廷超级球星莱昂内尔·梅西确认2026世界杯将是他的最后一届。"每次穿上这件球衣都是特别的，我希望用最美好的方式告别。"',time:'2026-06-10',source:'球员动态'},
+    {tag:'🔮 赛前预测',tagCls:'tag-predict',title:'今日焦点：巴西vs摩洛哥，五冠王开门红？',excerpt:'FIFA排名第一的巴西将对阵2022年四强摩洛哥，本届最受关注的小组赛之一。Fable5预测巴西胜率62%，摩洛哥密集防守体系不可小觑。',time:'2026-06-13',source:'AI预测'},
+    {tag:'🔮 赛前预测',tagCls:'tag-predict',title:'法国vs塞内加尔：姆巴佩能否复仇2002年的屈辱？',excerpt:'2002年塞内加尔开门击败法国震惊世界。24年后两队相遇，姆巴佩领衔的法国是夺冠热门，但马内的塞内加尔绝非等闲之辈。',time:'2026-06-16',source:'AI预测'},
     {tag:'📊 数据分析',tagCls:'tag-news',title:'2026世界杯各大洲备战综述：欧洲全面称雄还是南美反攻？',excerpt:'本届世界杯48支球队来自全球六大洲。据统计，欧洲球队在近三届世界杯累计胜率高达68%。南美双雄巴西与阿根廷能否捍卫南美地位？',time:'2026-06-09',source:'数据解析'},
-    {tag:'⭐ 球员焦点',tagCls:'tag-news',title:'哈兰德：我梦寐以求的世界杯终于来了，挪威准备好了',excerpt:'曼城前锋厄林·哈兰德在挪威重返世界杯之际，发表激情演讲。"我从小看世界杯哭泣，现在终于轮到我了。"哈兰德与厄德加尔组合被视为本届最恐怖前中场搭档。',time:'2026-06-10',source:'球员动态'},
-    {tag:'📝 赛后回顾',tagCls:'tag-review',title:'回顾：加拿大1-0波黑，东道主首战历史性胜利',excerpt:'加拿大在主场BMO球场迎来历史性时刻。阿方索·戴维斯助攻，乔纳森·大卫破门，1-0击败波黑。整个加拿大为之沸腾，这是该国世界杯历史上首场胜利。',time:'2026-06-12',source:'赛后回顾'},
-    {tag:'📰 赛事快讯',tagCls:'tag-news',title:'亚马尔因伤缺席训练，西班牙主帅拒绝透露伤情',excerpt:'西班牙天才球星拉明·亚马尔缺席了赛前训练，引发了西班牙媒体的广泛关注。主帅路易斯·德拉富恩特表示球队状态很好，但拒绝透露亚马尔的具体伤情。',time:'2026-06-12',source:'赛事快讯'},
-    {tag:'📊 数据分析',tagCls:'tag-news',title:'C罗vs梅西本届世界杯数据对比：谁的最后舞台更精彩？',excerpt:'本届世界杯将是两位传奇球星共同的最后一届，全世界球迷都在期待历史的见证。数据显示，梅西进球效率略高，但C罗的身体状态令人惊叹。',time:'2026-06-11',source:'数据解析'},
-    {tag:'🔮 赛前预测',tagCls:'tag-predict',title:'德国vs库拉索：维尔茨和穆西亚拉将如何对付弱旅？',excerpt:'德国开门战对阵世界杯首秀的库拉索，纳格尔斯曼的球队被认为胜算极大。Fable5预测德国胜率高达89%，关注点在于德国能否打出赏心悦目的进攻足球。',time:'2026-06-14',source:'AI预测'},
+    {tag:'⭐ 球员焦点',tagCls:'tag-news',title:'哈兰德：我梦寐以求的世界杯终于来了，挪威准备好了',excerpt:'曼城前锋厄林·哈兰德在挪威重返世界杯之际发表激情宣言。"我从小看世界杯哭泣，现在终于轮到我了。"哈兰德与厄德加尔组合被视为本届最恐怖前中场搭档。',time:'2026-06-10',source:'球员动态'},
+    {tag:'📝 赛后回顾',tagCls:'tag-review',title:'回顾：加拿大1-0波黑，东道主首战历史性胜利',excerpt:'加拿大在主场BMO球场迎来历史性时刻。阿方索·戴维斯助攻，乔纳森·大卫破门，1-0击败波黑。这是该国世界杯历史上首场胜利。',time:'2026-06-12',source:'赛后回顾'},
+    {tag:'📰 赛事快讯',tagCls:'tag-news',title:'亚马尔伤情存疑，西班牙主帅赛前拒绝透露',excerpt:'西班牙天才球星拉明·亚马尔缺席了赛前训练，引发广泛关注。主帅路易斯·德拉富恩特表示球队状态很好，但拒绝透露具体伤情。',time:'2026-06-12',source:'赛事快讯'},
+    {tag:'📊 数据分析',tagCls:'tag-news',title:'C罗vs梅西本届数据前瞻：谁的告别舞台更精彩？',excerpt:'本届世界杯将是两位传奇球星共同的最后一届。数据显示梅西进球效率略高，但C罗的身体状态令人惊叹，各有看点。',time:'2026-06-11',source:'数据解析'},
+    {tag:'🔮 赛前预测',tagCls:'tag-predict',title:'德国vs库拉索：维尔茨和穆西亚拉将如何对付弱旅？',excerpt:'德国开门战对阵世界杯首秀的库拉索，纳格尔斯曼的球队被认为胜算极大。Fable5预测德国胜率高达85%，关注点在于能否打出赏心悦目的进攻足球。',time:'2026-06-14',source:'AI预测'},
   ];
-  return NEWS_ITEMS;
 }
 
 function openNewsModal(idx){
-  const n = NEWS_ITEMS[idx];
-  if(!n) return;
-  document.getElementById('newsModalTitle').textContent = n.title;
-  document.getElementById('newsModalBody').innerHTML = `
-    <div style="margin-bottom:12px"><span class="news-tag ${n.tagCls}">${n.tag}</span></div>
-    <h2 style="font-size:1rem;font-weight:700;color:var(--t1);margin-bottom:14px;line-height:1.5">${n.title}</h2>
+  const n=NEWS_ITEMS[idx]; if(!n) return;
+  document.getElementById('newsModalTitle').textContent=n.title;
+  document.getElementById('newsModalBody').innerHTML=`
+    <div style="margin-bottom:10px"><span class="news-tag ${n.tagCls}">${n.tag}</span></div>
+    <h2 style="font-size:.95rem;font-weight:700;color:var(--t1);margin-bottom:12px;line-height:1.5">${n.title}</h2>
     <div class="news-modal-content"><p>${n.excerpt}</p>
-    <p>所有预测数据均由AI模型Fable5基于历史数据、当前状态、阵容信息和战术分析生成，仅供参考，不构成投注建议。实际结果存在不确定性。</p></div>
-    <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--glass-border);font-size:.68rem;color:var(--t3)">${n.time} · ${n.source}</div>
-  `;
+    <p>所有预测数据由AI模型Fable 5基于历史数据、当前状态、阵容信息和战术分析生成，仅供参考，不构成投注建议。</p></div>
+    <div style="margin-top:14px;padding-top:10px;border-top:1px solid var(--gb);font-size:.65rem;color:var(--t3)">${n.time} · ${n.source}</div>`;
   openModal('newsModal');
 }
 
-// ─── PREDICT ─────────────────────────────────────────────────────────────────
+// ── PREDICT ───────────────────────────────────────────────────
 async function renderPredict(){
-  const ldEl = document.getElementById('predictLoading');
-  const ctEl = document.getElementById('predictContent');
-  const emEl = document.getElementById('predictEmpty');
-  ldEl.style.display='flex'; ctEl.style.display='none'; emEl.style.display='none';
-
-  const today = todayKey();
-  const data = await gj(`data/predictions/${today}.json`);
+  const ldEl=document.getElementById('predictLoading');
+  const ctEl=document.getElementById('predictContent');
+  const emEl=document.getElementById('predictEmpty');
+  ldEl.style.display='flex';ctEl.style.display='none';emEl.style.display='none';
+  const today=todayKey();
+  const data=await gj(`data/predictions/${today}.json`);
   ldEl.style.display='none';
-  if(!data||!data.matches||!data.matches.length){emEl.style.display='block';return;}
-
+  if(!data?.matches?.length){emEl.style.display='block';return}
   ctEl.style.display='block';
-  ctEl.innerHTML = `<div class="pred-grid">${data.matches.map(m=>predCardHTML(m)).join('')}</div>`;
+  ctEl.innerHTML=`<div class="pred-grid">${data.matches.map(m=>predCardHTML(m)).join('')}</div>`;
 }
 
 function predCardHTML(m){
-  const p5 = m.predictions?m.predictions.fable5:{};
-  const op = m.predictions?m.predictions.opta:{};
-  const h=p5.home||op.home||33, dr=p5.draw||op.draw||33, a=p5.away||op.away||34;
-  const score = p5.score||'?-?';
-  const hTeam = getTeamByName(m.home)||getTeamByCode(m.homeCode)||{};
-  const aTeam = getTeamByName(m.away)||getTeamByCode(m.awayCode)||{};
+  const p5=m.predictions?.fable5||{}, op=m.predictions?.opta||{};
+  const h=p5.home||op.home||33,dr=p5.draw||op.draw||33,a=p5.away||op.away||34;
+  const score=p5.score||'?-?';
+  const hT=getTeamByName(m.home)||getTeamByCode(m.homeCode)||{};
+  const aT=getTeamByName(m.away)||getTeamByCode(m.awayCode)||{};
   return `<div class="pred-card" onclick="openMatchModal('${m.id}')">
     <div class="pred-header">
       <div class="pred-teams">
-        <div class="pred-team"><div class="pred-flag">${hTeam.flag||'🏳️'}</div><div class="pred-name">${hTeam.name||m.home}</div></div>
+        <div class="pred-team"><div class="pred-flag">${hT.flag||'🏳️'}</div><div class="pred-name">${hT.name||m.home}</div></div>
         <div class="pred-vs">VS</div>
-        <div class="pred-team"><div class="pred-flag">${aTeam.flag||'🏳️'}</div><div class="pred-name">${aTeam.name||m.away}</div></div>
+        <div class="pred-team"><div class="pred-flag">${aT.flag||'🏳️'}</div><div class="pred-name">${aT.name||m.away}</div></div>
       </div>
       <div class="pred-time">⏰ ${m.kickoffBeijing?m.kickoffBeijing.slice(5,10)+' '+m.kickoffBeijing.slice(11,16)+' BJ':''}</div>
     </div>
     <div class="pred-body">
-      <div class="pred-bar-row">
-        <div class="pred-bar-h" style="flex:${h}"></div>
-        <div class="pred-bar-d" style="flex:${dr}"></div>
-        <div class="pred-bar-a" style="flex:${a}"></div>
-      </div>
+      <div class="pred-bar-row"><div class="pred-bar-h" style="flex:${h}"></div><div class="pred-bar-d" style="flex:${dr}"></div><div class="pred-bar-a" style="flex:${a}"></div></div>
       <div class="pred-probs">
         <div class="pred-prob-item"><div class="pct" style="color:var(--blue)">${h}%</div><div class="plbl">主胜</div></div>
         <div class="pred-prob-item"><div class="pct" style="color:#6b7280">${dr}%</div><div class="plbl">平局</div></div>
@@ -1304,121 +1056,162 @@ function predCardHTML(m){
   </div>`;
 }
 
-// ─── STATS ───────────────────────────────────────────────────────────────────
+// ── STATS ─────────────────────────────────────────────────────
 async function renderStats(){
-  const stats = await gj('data/stats.json');
+  const stats=await gj('data/stats.json');
   if(!stats) return;
-  const t = stats.totals||{};
-  const f5 = t.fable5||{};
-  const el = document.getElementById('statsCards');
-  el.innerHTML = [
-    {v:t.matches||0, l:'已预测场次'},
-    {v:f5.correct||0, l:'Fable5正确次数'},
-    {v:f5.total>0?Math.round(f5.correct/f5.total*100)+'%':'--', l:'Fable5准确率'},
-    {v:t.opta?Math.round((t.opta.correct||0)/(t.opta.total||1)*100)+'%':'--', l:'Opta准确率'},
+  const t=stats.totals||{}, f5=t.fable5||{};
+  document.getElementById('statsCards').innerHTML=[
+    {v:t.matches||0,l:'已预测场次'},
+    {v:f5.correct||0,l:'Fable5正确'},
+    {v:f5.total>0?Math.round(f5.correct/f5.total*100)+'%':'--',l:'Fable5准确率'},
+    {v:t.opta?.total>0?Math.round((t.opta.correct||0)/t.opta.total*100)+'%':'--',l:'Opta准确率'},
   ].map(x=>`<div class="stat-box"><div class="sv">${x.v}</div><div class="sl">${x.l}</div></div>`).join('');
-  loadChartJs(stats);
-}
-
-function loadChartJs(stats){
-  if(window.Chart){ renderChart(stats); return; }
-  const s=document.createElement('script');
-  s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';
-  s.onload=()=>renderChart(stats);
-  s.onerror=()=>{};
-  document.head.appendChild(s);
+  if(!window.Chart){
+    const s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';
+    s.onload=()=>renderChart(stats);document.head.appendChild(s);
+  }else{renderChart(stats)}
 }
 
 function renderChart(stats){
-  const ctx = document.getElementById('accuracyChart');
-  if(!ctx||!stats.series||!stats.series.length) return;
-  const labels = stats.series.map(x=>x.date.slice(5));
-  const f5 = stats.series.map(x=>x.fable5Acc||0);
-  new Chart(ctx,{
-    type:'line',
-    data:{
-      labels,
-      datasets:[{label:'Fable5准确率',data:f5,borderColor:'#f59e0b',tension:.4,fill:true,backgroundColor:'rgba(245,158,11,.1)',pointRadius:4}]
-    },
-    options:{responsive:true,plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}}},scales:{y:{beginAtZero:true,max:100,ticks:{color:'#64748b',callback:v=>v+'%'},grid:{color:'rgba(30,58,95,.5)'}},x:{ticks:{color:'#64748b'},grid:{color:'rgba(30,58,95,.3)'}}}}
-  });
+  const ctx=document.getElementById('accuracyChart');
+  if(!ctx||!stats.series?.length) return;
+  const labels=stats.series.map(x=>x.date.slice(5));
+  const f5=stats.series.map(x=>x.fable5Acc||0);
+  if(ctx._chart) ctx._chart.destroy();
+  ctx._chart=new Chart(ctx,{type:'line',data:{labels,datasets:[{label:'Fable5准确率',data:f5,borderColor:'#f59e0b',tension:.4,fill:true,backgroundColor:'rgba(245,158,11,.08)',pointRadius:4,pointBackgroundColor:'#f59e0b'}]},options:{responsive:true,plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}}},scales:{y:{beginAtZero:true,max:100,ticks:{color:'#64748b',callback:v=>v+'%'},grid:{color:'rgba(30,58,95,.4)'}},x:{ticks:{color:'#64748b'},grid:{color:'rgba(30,58,95,.25)'}}}}}});
 }
 
-// ─── ARCHIVE ─────────────────────────────────────────────────────────────────
+// ── ARCHIVE ───────────────────────────────────────────────────
 async function renderArchive(){
-  const idx = IDX||await gj('data/index.json');
-  const el = document.getElementById('archiveList');
-  if(!idx||!idx.dates||!idx.dates.length){el.innerHTML='<div class="empty">暂无归档数据</div>';return;}
-  el.innerHTML = idx.dates.sort((a,b)=>b.localeCompare(a)).map(d=>`
+  const idx=IDX||await gj('data/index.json');
+  const el=document.getElementById('archiveList');
+  if(!idx?.dates?.length){el.innerHTML='<div class="empty">暂无归档数据</div>';return}
+  el.innerHTML=idx.dates.sort((a,b)=>b.localeCompare(a)).map(d=>`
     <div class="archive-item">
       <div class="archive-date" onclick="toggleArchive('${d}')">
-        📅 ${d} 预测&回顾
-        <span id="arc-icon-${d}">▶</span>
+        <span>📅 ${d} 预测 & 回顾</span>
+        <div class="arc-chevron" id="arc-icon-${d}">▶</div>
       </div>
       <div class="archive-body" id="arc-${d}"></div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 async function toggleArchive(date){
-  const body = document.getElementById('arc-'+date);
-  const icon = document.getElementById('arc-icon-'+date);
-  if(body.classList.contains('open')){body.classList.remove('open');icon.textContent='▶';return;}
-  body.classList.add('open');
-  icon.textContent='▼';
+  const body=document.getElementById('arc-'+date);
+  const icon=document.getElementById('arc-icon-'+date);
+  if(body.classList.contains('open')){body.classList.remove('open');icon.textContent='▶';return}
+  body.classList.add('open');icon.textContent='▼';
   if(body.innerHTML.trim()) return;
-  body.innerHTML='<div class="loading" style="padding:20px"><div class="spinner"></div><span>加载中...</span></div>';
-  const [pred, rev] = await Promise.all([gj(`data/predictions/${date}.json`),gj(`data/reviews/${date}.json`)]);
-  let html = '';
-  if(pred&&pred.matches&&pred.matches.length){
-    html += `<div style="font-size:.82rem;font-weight:700;color:var(--text2);margin-bottom:8px">📋 预测 (${pred.matches.length}场)</div>`;
-    html += pred.matches.map(m=>{
-      const p5=m.predictions?m.predictions.fable5:{};
-      return `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:.8rem">
-        <span style="color:var(--text)">${m.home} vs ${m.away}</span>
-        <span style="color:var(--accent)">${p5.score||'?-?'} (${p5.home||'-'}%/${p5.draw||'-'}%/${p5.away||'-'}%)</span>
-      </div>`;
-    }).join('');
+  body.innerHTML='<div class="loading" style="padding:20px"><div class="spinner"></div></div>';
+  const [pred,rev]=await Promise.all([gj(`data/predictions/${date}.json`),gj(`data/reviews/${date}.json`)]);
+  let html='';
+  if(pred?.matches?.length){
+    html+=`<div style="padding:10px 14px;font-size:.75rem;font-weight:700;color:var(--t2)">📋 预测（${pred.matches.length}场）</div>`;
+    html+=pred.matches.map(m=>{
+      const p5=m.predictions?.fable5||{};
+      return `<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 14px;border-top:1px solid var(--gb);font-size:.76rem">
+        <span style="color:var(--t1)">${m.home} vs ${m.away}</span>
+        <span style="color:var(--gold-l);font-weight:700">${p5.score||'?-?'}</span>
+        <span style="color:var(--t3);font-size:.65rem">${p5.home||'-'}/${p5.draw||'-'}/${p5.away||'-'}%</span>
+      </div>`;}).join('');
   }
-  if(rev&&rev.results&&rev.results.length){
-    html += `<div style="font-size:.82rem;font-weight:700;color:var(--text2);margin:12px 0 8px">📝 回顾 (${rev.results.length}场)</div>`;
-    html += rev.results.map(r=>`
-      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:.8rem">
-        <span style="color:var(--text)">${r.home} vs ${r.away}</span>
-        <span style="color:${r.correct?'var(--accent3)':'var(--accent4)'}">${r.actual||'?'} ${r.correct?'✓':'✗'}</span>
-      </div>
-    `).join('');
+  if(rev?.results?.length){
+    html+=`<div style="padding:10px 14px;font-size:.75rem;font-weight:700;color:var(--t2)">📝 回顾（${rev.results.length}场）</div>`;
+    html+=rev.results.map(r=>`
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 14px;border-top:1px solid var(--gb);font-size:.76rem">
+        <span style="color:var(--t1)">${r.home} vs ${r.away}</span>
+        <span style="color:var(--t1);font-weight:700">${r.actual||'?'}</span>
+        <span style="color:${r.correct?'var(--green)':'var(--red)'}">${r.correct?'✓ 命中':'✗ 未中'}</span>
+      </div>`).join('');
   }
-  if(!html) html = '<div class="empty">该日期暂无数据</div>';
-  body.innerHTML = `<div style="padding:12px">${html}</div>`;
+  if(!html) html='<div class="empty" style="padding:20px">该日期暂无数据</div>';
+  body.innerHTML=html;
 }
 
-// ─── UTILS ───────────────────────────────────────────────────────────────────
-function getTeamByCode(code){
-  if(!TP) return null;
-  return TP.teams[code]||null;
+// ── SEARCH ────────────────────────────────────────────────────
+document.getElementById('searchBtn').addEventListener('click',()=>openSearch());
+document.getElementById('searchCloseBtn').addEventListener('click',()=>closeSearch());
+document.getElementById('searchInput').addEventListener('input',e=>doSearch(e.target.value));
+document.addEventListener('keydown',e=>{
+  if(e.key==='/') {e.preventDefault();openSearch();}
+  if(e.key==='Escape'){closeSearch();document.querySelectorAll('.modal-overlay.open').forEach(m=>closeModal(m.id));}
+});
+
+function openSearch(){
+  document.getElementById('searchOverlay').classList.add('open');
+  setTimeout(()=>document.getElementById('searchInput').focus(),50);
 }
+function closeSearch(){
+  document.getElementById('searchOverlay').classList.remove('open');
+  document.getElementById('searchInput').value='';
+  document.getElementById('searchResults').innerHTML='<div class="search-empty">输入关键词开始搜索</div>';
+}
+
+function doSearch(q){
+  q=q.trim().toLowerCase();
+  const el=document.getElementById('searchResults');
+  if(!q||q.length<1){el.innerHTML='<div class="search-empty">输入关键词开始搜索</div>';return}
+  const results=[];
+  // Search teams
+  if(TP){
+    Object.entries(TP.teams).forEach(([code,t])=>{
+      if(t.name.includes(q)||t.nameEn.toLowerCase().includes(q)||(t.keyPlayers||[]).some(p=>p.name.toLowerCase().includes(q))||(t.coach||'').toLowerCase().includes(q)){
+        const matchedPlayer=(t.keyPlayers||[]).find(p=>p.name.toLowerCase().includes(q));
+        results.push({type:'team',icon:t.flag,title:t.name,sub:matchedPlayer?`球员: ${matchedPlayer.name} · ${matchedPlayer.club}`:`FIFA #${t.fifaRank} · 小组${t.group}`,action:()=>{closeSearch();openTeamModal(code)}});
+      }
+    });
+  }
+  // Search matches
+  if(FX){
+    ALL_MATCHES().forEach(m=>{
+      const hT=getTeamByName(m.home)||{}, aT=getTeamByName(m.away)||{};
+      const hName=hT.name||m.home, aName=aT.name||m.away;
+      if(hName.toLowerCase().includes(q)||aName.toLowerCase().includes(q)||m.home.toLowerCase().includes(q)||m.away.toLowerCase().includes(q)||fmtKey(toBJ(m.utc)).includes(q)){
+        const bjDate=fmtKey(toBJ(m.utc));
+        results.push({type:'match',icon:'⚽',title:`${hName} vs ${aName}`,sub:`${bjDate} ${fmtTime(m.utc)} · ${m.venue||''}`,action:()=>{closeSearch();openMatchModal(m.id)}});
+      }
+    });
+  }
+  if(!results.length){el.innerHTML='<div class="search-empty">未找到相关结果</div>';return}
+  el.innerHTML=results.slice(0,20).map(r=>`
+    <div class="search-result-item" onclick="(${r.action.toString()})()">
+      <div class="sr-icon">${r.icon}</div>
+      <div class="sr-main"><div class="sr-title">${r.title}</div><div class="sr-sub">${r.sub}</div></div>
+      <div class="sr-type">${r.type==='team'?'球队':'赛程'}</div>
+    </div>`).join('');
+}
+
+// ── MODAL HELPERS ─────────────────────────────────────────────
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('click',e=>{if(e.target.classList.contains('modal-overlay'))closeModal(e.target.id)});
+
+// ── UTILS ─────────────────────────────────────────────────────
+function getTeamByCode(code){return TP?TP.teams[code]||null:null}
 function getTeamByName(name){
   if(!TP) return null;
-  const teams = TP.teams;
-  return Object.values(teams).find(t=>t.nameEn===name||t.name===name||
-    t.nameEn.toLowerCase()===name.toLowerCase());
+  return Object.values(TP.teams).find(t=>t.nameEn===name||t.name===name||t.nameEn?.toLowerCase()===name?.toLowerCase())||null;
 }
 
-function openModal(id){
-  document.getElementById(id).classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(id){
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('click', e=>{
-  if(e.target.classList.contains('modal-overlay')) closeModal(e.target.id);
+// ── PWA ───────────────────────────────────────────────────────
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredInstall=e;
+  setTimeout(()=>document.getElementById('installBanner').classList.add('show'),3000);
 });
-document.addEventListener('keydown', e=>{
-  if(e.key==='Escape'){
-    document.querySelectorAll('.modal-overlay.open').forEach(m=>closeModal(m.id));
-  }
+document.getElementById('installBtn').addEventListener('click',()=>{
+  if(deferredInstall){deferredInstall.prompt();deferredInstall.userChoice.then(()=>{deferredInstall=null;document.getElementById('installBanner').classList.remove('show')})}
 });
+document.getElementById('installClose').addEventListener('click',()=>document.getElementById('installBanner').classList.remove('show'));
 
+// Register service worker
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+
+// ── BOOT ──────────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
