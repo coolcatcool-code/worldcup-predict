@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-13",
+  "matches": [
+    {
+      "id": "2026-06-13-CAN-BIH",
+      "actualScore": "1-1",
+      "outcome": "draw",
+      "fable5": { "outcomeHit": false, "scoreHit": false, "brier": 0.769 },
+      "opta":   { "outcomeHit": false, "brier": 0.804 },
+      "market": { "outcomeHit": false, "brier": 0.798 }
+    },
+    {
+      "id": "2026-06-13-USA-PAR",
+      "actualScore": "4-1",
+      "outcome": "home",
+      "fable5": { "outcomeHit": true, "scoreHit": false, "brier": 0.439 },
+      "opta":   { "outcomeHit": true, "brier": 0.395 },
+      "market": { "outcomeHit": true, "brier": 0.407 }
+    }
+  ]
+}

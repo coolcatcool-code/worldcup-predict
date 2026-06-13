@@ -1,10 +1,33 @@
 {
-  "updatedAt": "2026-06-13T08:00:00+08:00",
+  "updatedAt": "2026-06-13T18:04:13+08:00",
   "totals": {
-    "matches": 12,
-    "fable5": { "correct": 0, "total": 4, "outcomeHits": 0, "scoreHits": 0 },
-    "opta":   { "correct": 0, "total": 4, "outcomeHits": 0, "scoreHits": 0 },
-    "market": { "correct": 0, "total": 4, "outcomeHits": 0, "scoreHits": 0 }
+    "matches": 4,
+    "fable5": {
+      "outcomeHits": 3,
+      "scoreHits": 1,
+      "brierSum": 2.131
+    },
+    "opta": {
+      "outcomeHits": 3,
+      "brierSum": 2.03
+    },
+    "market": {
+      "outcomeHits": 3,
+      "brierSum": 2.063
+    }
   },
-  "series": []
+  "series": [
+    {
+      "date": "2026-06-12",
+      "fable5": 0.461,
+      "opta": 0.415,
+      "market": 0.429
+    },
+    {
+      "date": "2026-06-13",
+      "fable5": 0.533,
+      "opta": 0.508,
+      "market": 0.516
+    }
+  ]
 }

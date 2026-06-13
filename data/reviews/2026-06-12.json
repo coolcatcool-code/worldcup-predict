@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-12",
+  "matches": [
+    {
+      "id": "2026-06-12-MEX-RSA",
+      "actualScore": "2-0",
+      "outcome": "home",
+      "fable5": { "outcomeHit": true, "scoreHit": true, "brier": 0.346 },
+      "opta":   { "outcomeHit": true, "brier": 0.306 },
+      "market": { "outcomeHit": true, "brier": 0.318 }
+    },
+    {
+      "id": "2026-06-12-KOR-CZE",
+      "actualScore": "2-1",
+      "outcome": "home",
+      "fable5": { "outcomeHit": true, "scoreHit": false, "brier": 0.577 },
+      "opta":   { "outcomeHit": true, "brier": 0.525 },
+      "market": { "outcomeHit": true, "brier": 0.540 }
+    }
+  ]
+}
