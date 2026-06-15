@@ -5,15 +5,12 @@
 //   HTML / JS                                       → network-first, fallback cache
 //   ESPN API                                        → always network, never cache
 
-const CACHE_VER = 'wc2026-v3';
+const CACHE_VER = 'wc2026-v4';
 const TTL_LIVE   = 5  * 60;        // 5 minutes (seconds)
 const TTL_STATIC = 7  * 24 * 3600; // 7 days
 
-// Files to pre-cache on install
-const PRECACHE = [
-  '/worldcup-predict/',
-  '/worldcup-predict/index.html',
-];
+// Only pre-cache non-HTML assets on install — HTML is always network-first
+const PRECACHE = [];
 
 // ── Helpers ──────────────────────────────────────────────────
 function isLive(url) {
@@ -121,12 +118,13 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // ── HTML/JS: network-first, fall back to cache ──
+  // ── HTML/JS: network-first (bypass HTTP cache), fall back to SW cache ──
   if (isHTML(url) || url.pathname.endsWith('.js')) {
     e.respondWith((async () => {
       const cache = await openCache();
       try {
-        const fresh = await fetch(e.request);
+        // Use 'reload' to bypass the browser's HTTP cache and always get fresh bytes
+        const fresh = await fetch(e.request.url, { cache: 'reload' });
         if (fresh.ok) cache.put(e.request, fresh.clone());
         return fresh;
       } catch {
@@ -136,8 +134,4 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Default: cache then network
-  e.respondWith(
-    caches.match(e.request).then(cached => cached || fetch(e.request))
-  );
-});
+  // Defau
