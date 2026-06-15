@@ -1295,13 +1295,27 @@ function predCardHTML(m){
 async function renderStats(){
   const stats=await gj('data/stats.json');
   if(!stats) return;
-  const t=stats.totals||{}, f5=t.fable5||{};
+  const t=stats.totals||{};
+  const f5=t.fable5||{}, op=t.opta||{};
+  const n=t.matches||0;
+  const f5hits=f5.outcomeHits||f5.correct||0;
+  const ophits=op.outcomeHits||op.correct||0;
   document.getElementById('statsCards').innerHTML=[
-    {v:t.matches||0,l:'已预测场次'},
-    {v:f5.correct||0,l:'Fable5正确'},
-    {v:f5.total>0?Math.round(f5.correct/f5.total*100)+'%':'--',l:'Fable5准确率'},
-    {v:t.opta?.total>0?Math.round((t.opta.correct||0)/t.opta.total*100)+'%':'--',l:'Opta准确率'},
+    {v:n,l:'已预测场次'},
+    {v:f5hits+' / '+n,l:'Fable5 命中'},
+    {v:n>0?Math.round(f5hits/n*100)+'%':'--',l:'Fable5 准确率'},
+    {v:n>0?Math.round(ophits/n*100)+'%':'--',l:'Opta 准确率'},
   ].map(x=>`<div class="stat-box"><div class="sv">${x.v}</div><div class="sl">${x.l}</div></div>`).join('');
+  // Detailed breakdown
+  const breakdown=document.getElementById('statsBreakdown');
+  if(breakdown){
+    breakdown.innerHTML=`
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px">
+        <div class="stat-box"><div class="sv" style="font-size:1.1rem">${f5.scoreHits||0}</div><div class="sl">Fable5 比分命中</div></div>
+        <div class="stat-box"><div class="sv" style="font-size:1.1rem">${ophits}</div><div class="sl">Opta 命中</div></div>
+        <div class="stat-box"><div class="sv" style="font-size:1.1rem">${t.market?.outcomeHits||0}</div><div class="sl">市场 命中</div></div>
+      </div>`;
+  }
   if(!window.Chart){
     const s=document.createElement('script');
     s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';
@@ -1313,9 +1327,17 @@ function renderChart(stats){
   const ctx=document.getElementById('accuracyChart');
   if(!ctx||!stats.series?.length) return;
   const labels=stats.series.map(x=>x.date.slice(5));
-  const f5=stats.series.map(x=>x.fable5Acc||0);
+  // series values are accuracy decimals (0–1) → multiply by 100
+  const f5=stats.series.map(x=>Math.round((x.fable5Acc||x.fable5||0)*100));
+  const op=stats.series.map(x=>Math.round((x.optaAcc||x.opta||0)*100));
+  const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+  const gridColor=isDark?'rgba(255,255,255,.08)':'rgba(0,0,0,.07)';
+  const tickColor=isDark?'#737373':'#64748b';
   if(ctx._chart) ctx._chart.destroy();
-  ctx._chart=new Chart(ctx,{type:'line',data:{labels,datasets:[{label:'Fable5准确率',data:f5,borderColor:'#f59e0b',tension:.4,fill:true,backgroundColor:'rgba(245,158,11,.08)',pointRadius:4,pointBackgroundColor:'#f59e0b'}]},options:{responsive:true,plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}}},scales:{y:{beginAtZero:true,max:100,ticks:{color:'#64748b',callback:v=>v+'%'},grid:{color:'rgba(30,58,95,.4)'}},x:{ticks:{color:'#64748b'},grid:{color:'rgba(30,58,95,.25)'}}}}});
+  ctx._chart=new Chart(ctx,{type:'line',data:{labels,datasets:[
+    {label:'Fable5',data:f5,borderColor:'#f59e0b',tension:.4,fill:true,backgroundColor:'rgba(245,158,11,.08)',pointRadius:4,pointBackgroundColor:'#f59e0b'},
+    {label:'Opta',data:op,borderColor:'#60a5fa',tension:.4,fill:false,pointRadius:4,pointBackgroundColor:'#60a5fa'}
+  ]},options:{responsive:true,plugins:{legend:{labels:{color:tickColor,font:{size:11}}}},scales:{y:{beginAtZero:true,max:100,ticks:{color:tickColor,callback:v=>v+'%'},grid:{color:gridColor}},x:{ticks:{color:tickColor},grid:{color:gridColor}}}}});
 }
 
 // ── ARCHIVE ───────────────────────────────────────────────────
