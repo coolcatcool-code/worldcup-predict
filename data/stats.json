@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-06-15T10:19:01+08:00",
+  "updatedAt": "2026-06-15T07:41:49Z",
   "totals": {
-    "matches": 8,
+    "matches": 12,
     "fable5": {
-      "outcomeHits": 4,
+      "outcomeHits": 7,
       "scoreHits": 1,
-      "brierSum": 5.2
+      "brierSum": 7.1
     },
     "opta": {
-      "outcomeHits": 5,
-      "brierSum": 5.103
+      "outcomeHits": 8,
+      "brierSum": 6.931
     },
     "market": {
-      "outcomeHits": 5,
-      "brierSum": 5.161
+      "outcomeHits": 8,
+      "brierSum": 7.017
     }
   },
   "series": [
@@ -34,6 +34,12 @@
       "fable5": 0.65,
       "opta": 0.638,
       "market": 0.645
+    },
+    {
+      "date": "2026-06-15",
+      "fable5": 0.592,
+      "opta": 0.578,
+      "market": 0.585
     }
   ]
 }

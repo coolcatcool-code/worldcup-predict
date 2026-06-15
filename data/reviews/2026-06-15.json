@@ -1,0 +1,77 @@
+{
+  "date": "2026-06-15",
+  "matches": [
+    {
+      "id": "2026-06-15-GER-CUW",
+      "actualScore": "7-1",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.035
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.023
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.027
+      }
+    },
+    {
+      "id": "2026-06-15-NED-JPN",
+      "actualScore": "2-2",
+      "outcome": "draw",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 0.886
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 0.922
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 0.918
+      }
+    },
+    {
+      "id": "2026-06-15-CIV-ECU",
+      "actualScore": "1-0",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.541
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.49
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.505
+      }
+    },
+    {
+      "id": "2026-06-15-SWE-TUN",
+      "actualScore": "5-1",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.438
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.393
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.406
+      }
+    }
+  ]
+}
