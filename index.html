@@ -311,6 +311,11 @@ a{color:inherit;text-decoration:none}
 .news-footer{display:flex;justify-content:space-between;margin-top:10px;font-size:.65rem;color:var(--fg-3)}
 
 /* ── PREDICT ─────────────────────────────────────────────────── */
+
+.pred-section{margin-bottom:28px}
+.pred-date-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0 12px;border-bottom:2px solid var(--border);margin-bottom:14px}
+.pred-date-label{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--fg)}
+.pred-date-count{font-size:.72rem;color:var(--fg-3);background:var(--bg-2);border:1px solid var(--border);border-radius:20px;padding:2px 10px}
 .pred-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(305px,1fr));gap:12px}
 .pred-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--r-xl);overflow:hidden;cursor:pointer;transition:all var(--t-base);box-shadow:var(--s-sm)}
 .pred-card:hover{border-color:var(--p-300);box-shadow:var(--s-lg);transform:translateY(-3px)}
@@ -1246,45 +1251,110 @@ async function renderPredict(){
   const ctEl=document.getElementById('predictContent');
   const emEl=document.getElementById('predictEmpty');
   ldEl.style.display='flex';ctEl.style.display='none';emEl.style.display='none';
-  const today=todayKey();
-  const data=await gj(`data/predictions/${today}.json`);
+
+  // Load all dates + fixtures for actual results
+  const [idx, fixData] = await Promise.all([
+    gj('data/index.json'),
+    gj('data/fixtures.json')
+  ]);
   ldEl.style.display='none';
-  if(!data?.matches?.length){emEl.style.display='block';return}
+
+  // Build fixtures lookup by match ID
+  const fixMap={};
+  (fixData?.matches||[]).forEach(m=>{ fixMap[m.id]=m; });
+
+  const dates=(idx?.dates||[]).slice().reverse(); // newest first
+  if(!dates.length){emEl.style.display='block';return}
+
+  // Load all prediction files in parallel
+  const predFiles=await Promise.all(dates.map(d=>gj(`data/predictions/${d}.json`)));
+
+  let hasAny=false;
+  const sections=dates.map((date,i)=>{
+    const data=predFiles[i];
+    if(!data?.matches?.length) return '';
+    hasAny=true;
+    const today=todayKey();
+    const isToday=date===today;
+    const cards=data.matches.map(m=>predCardHTML(m, fixMap[m.id])).join('');
+    return `<div class="pred-section">
+      <div class="pred-date-header">
+        <span class="pred-date-label">${date==='2026-06-12'?'🏁 首日':isToday?'📅 今日':'📅'} ${date}</span>
+        <span class="pred-date-count">${data.matches.length}场</span>
+      </div>
+      <div class="pred-grid">${cards}</div>
+    </div>`;
+  }).filter(Boolean);
+
+  if(!hasAny){emEl.style.display='block';return}
   ctEl.style.display='block';
-  ctEl.innerHTML=`<div class="pred-grid">${data.matches.map(m=>predCardHTML(m)).join('')}</div>`;
+  ctEl.innerHTML=sections.join('');
+  observeReveal(ctEl);
 }
 
-function predCardHTML(m){
+function predCardHTML(m, fix){
   const p5=m.predictions?.fable5||{}, op=m.predictions?.opta||{}, mk=m.predictions?.market||{};
   const h=p5.home||op.home||33,dr=p5.draw||op.draw||33,a=p5.away||op.away||34;
-  const score=p5.score||'?-?';
+  const predScore=p5.score||'?-?';
   const hT=getTeamByName(m.home)||getTeamByCode(m.homeCode)||{};
   const aT=getTeamByName(m.away)||getTeamByCode(m.awayCode)||{};
   const maxP=Math.max(h,dr,a);
-  const outcome=h===maxP?`<span style="color:var(--blue)">${hT.name||m.home}胜</span>`:dr===maxP?`<span style="color:var(--t2)">平局</span>`:`<span style="color:var(--red)">${aT.name||m.away}胜</span>`;
-  // sources comparison row
-  const opHTML=op.home?`<div style="font-size:.62rem;color:var(--t3);text-align:center;padding:6px 4px;background:var(--surface-1);border-radius:var(--r-xs);border:1px solid var(--gb)"><div style="font-weight:700;color:var(--t2);font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px">Opta</div>${op.home}/${op.draw||'—'}/${op.away}%</div>`:'';
-  const mkHTML=mk.home?`<div style="font-size:.62rem;color:var(--t3);text-align:center;padding:6px 4px;background:var(--surface-1);border-radius:var(--r-xs);border:1px solid var(--gb)"><div style="font-weight:700;color:var(--t2);font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px">市场</div>${mk.home}/${mk.draw||'—'}/${mk.away}%</div>`:'';
-  return `<div class="pred-card" onclick="openMatchModal('${m.id}')">
+  const predOutcome=h===maxP?'home':dr===maxP?'draw':'away';
+
+  // Actual result from fixtures
+  let resultHTML='', resultBadge='';
+  if(fix && fix.status==='done' && fix.score){
+    const [gs,ga]=(fix.score||'').split('-').map(Number);
+    const actualOutcome=gs>ga?'home':gs<ga?'away':'draw';
+    const correct=actualOutcome===predOutcome;
+    const predScoreParts=predScore.split('-').map(Number);
+    const scoreCorrect=predScoreParts[0]===gs&&predScoreParts[1]===ga;
+    const scoreColor=scoreCorrect?'var(--c-success)':correct?'var(--p-500)':'var(--fg-3)';
+    resultBadge=correct
+      ?`<span style="font-size:.6rem;padding:2px 8px;border-radius:20px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);color:#10b981;font-weight:700">✓ 命中</span>`
+      :`<span style="font-size:.6rem;padding:2px 8px;border-radius:20px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);color:#ef4444;font-weight:700">✗ 未中</span>`;
+    resultHTML=`<div style="display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 14px;background:var(--bg-2);border-radius:var(--r-md);border:1px solid var(--border);margin-bottom:10px">
+      <div style="text-align:center">
+        <div style="font-size:.58rem;color:var(--fg-3);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px">🎯 Fable5预测</div>
+        <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:800;color:${scoreColor}">${predScore}</div>
+      </div>
+      <div style="font-size:1.3rem;color:var(--fg-4)">→</div>
+      <div style="text-align:center">
+        <div style="font-size:.58rem;color:var(--fg-3);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px">⚽ 实际结果</div>
+        <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:800;color:var(--fg)">${fix.score}</div>
+      </div>
+      ${resultBadge}
+    </div>`;
+  }
+
+  const opHTML=op.home?`<div style="font-size:.62rem;color:var(--fg-3);text-align:center;padding:5px 4px;background:var(--bg-2);border-radius:var(--r-sm);border:1px solid var(--border)"><div style="font-weight:700;color:var(--fg-2);font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px">Opta</div>${op.home}/${op.draw||'—'}/${op.away}%</div>`:'';
+  const mkHTML=mk.home?`<div style="font-size:.62rem;color:var(--fg-3);text-align:center;padding:5px 4px;background:var(--bg-2);border-radius:var(--r-sm);border:1px solid var(--border)"><div style="font-weight:700;color:var(--fg-2);font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px">市场</div>${mk.home}/${mk.draw||'—'}/${mk.away}%</div>`:'';
+
+  const outcomeLabel=predOutcome==='home'?`${hT.name||m.home}胜`:predOutcome==='draw'?'平局':`${aT.name||m.away}胜`;
+  const outcomeColor=predOutcome==='home'?'#60a5fa':predOutcome==='draw'?'var(--fg-3)':'#f87171';
+
+  return `<div class="pred-card reveal" onclick="openMatchModal('${m.id}')">
     <div class="pred-header">
       <div class="pred-teams">
         <div class="pred-team"><div class="pred-flag">${hT.flag||'🏳️'}</div><div class="pred-name">${hT.name||m.home}</div></div>
         <div class="pred-vs">VS</div>
         <div class="pred-team"><div class="pred-flag">${aT.flag||'🏳️'}</div><div class="pred-name">${aT.name||m.away}</div></div>
       </div>
-      <div class="pred-time" style="display:flex;align-items:center;justify-content:center;gap:10px">
-        <span>⏰ ${m.kickoffBeijing?m.kickoffBeijing.slice(5,10)+' '+m.kickoffBeijing.slice(11,16)+' BJ':''}</span>
-        <span style="font-size:.6rem;padding:2px 7px;border-radius:5px;background:rgba(79,142,247,.1);border:1px solid rgba(79,142,247,.2);color:var(--blue)">最优 ${outcome}</span>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:.65rem;color:var(--fg-3);padding:4px 0 8px">
+        ${m.kickoffBeijing?`<span>⏰ ${m.kickoffBeijing.slice(11,16)} BJ</span>`:''}
+        <span style="padding:2px 8px;border-radius:20px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2);color:${outcomeColor};font-weight:700">最优 ${outcomeLabel}</span>
+        ${resultBadge}
       </div>
     </div>
     <div class="pred-body">
+      ${resultHTML}
       <div class="pred-bar-row"><div class="pred-bar-h" style="flex:${h}"></div><div class="pred-bar-d" style="flex:${dr}"></div><div class="pred-bar-a" style="flex:${a}"></div></div>
       <div class="pred-probs">
-        <div class="pred-prob-item"><div class="pct" style="color:var(--blue)">${h}%</div><div class="plbl">主胜</div></div>
-        <div class="pred-prob-item"><div class="pct" style="color:#6b7280">${dr}%</div><div class="plbl">平局</div></div>
-        <div class="pred-prob-item"><div class="pct" style="color:var(--red)">${a}%</div><div class="plbl">客胜</div></div>
+        <div class="pred-prob-item"><div class="pct" style="color:#60a5fa">${h}%</div><div class="plbl">主胜</div></div>
+        <div class="pred-prob-item"><div class="pct" style="color:var(--fg-3)">${dr}%</div><div class="plbl">平局</div></div>
+        <div class="pred-prob-item"><div class="pct" style="color:#f87171">${a}%</div><div class="plbl">客胜</div></div>
       </div>
-      <div class="pred-score-box"><span class="lbl">🎯 Fable5</span><span class="score">${score}</span></div>
+      ${!(fix?.status==='done')&&predScore!=='?-?'?`<div class="pred-score-box"><span class="lbl">🎯 Fable5预测</span><span class="score">${predScore}</span></div>`:''}
       ${(opHTML||mkHTML)?`<div style="display:grid;grid-template-columns:${opHTML&&mkHTML?'1fr 1fr':'1fr'};gap:6px;margin-bottom:10px">${opHTML}${mkHTML}</div>`:''}
       ${m.analysis?`<div class="pred-analysis">${m.analysis.slice(0,120)}…</div>`:''}
     </div>
