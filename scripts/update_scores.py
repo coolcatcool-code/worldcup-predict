@@ -140,14 +140,16 @@ def update_fixtures(fixtures, espn_events):
                 break
     return updated
 
-def compute_standings(fixtures, groups_map):
+def compute_standings(fixtures, groups_map, team_meta=None):
     """Recompute group standings from completed fixtures."""
+    team_meta = team_meta or {}
     # Init table
     table = {}
     for grp, teams in groups_map.items():
         table[grp] = {}
         for t in teams:
-            table[grp][t] = {"code": t, "name": t, "flag": "", "mp": 0, "w": 0, "d": 0, "l": 0, "gf": 0, "ga": 0, "gd": 0, "pts": 0}
+            _m = team_meta.get(t, {})
+            table[grp][t] = {"code": _m.get("code", t), "name": _m.get("name", t), "flag": _m.get("flag", ""), "mp": 0, "w": 0, "d": 0, "l": 0, "gf": 0, "ga": 0, "gd": 0, "pts": 0}
 
     for m in fixtures:
         if m.get("round") != "group": continue
@@ -204,12 +206,29 @@ def main():
     matches = fixtures_data["matches"]
     groups_map = fixtures_data["groups"]
 
+    # Build team metadata (code + Chinese name + flag) for proper standings labels
+    fx_teams = fixtures_data.get("teams", {})
+    try:
+        with open(DATA / "team_profiles.json", encoding="utf-8") as _f:
+            _tp = json.load(_f).get("teams", {})
+    except Exception:
+        _tp = {}
+    team_meta = {}
+    for _eng, _info in fx_teams.items():
+        _code = _info.get("code", _eng)
+        _prof = _tp.get(_code, {})
+        team_meta[_eng] = {
+            "code": _code,
+            "name": _prof.get("name") or _eng,
+            "flag": _info.get("flag") or _prof.get("flag") or "",
+        }
+
     # Update scores
     updated = update_fixtures(matches, all_events)
     print(f"Updated {updated} fixtures")
 
     # Recompute standings
-    standings = compute_standings(matches, groups_map)
+    standings = compute_standings(matches, groups_map, team_meta)
     beijing_now = (now_utc + datetime.timedelta(hours=8)).strftime("%Y-%m-%dT%H:%M:%S+08:00")
 
     # Write fixtures.json

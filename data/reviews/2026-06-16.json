@@ -1,0 +1,77 @@
+{
+  "date": "2026-06-16",
+  "matches": [
+    {
+      "id": "2026-06-16-ESP-CPV",
+      "actualScore": "0-0",
+      "outcome": "draw",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 1.603
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 1.627
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 1.587
+      }
+    },
+    {
+      "id": "2026-06-16-BEL-EGY",
+      "actualScore": "1-1",
+      "outcome": "draw",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 0.912
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 0.954
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 0.939
+      }
+    },
+    {
+      "id": "2026-06-16-KSA-URU",
+      "actualScore": "1-1",
+      "outcome": "draw",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 0.928
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 0.918
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 0.92
+      }
+    },
+    {
+      "id": "2026-06-16-IRN-NZL",
+      "actualScore": "2-2",
+      "outcome": "draw",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 0.927
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 0.953
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 0.918
+      }
+    }
+  ]
+}
