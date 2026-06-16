@@ -1262,6 +1262,12 @@ async function renderPredict(){
   // Build fixtures lookup by match ID
   const fixMap={};
   (fixData?.matches||[]).forEach(m=>{ fixMap[m.id]=m; });
+  // Fallback lookup by home+away FIFA code pair (handles legacy date-based IDs)
+  const codeFixMap={};
+  (fixData?.matches||[]).forEach(fix=>{
+    const hT=getTeamByName(fix.home); const aT=getTeamByName(fix.away);
+    if(hT?.code && aT?.code) codeFixMap[`${hT.code}-${aT.code}`]=fix;
+  });
 
   const dates=(idx?.dates||[]).slice().reverse(); // newest first
   if(!dates.length){emEl.style.display='block';return}
@@ -1276,7 +1282,7 @@ async function renderPredict(){
     hasAny=true;
     const today=todayKey();
     const isToday=date===today;
-    const cards=data.matches.map(m=>predCardHTML(m, fixMap[m.id])).join('');
+    const cards=data.matches.map(m=>predCardHTML(m, fixMap[m.id]||(m.homeCode&&m.awayCode?codeFixMap[`${m.homeCode}-${m.awayCode}`]:null))).join('');
     return `<div class="pred-section">
       <div class="pred-date-header">
         <span class="pred-date-label">${date==='2026-06-12'?'🏁 首日':isToday?'📅 今日':'📅'} ${date}</span>
