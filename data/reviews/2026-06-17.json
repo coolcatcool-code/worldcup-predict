@@ -1,0 +1,59 @@
+{
+  "date": "2026-06-17",
+  "matches": [
+    {
+      "id": "2026-06-17-FRA-SEN",
+      "actualScore": "3-1",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.208
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.187
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.186
+      }
+    },
+    {
+      "id": "2026-06-17-IRQ-NOR",
+      "actualScore": "1-4",
+      "outcome": "away",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.083
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.079
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.082
+      }
+    },
+    {
+      "id": "2026-06-17-ARG-ALG",
+      "actualScore": "3-0",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.157
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.147
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.138
+      }
+    }
+  ]
+}
