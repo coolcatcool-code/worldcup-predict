@@ -1,0 +1,77 @@
+{
+  "date": "2026-06-18",
+  "matches": [
+    {
+      "id": "2026-06-18-POR-COD",
+      "actualScore": "1-1",
+      "outcome": "draw",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 1.369
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 1.402
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 1.354
+      }
+    },
+    {
+      "id": "2026-06-18-ENG-CRO",
+      "actualScore": "4-2",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.279
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.26
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.292
+      }
+    },
+    {
+      "id": "2026-06-18-GHA-PAN",
+      "actualScore": "1-0",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": true,
+        "brier": 0.488
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.471
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.505
+      }
+    },
+    {
+      "id": "2026-06-18-UZB-COL",
+      "actualScore": "1-3",
+      "outcome": "away",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.245
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.227
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.245
+      }
+    }
+  ]
+}
