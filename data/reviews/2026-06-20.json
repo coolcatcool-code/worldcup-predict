@@ -1,0 +1,77 @@
+{
+  "date": "2026-06-20",
+  "matches": [
+    {
+      "id": "2026-06-20-USA-AUS",
+      "actualScore": "2-0",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.376
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.361
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.391
+      }
+    },
+    {
+      "id": "2026-06-20-SCO-MAR",
+      "actualScore": "0-1",
+      "outcome": "away",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": true,
+        "brier": 0.505
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.496
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.505
+      }
+    },
+    {
+      "id": "2026-06-20-BRA-HAI",
+      "actualScore": "3-0",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": true,
+        "brier": 0.031
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.025
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.036
+      }
+    },
+    {
+      "id": "2026-06-20-TUR-PAR",
+      "actualScore": "0-1",
+      "outcome": "away",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 0.866
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 0.88
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 0.841
+      }
+    }
+  ]
+}
