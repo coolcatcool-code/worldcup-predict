@@ -1,0 +1,77 @@
+{
+  "date": "2026-06-24",
+  "matches": [
+    {
+      "id": "m045",
+      "actualScore": "5-0",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.063
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.057
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.069
+      }
+    },
+    {
+      "id": "m046",
+      "actualScore": "0-0",
+      "outcome": "draw",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 1.099
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 1.119
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 1.087
+      }
+    },
+    {
+      "id": "m047",
+      "actualScore": "0-1",
+      "outcome": "away",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.361
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.34
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.376
+      }
+    },
+    {
+      "id": "m048",
+      "actualScore": "1-0",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.202
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.191
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.211
+      }
+    }
+  ]
+}
