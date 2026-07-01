@@ -1,0 +1,113 @@
+{
+  "date": "2026-06-26",
+  "matches": [
+    {
+      "id": "m055",
+      "actualScore": "2-1",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 1.123
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 1.141
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 1.095
+      }
+    },
+    {
+      "id": "m056",
+      "actualScore": "0-2",
+      "outcome": "away",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": true,
+        "brier": 0.138
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.129
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.147
+      }
+    },
+    {
+      "id": "m057",
+      "actualScore": "1-1",
+      "outcome": "draw",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 0.826
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 0.84
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 0.821
+      }
+    },
+    {
+      "id": "m058",
+      "actualScore": "1-3",
+      "outcome": "away",
+      "fable5": {
+        "outcomeHit": true,
+        "scoreHit": false,
+        "brier": 0.121
+      },
+      "opta": {
+        "outcomeHit": true,
+        "brier": 0.113
+      },
+      "market": {
+        "outcomeHit": true,
+        "brier": 0.129
+      }
+    },
+    {
+      "id": "m059",
+      "actualScore": "3-2",
+      "outcome": "home",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 0.811
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 0.824
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 0.787
+      }
+    },
+    {
+      "id": "m060",
+      "actualScore": "0-0",
+      "outcome": "draw",
+      "fable5": {
+        "outcomeHit": false,
+        "scoreHit": false,
+        "brier": 0.718
+      },
+      "opta": {
+        "outcomeHit": false,
+        "brier": 0.73
+      },
+      "market": {
+        "outcomeHit": false,
+        "brier": 0.717
+      }
+    }
+  ]
+}
